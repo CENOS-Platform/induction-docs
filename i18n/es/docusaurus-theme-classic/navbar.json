@@ -1,0 +1,10 @@
+{
+  "title": {
+    "message": "CENOS Induction Heating",
+    "description": "The title in the navbar"
+  },
+  "item.label.CENOS Home": {
+    "message": "CENOS Home",
+    "description": "Navbar item with label CENOS Home"
+  }
+}
