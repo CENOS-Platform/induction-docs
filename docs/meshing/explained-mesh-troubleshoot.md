@@ -10,7 +10,7 @@ Mesh creation for complex geometries can be challenging, which is why we need to
 
 ## Prepare the geometry
 
-Before the meshing ensure that the geometry is simplified as much as possible. Overall [**geometry simplifications**](/geometry-simplification) should be made to reduce the element count and decrease the calculation time, but it does not end there.
+Before the meshing ensure that the geometry is simplified as much as possible. Overall [**geometry simplifications**](/geometry/geometry-simplification) should be made to reduce the element count and decrease the calculation time, but it does not end there.
 
 ### Fuse multi-block objects
 

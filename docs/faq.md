@@ -7,7 +7,7 @@ sidebar_position: 8
 
 ### Can a spray quenching which follows inductor in a scanning induction hardening system be simulated in CENOS?
 
-Moving cooling zone can be defined through expressions. Read more [**here**](/field-expressions#moving-spray-cooling).
+Moving cooling zone can be defined through expressions. Read more [**here**](/physics/field-expressions#moving-spray-cooling).
 
 ### How to correctly define coil windings in symmetry case?
 
@@ -43,7 +43,7 @@ If you are using *Adaptive* time step, CENOS automatically sets the size of the 
 
 ### What does "ERROR: Elements found with aspect ratio > 10000" mean?
 
-When exporting mesh to CENOS, sometimes error about aspect ratio occurs. It means that mesh has been created succesfully, but it contains elements that are very long and narrow, and which can affect the simulation results. If so, you need to find out where these elements are, and change the meshing approach on that domain. You can find out more in documentation article about [**Aspect Ratio**](/aspect-ratio).
+When exporting mesh to CENOS, sometimes error about aspect ratio occurs. It means that mesh has been created succesfully, but it contains elements that are very long and narrow, and which can affect the simulation results. If so, you need to find out where these elements are, and change the meshing approach on that domain. You can find out more in documentation article about [**Aspect Ratio**](/meshing/aspect-ratio).
 
 ### Can I enter RMS current as input?
 

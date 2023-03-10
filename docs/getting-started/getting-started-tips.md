@@ -24,7 +24,7 @@ Every simulation starts with a geometry. If you have not simplified the geometry
 
 ### CAD quality
 
-Before you create a simulation, make sure that your CAD file is simulation-friendly. Learn more about [**how to create good CAD**](/good-cad) for induction heating simulation.
+Before you create a simulation, make sure that your CAD file is simulation-friendly. Learn more about [**how to create good CAD**](/geometry/good-cad) for induction heating simulation.
 
 **Remove every small hole, fillet and other small details** that are not relevant for the simulation to make meshing easier and reduce calculation time. **Avoid building your geometry from smaller volumes**, and always fuse them together before importing them to CENOS.
 
@@ -38,7 +38,7 @@ Before you create a simulation, make sure that your CAD file is simulation-frien
 
 ### Symmetry
 
-Use symmetry of your geometry and [**simulate only part of the full geometry**](/geometry-simplification) to decrease calculation time. To simulate symmetry, use [**symmetry boundary conditions**](/symmetry) available in CENOS.
+Use symmetry of your geometry and [**simulate only part of the full geometry**](/geometry/geometry-simplification) to decrease calculation time. To simulate symmetry, use [**symmetry boundary conditions**](/physics/symmetry) available in CENOS.
 
 <p align="center">
 
@@ -48,7 +48,7 @@ Use symmetry of your geometry and [**simulate only part of the full geometry**](
 
 ### Air box size
 
-Air box is used for EM field calculation, and [**air box size**](/air-domain-size) can directly affect simulation results.
+Air box is used for EM field calculation, and [**air box size**](/geometry/air-domain-size) can directly affect simulation results.
 
 Do not create the air box too small, otherwise the results could be incorrect. A good rule is to make the air domain around **3 times larger** than the induction system in it in every direction.
 

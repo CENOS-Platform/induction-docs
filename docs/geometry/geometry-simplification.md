@@ -7,7 +7,7 @@ sidebar_position: 3
 
 Almost every geometry is at some level symmetric, which allows us to simplify it and by doing so **greatly decrease calculation time**.
 
-You can also simulate only a part of the geometry with [**symmetry boundary conditions**](/symmetry), and it will still produce adequate results for the whole geometry.
+You can also simulate only a part of the geometry with [**symmetry boundary conditions**](/physics/symmetry), and it will still produce adequate results for the whole geometry.
 
 ## Delete repeating geometry
 

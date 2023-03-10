@@ -75,7 +75,7 @@ Filters that are most commonly used as the means of **visual result evaluation**
 
 *Extract Block* allows to **extract single or multiple domains from the full data set** and manipulate the results in these domains independently. CENOS automatically exports data sets of *workpiece* and *inductor* domains, but *Extract Block* can be used even further.
 
-For example, in [** single shot**](/cv-joint) case CENOS automatically exports and visualizes the temperature distribution in the workpiece as well as a solid inductor.
+For example, in [** single shot**](/physics/motion#simple-motion) case CENOS automatically exports and visualizes the temperature distribution in the workpiece as well as a solid inductor.
 
 <p align="center">
 

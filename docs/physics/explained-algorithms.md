@@ -58,7 +58,7 @@ Automatic algorithm switches between **Fast** and **Accurate** according to user
 
 * **Fast if** materials have constant permeability and electrical conductivity;
 
-* **Accurate if** materials have nonlinear magnetic properties ([**B-H model**](/magnetic-properties#treatment-of-non-linear-magnetic-properties-in-harmonic-ac-simulation) and/or [**temperature dependence**](/magnetic-properties#temperature-dependence-of-magnetic-properties)) and temperature dependent electrical conductivity.
+* **Accurate if** materials have nonlinear magnetic properties ([**B-H model**](/physics/magnetic-properties#treatment-of-non-linear-magnetic-properties-in-harmonic-ac-simulation) and/or [**temperature dependence**](/physics/magnetic-properties#temperature-dependence-of-magnetic-properties)) and temperature dependent electrical conductivity.
 
 <p align="center">
 

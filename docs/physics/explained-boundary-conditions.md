@@ -71,7 +71,7 @@ $$
 *Convection* is used on the workpiece-air interface to define heat exchange when temperature is low. Usually used together with *Radiation*.
 :::
 
-To **learn more** about *Convection* definition, [**click here**](/thermal-losses#convection).
+To **learn more** about *Convection* definition, [**click here**](/physics/thermal-losses#convection).
 
 ### Radiation
 
@@ -91,7 +91,7 @@ $$
 *Radiation* is used on the workpiece-air interface to define heat exchange when temperature is high. Usually used together with *Convection*.
 :::
 
-To **learn more** about *Radiation* definition, [**click here**](/thermal-losses#radiation).
+To **learn more** about *Radiation* definition, [**click here**](/physics/thermal-losses#radiation).
 
 ### Combined
 
@@ -181,7 +181,7 @@ Electromagnetic BC's are boundary conditions through which the magnetic flux is 
 *Flux parallel* is used to define symmetry boundary conditions on the sides of slices and sectors.
 :::
 
-To **learn more** about *Flux parallel* definition, [**click here**](/symmetry#flux-parallel).
+To **learn more** about *Flux parallel* definition, [**click here**](/physics/symmetry#flux-parallel).
 
 ### Flux normal
 
@@ -197,7 +197,7 @@ To **learn more** about *Flux parallel* definition, [**click here**](/symmetry#f
 *Flux normal* is used to define symmetry boundary conditions on top and bottom of slices and sectors.
 :::
 
-To **learn more** about *Flux normal* definition, [**click here**](/symmetry#flux-normal).
+To **learn more** about *Flux normal* definition, [**click here**](/physics/symmetry#flux-normal).
 
 ### Interface
 
