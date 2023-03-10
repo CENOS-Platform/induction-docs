@@ -1,0 +1,23 @@
+# Text of the next release is shown on the Download pop-up inside CENOS software.
+#
+# You do not need to enter all release notes. Think of the most useful and most
+# relevant for the existing users.
+
+releases:
+  '3.1.0':
+    - Power control in IH simulation
+    - Multiple inductors in templates
+    - Rotation in complex motion
+
+  '3.0.3':
+    - Fixed hardening profile filter in ParaView
+    - Fixed halting bug in postprocessing
+    - Multiple movements in different directions now work
+
+  '3.1.2':
+    - Improved B(H) curve extrapolation for flux concentrators.
+    - Added new flux concentrator material - M530-30 Iron Core Lamination.
+    - Improved imported geometry processing.
+
+# List may contain also entries for beta releases.
+# You are free to delete older release notes.
