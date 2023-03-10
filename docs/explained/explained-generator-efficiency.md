@@ -54,7 +54,7 @@ If a voltage-controlled generator is used, it means that the voltage from the ge
 Let's look at a the very simple example - a circuit with two components - generator and coil. The generator gives a constant voltage of 10 kV. The coil has its inductance L and impedance Z.
 That means that the voltage is constant on the whole system together, but it does not mean that the voltage is constant on the coil. We can imagine the whole system as a circuit that consists of three parts - busbar1 +inductor + busbar2. Since each busbar has its own resistance $R_1$ and $R_2$ the circuit can be re-drawn to include those.
 
-![circuit](assets/power-in-source-and-load/generator-eff-1.PNG)
+![circuit](assets/power-in-source-and-load/generator-eff-1.png)
 
 The resistance of each busbar can be calculated
 
@@ -67,7 +67,7 @@ $$
 A = 2 \delta a +2 \delta b - 4\delta^2
 $$
 
-![curr-dens](assets/power-in-source-and-load/current-density3.PNG)
+![curr-dens](assets/power-in-source-and-load/current-density3.png)
 
 Each part - busbars and inductor has its own resistance. For busbars it is constant, but for the inductor part, we have to take into account its impedance which is changing in time due to the change of magnetic permeability $\mu$ of the workpiece. If we look at the total resistance of such a circuit $R_1+R_2+Z_{coil}$
 it is not constant. This means that current also is not constant throughout the heating process.
@@ -80,7 +80,7 @@ From here we see that since the ratio between resistances $R_1 : R_2 : Z_{coil}$
 
 When making simulation it is important to take into account that the voltage drop is often known on the whole system, not the inductor. The workaround for this problem is to make a cut in the inductor geometry where an electric resistance boundary condition is applied. To calculate resistance 
 
-![inductor-cut](assets/power-in-source-and-load/inductor-cut.PNG)
+![inductor-cut](assets/power-in-source-and-load/inductor-cut.png)
 
 To calculate the electric constant resistance, busbar length that are left outside of simulation geometry needs to be measured. Let's say that there are two busbars with length 1.2 m, frequency used is 10 kHz, cross section of busbar is rectangle with side lengths a = 10 cm, b = 12 cm. Skin depth in this case is 652 um. To calculate area where current is flowing use equation
 $$
