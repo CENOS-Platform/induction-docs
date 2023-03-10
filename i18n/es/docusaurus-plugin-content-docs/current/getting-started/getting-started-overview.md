@@ -1,7 +1,7 @@
 ---
 id: overview
-title: Getting Started - CENOS overview
-sidebar_label: CENOS overview
+title: "Primeros pasos: descripción general de CENOS"
+sidebar_label: Descripción general
 sidebar_position: 1
 slug: /
 ---
