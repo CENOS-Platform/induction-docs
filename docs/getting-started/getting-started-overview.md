@@ -1,12 +1,12 @@
 ---
 id: overview
-title: Getting Started - CENOS overview
-sidebar_label: CENOS overview
+title: Introducción - Visión general de CENOS
+sidebar_label: Visión general de CENOS
 sidebar_position: 1
 slug: /
 ---
 
-*CENOS Platform* is a simulation software for induction heating. It helps engineers to **save a significant amount of money and time** on induction coil prototyping by replacing physical tests with computer simulations.
+*CENOS Platform* es un software de simulación para el calentamiento por inducción. Ayuda a los ingenieros a **ahorrar una cantidad significativa de dinero y tiempo** en la creación de prototipos de bobinas de inducción sustituyendo las pruebas físicas con simulaciones por ordenador.
 
 In this article we will learn what a simulation is and go over the main points on how to create one.
 
