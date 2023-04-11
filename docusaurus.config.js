@@ -9,7 +9,7 @@ const katex = require('rehype-katex');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'CENOS Wireless Charging Docs',
+  title: 'CENOS Induction Heating Docs',
   tagline: 'Engineering simulation software',
   favicon: 'img/favicon.ico',
 
@@ -77,7 +77,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Project's social card
-      image: 'img/cenos-96.png',
+      image: 'img/cenos-induction.png',
       navbar: {
         title: 'CENOS Induction Heating',
         logo: {
