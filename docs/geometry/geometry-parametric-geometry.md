@@ -121,4 +121,4 @@ Esto a su vez puede causar problemas en el mallado y en el cálculo de la simula
 
 ![Simple parameters](assets/parametric-geometry/7.png)
 
-</p>
+</p> 

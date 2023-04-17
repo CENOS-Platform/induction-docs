@@ -1,17 +1,17 @@
 ---
 id: geometry-simplification
-title: Geometry simplification
-sidebar_label: System simplification
+title: Simplificación de geometrías
+sidebar_label: Simplificación del sistema
 sidebar_position: 3
 ---
 
-Almost every geometry is at some level symmetric, which allows us to simplify it and by doing so **greatly decrease calculation time**.
+Casi todas las geometrías son simétricas en algún nivel, lo que nos permite simplificarlas y **disminuir enormemente el tiempo de cálculo**.
 
-You can also simulate only a part of the geometry with [**symmetry boundary conditions**](/physics/symmetry), and it will still produce adequate results for the whole geometry.
+También se puede simular sólo una parte de la geometría con [**condiciones de contorno de simetría**](/physics/symmetry), y seguirá produciendo resultados adecuados para toda la geometría.
 
-## Delete repeating geometry
+## Ekiminar geometría repetida
 
-If your geometry consists of more than one identical workpiece-conductor system, select one to simulate and delete the others.
+Si su geometría consta de más de un sistema pieza-conductor idéntico, seleccione uno para simular y elimine los demás.
 
 <p align="center">
 
@@ -19,9 +19,9 @@ If your geometry consists of more than one identical workpiece-conductor system,
 
 </p>
 
-## Simulate only half
+## Simular sólo la mitad
 
-If you have geometry of linear symmetry, simulate only half of it and mirror results to represent the whole geometry.
+Si tiene una geometría de simetría lineal, simule sólo la mitad y refleje los resultados para representar la geometría completa.
 
 <p align="center">
 
@@ -29,9 +29,9 @@ If you have geometry of linear symmetry, simulate only half of it and mirror res
 
 </p>
 
-## Cut out sector
+## Recortar sector
 
-If you have axial symmetric geometry, cut out and simulate one repeating sector of it, for example, one tooth from a whole gear, then revolve results to represent whole geometry.
+Si dispone de una geometría con simetría axial, recorte y simule un sector repetitivo de la misma, por ejemplo, un diente de un engranaje completo, y a continuación gire los resultados para representar la geometría completa.
 
 <p align="center">
 
@@ -39,9 +39,9 @@ If you have axial symmetric geometry, cut out and simulate one repeating sector 
 
 </p>
 
-## 3D to 2D
+## 3D a 2D
 
-For revolved geometry there is no need for 3D simulation, simulate only plane slice from full geometry and revolve results to represent the whole geometry.
+Para la geometría de revolución no es necesaria la simulación 3D, simule sólo un corte plano de la geometría completa y revolucione los resultados para representar toda la geometría.
 
 <p align="center">
 
