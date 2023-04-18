@@ -1,22 +1,22 @@
 ---
 id: mesh-troubleshoot
-title: Mesh troubleshoot
-sidebar_label: Mesh troubleshoot
+title: Solución de problemas de malla
+sidebar_label: Solución de problemas de malla 
 sidebar_position: 5
 ---
-Pre-processing or geometry and mesh preparation for the simulation is the most important part of the simulation setup, because it can strongly affect the results of the simulation.
+El preprocesamiento o preparación de la geometría y el mallado para la simulación es la parte más importante de la configuración de la simulación, ya que puede afectar en gran medida a los resultados.
 
-Mesh creation for complex geometries can be challenging, which is why we need to understand how to properly **prepare the geometry** for meshing, **troubleshoot the errors** which can occur during the meshing and **evaluate the quality** of the mesh in case the solver refuses to compute the mesh.
+La creación de mallas para geometrías complejas puede suponer un reto, por lo que es necesario comprender cómo **preparar correctamente la geometría** para el mallado, **resolver los errores** que pueden producirse durante el mallado y **evaluar la calidad** de la malla en caso de que el solucionador se niegue a calcular la malla.
 
-## Prepare the geometry
+## Preparar la geometría
 
-Before the meshing ensure that the geometry is simplified as much as possible. Overall [**geometry simplifications**](/geometry/geometry-simplification) should be made to reduce the element count and decrease the calculation time, but it does not end there.
+Antes de realizar el mallado, asegúrese de que la geometría está lo más simplificada posible. Deben realizarse [**simplificaciones de la geometría**](/geometry/geometry-simplification) generales para reducir el número de elementos y disminuir el tiempo de cálculo, pero esto no acaba aquí.
 
-### Fuse multi-block objects
+### Fusionar objetos multibloque
 
-If you have a geometry which consists of multiple separate blocks, they should be fused together to simplify the work with the geometry and to get rid of all the unnecessary edges and planes between the blocks, which can make meshing difficult later on.
+Si tiene una geometría que consta de varios bloques separados, conviene fusionarlos para simplificar el trabajo con la geometría y deshacerse de todas las aristas y planos innecesarios entre los bloques, que pueden dificultar el mallado más adelante.
 
-To fuse blocks, click ***Operations*** → ***Boolean*** → ***Fuse***, select the blocks of interest and click *Apply*.
+Para fusionar bloques, haga clic en ***Operations*** → ***Boolean*** → ***Fuse***, seleccione los bloques que le interesen y haga clic en *Aplicar*.
 
 <p align="center">
 
@@ -24,15 +24,15 @@ To fuse blocks, click ***Operations*** → ***Boolean*** → ***Fuse***, select 
 
 </p>
 
-## Troubleshoot the errors
+## Solucionar los errores
 
-In order to understand how to correct a meshing error, we need to understand how to read the error and pay attention to what is important.
+Para entender cómo corregir un error de mallado, tenemos que entender cómo leer el error y prestar atención a lo que es importante.
 
-An error in Salome consists of three parts:
+Un error en Salome consta de tres partes:
 
-+ **Algorithm** - defines which argument is associated with the error
-+ **Sub-shape** - defines which part of the geometry is associated with the error
-+ **Error** - gives written error description
++ **Algoritmo** - define qué argumento está asociado al error.
++ **Subforma** - define qué parte de la geometría está asociada al error.
++ **Error** - proporciona una descripción escrita del error.
 
 <p align="center">
 
@@ -40,13 +40,13 @@ An error in Salome consists of three parts:
 
 </p>
 
-Some errors are caused by the algorithm, some by the geometry, which is why it is important to understand which part - *algorithm* or *geometry* - is more likely to be causing the error.
+Algunos errores son caudados por el algoritmo, otros por la geometría, por lo que es importante saber qué parte - *algoritmo* o *geometría* - es más probable que esté causando el error.
 
-### Sub-shape troubleshoot
+### Solución de problemas de subformas
 
-The first thing to check is which part of the geometry is highlighted as the cause of the error. Click ***Show Sub-shape*** in the lower left corner of the *Mesh Computation* window - part of your geometry will be highlighted.
+Lo primero que hay que comprobar es qué parte de la geometría está resaltada como causa del error. Haga clic en ***Show Sub-shape*** en la esquina inferior izquierda de la ventana *Mesh Computation* - se resaltará parte de su geometría.
 
-If a whole domain is highlighted, it is likely that the meshing algorithm for the domain is wrongly defined.
+Si se resalta todo un dominio, es probable que el algoritmo de mallado del dominio esté mal definido.
 
 <p align="center">
 
@@ -54,15 +54,15 @@ If a whole domain is highlighted, it is likely that the meshing algorithm for th
 
 </p>
 
-If only a small part of the geometry is highlighted, examine it closely. Meshing algorithms can crash because of **faulty details in the geometry** such as:
+Si sólo se resalta una pequeña parte de la geometría, examínela detenidamente. Los algoritmos de mallado pueden fallar debido a **detalles defectuosos en la geometría** como:
 
-+ Overlapping edges
-+ Narrow gaps between domains
-+ Small filets
-+ Unnecessary lines
-+ Holes in the surface
++ Aristas superpuestas.
++ Espacios estrechos entre dominios.
++ Curvaturas pequeñas.
++ Líneas innecesarias.
++ Orificios en la superficie.
 
-In this example an error occurs because of the unnecessary lines within the geometry.
+En este ejemplo se produce un error debido a las líneas innecesarias dentro de la geometría.
 
 <p align="center">
 
@@ -70,23 +70,26 @@ In this example an error occurs because of the unnecessary lines within the geom
 
 </p>
 
+### Solución de problemas de algoritmos
 
-### Algorithm troubleshoot
+Si la geometría no es defectuosa, pero sigue apareciendo el error, compruebe qué tipo de algoritmo - 1D, 2D o 3D - está causando el error.
 
-If the geometry is not faulty, but error still appears, check what kind of algorithm - 1D, 2D or 3D - is causing the error.
+:::caution IMPORTANTE
 
-**IMPORTANT**: After every sub-mesh algorithm modification it is advisable to **clear the mesh data before recomputing** the whole mesh, because otherwise an error may occur. To do that, right-click on *Mesh_1* and click *Clear Mesh Data*.
+Después de cada modificación del algoritmo de submalla es aconsejable **borrar los datos de la malla antes de volver a calcular** toda la malla, ya que de lo contrario puede producirse un error. Para ello, haga clic derecho en *Mesh_1* y haga clic en *Clear Mesh Data*.
 
-If the error is cause by **1D algorithm**:
+:::
 
-1. ***Adjust the 1D algorithm based on the error*** description - most likely you have left something blank, and the error description will give you the information of what it is.
+Si el error es causado por el **algoritmo 1D**:
 
-If it is **2D algorithm**:
+1. ***Ajuste el algoritmo 1D basándose en la descripción del error*** - lo más probable es que haya dejado algo en blanco, y la descripción del error le dará la información de lo que es.
 
-1. ***Decrease the Max. Length value*** of the domain mesh. If you enter a *Max. Length* value which is relatively big compared to the size of the geometry, meshing algorithm will crash.
+Si es **algoritmo 2D**:
 
-2. ***Change the faulty algorithm*** to an alternative (*Triangle: Mefisto* to *NETGEN 2D* and vice versa, for example).
+1. ***Disminuir el valor Max. Length*** de la malla del dominio. Si introduce un valor *Max. Length* que es relativamente grande comparado con el tamaño de la geometría, el algoritmo de mallado se bloqueará.
 
-If it is **3D algorithm**:
+2. ***Cambiar el algoritmo defectuoso*** por otro alternativo (*Triángulo: Mefisto* por *NETGEN 2D* y viceversa, por ejemplo).
 
-1. ***Check for meshing strategy conflicts***. If you choose different meshing strategies for different domains, for example, *Automatic Tetrahedralization* for billet and *NETGEN 1D-2D-3D* for conductor, algorithms can interact with each other and cause error. The mentioned example is not the only one that could cause an error, so make sure to mesh all domains with the same algorithms, if it is possible.
+Si es **algoritmo 3D**:
+
+1. ***Compruebe si hay conflictos de estrategia de mallado***. Si elige diferentes estrategias de mallado para diferentes dominios, por ejemplo, *Tetraedralización automática* para palanquilla y *NETGEN 1D-2D-3D* para conductor, los algoritmos pueden interactuar entre sí y causar errores. El ejemplo mencionado no es el único que podría causar un error, así que asegúrese de combinar todos los dominios con los mismos algoritmos, si es posible.
