@@ -3,6 +3,7 @@ id: latest
 title: Release Notes (v4.x)
 sidebar_label: v4.x
 sidebar_position: 1
+slug: /latest
 ---
 
 ## v4.0.1 (January 31, 2023)
