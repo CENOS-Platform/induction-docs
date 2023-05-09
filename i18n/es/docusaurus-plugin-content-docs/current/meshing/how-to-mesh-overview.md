@@ -1,17 +1,17 @@
 ---
 id: mesh-overview
-title: Meshing in Salome
-sidebar_label: Overview
+title: Mallado en Salome
+sidebar_label: Visión general
 sidebar_position: 1
 ---
 
-mesh-overview or numerical grid creation is one of the most important parts of the simulation setup. Your **results depend directly from the quality of the mesh**, with coarse mesh being one of the biggest reasons for incorrect or even unphysical results.
+La creación de la malla o cuadrícula numérica es una de las partes más importantes de la configuración de la simulación. Sus **resultados dependen directamente de la calidad de la malla**, siendo la malla gruesa una de las mayores razones de resultados incorrectos o incluso poco físicos.
 
-CENOS has an integrated mesh builder, where the user can Select the size, density, gradient of the mesh, as well as modify the automatic values and refine specific edges or faces, nevertheless if the user requieres to create their own mesh from the third party tool *Salome*, it is still doable from our interface.
+CENOS tiene un constructor de malla integrado, donde el usuario puede seleccionar el tamaño, densidad, gradiente de la malla, así como modificar los valores automáticos y refinar aristas o caras específicas. No obstante, si el usuario requiere crear su propia malla desde la herramienta de terceros *Salome*, aún es factible desde nuestra interfaz.
 
-In this article we will go over the mesh creation in *Salome*, one of the open-source tools used by CENOS. You will learn **how to interact with mesh setup window** and go over **different aspects and approaches used in mesh creation**.
+En este artículo repasaremos la creación de mallas en *Salome*, una de las herramientas de código abierto utilizadas por CENOS. Aprenderá **cómo interactuar con la ventana de configuración de la malla** y repasará **diferentes aspectos y enfoques utilizados en la creación de mallas**.
 
-Once you have finished setting up both the geoemtry and the physics go to the mesh module, in the mesh module click on the *show more* button 
+Una vez que haya terminado de configurar tanto la geoemetría como la física, vaya al módulo de malla, en el módulo de malla haga clic en el botón *More properties*.
 
 <p align="center">
 
@@ -19,16 +19,17 @@ Once you have finished setting up both the geoemtry and the physics go to the me
 
 </p>
 
-then click on the **OPEN ADVANCED EDITOR** button, a Salome instance and a python shell will pop up, don't close the pyton shell, and work inside *Salome*.  
+Luego haga click en el botón **OPEN ADVANCED EDITOR**, aparecerá una instancia de Salome y una ventana de Python, no cierre la ventana de Python, y trabaje dentro de Salome.
 
 <p align="center">
 
 ![Mesh module](assets/mesh-overview/2c4.png)
 
 </p>
-## How to create mesh
 
-Now let's can dive into mesh creation. Before doing that switch from the geometry module to the mesh-overview module.
+## Cómo crear una malla
+
+Ahora podemos sumergirnos en la creación de mallas. Antes de hacerlo cambie del módulo de geometría al módulo de vista de malla.
 
 <p align="center">
 
@@ -36,9 +37,9 @@ Now let's can dive into mesh creation. Before doing that switch from the geometr
 
 </p>
 
-To create a mesh:
+Para crear una malla:
 
-+ Select the partition from which you want to create your mesh under ***Geometry*** (![createMesh](assets/mesh-overview/geom.png))
++ Seleccione la partición a partir de la cual desea crear su malla en ***Geometry*** (![createMesh](assets/mesh-overview/geom.png)).
 
 <p align="center">
 
@@ -46,13 +47,17 @@ To create a mesh:
 
 </p>
 
-+ Click ***Create Mesh*** (![createMesh](assets/mesh-overview/createmesh.png)) icon or choose it from dropdown menu under ***Mesh → Create Mesh***.
++ Haga clic en el icono ***Create Mesh*** (![createMesh](assets/mesh-overview/createmesh.png)) o selecciónelo en el menú desplegable de ***Mesh → Create Mesh***.
 
-## Meshing interface
+## Interfaz de mallado
 
-Now the mesh setup interface will be opened. The mesh window in Salome has four tabs - **3D, 2D, 1D and 0D**. Each dimension (volumes – surfaces – edges) has **its own meshing algorithm with its own parameters**.
+Ahora se abrirá la interfaz de configuración de malla. La ventana de malla en Salome tiene cuatro pestañas - **3D, 2D, 1D y 0D**. Cada dimensión (volúmenes - superficies - aristas) tiene **su propio algoritmo de mallado con sus propios parámetros**.
 
-**NOTE**: You can also set meshing parameters for 0D elements (points), but this is rarely used.
+:::note Nota
+
+También puede establecer parámetros de mallado para elementos 0D (puntos), pero esto se utiliza raramente.
+
+:::
 
 <p align="center">
 
@@ -67,9 +72,9 @@ Now the mesh setup interface will be opened. The mesh window in Salome has four 
 </p>
 
 
-CENOS' engineers always start with the **automatic mesh**, it **applies default algorithms for all dimensions** and only needs the max element size definition, which is actually an element edge size. **In automatic mesh 1D algorithm determines the size of the mesh**, as the *2D* and *3D* algorithms are based off the *1D* edges.
+Los ingenieros de CENOS siempre comienzan con la **malla automática**, que **aplica algoritmos por defecto para todas las dimensiones** y sólo necesita la definición del tamaño máximo del elemento, que en realidad es el tamaño de la arista del elemento. **En la malla automática, el algoritmo 1D determina el tamaño de la malla**, ya que los algoritmos *2D* y *3D* se basan en las aristas *1D*.
 
-You can create an automatic mesh by clicking ***Assign a set of hypotheses → Automatic Tetrahedralization***. For the air (main mesh) domain the default *Max Lenght* value is usually sufficient.
+Puede crear una malla automática haciendo clic en ***Assign a set of hypotheses → Automatic Tetrahedralization***. Para el dominio del aire (malla principal) el valor por defecto *Max Lenght* suele ser suficiente.
 
 <p align="center">
 
@@ -77,23 +82,31 @@ You can create an automatic mesh by clicking ***Assign a set of hypotheses → A
 
 </p>
 
-**IMPORTANT:** **Max Lenght (mesh size)** can later be changed in the **1D tab** by clicking ***Edit algorithm parameters*** (![Edit algorithm parameters](assets/mesh-overview/3.png)).
+:::info Importante
 
-To see how the mesh looks like hit **calculate the mesh**. To do that left click on the created mesh (![createMesh](assets/mesh-overview/mesh.png)) and click ***Compute*** (![createMesh](assets/mesh-overview/compute.png)). While searching for the right mesh parameters we suggest using the ***Clear mesh data*** (left click on the mesh) function before computing again.
+**La longitud máxima (tamaño de la malla)** puede cambiarse posteriormente en la pestaña **1D** haciendo clic en ***Edit algorithm parameters*** (![Edit algorithm parameters](assets/mesh-overview/3.png)).
 
-**IMPORTANT:** When calculating the mesh, if any *sub-meshes* are present, they will be calculated first, and only then the mesh definition from *Mesh_1* will be applied to the rest of the geometry.
+:::
 
-## Sub-meshes
+Para ver cÓmo queda la malla, presione **calculate the mesh**.  Para ello haga click izquierdo en la malla creada (![createMesh](assets/mesh-overview/mesh.png)) y presione ***Compute*** (![createMesh](assets/mesh-overview/compute.png)). Mientras busca los parámetros de malla adecuados, le sugerimos que utilice la función ***Clear mesh data*** (haga clic con el botón izquierdo del ratón en la malla) antes de volver a calcular.
 
-*Sub-mesh* is the same as previously mentioned mesh in terms of definition, just applied to a smaller domain. **They are needed to increase the resolution of the mesh locally** for domains such as workpiece and inductor, where smaller mesh elements are needed, **while leaving mesh elements larger in other domains** (such as air domain) where such high resolution it's not needed.
+:::info Importante
 
-*Sub-mesh* can take many shapes – usually it is used for the workpiece and inductor resolution, but it is also possible to create a *sub-mesh* for certain parts of you workpiece or inductor, such as surfaces and edges, for even greater resolution.
+Al calcular la malla, si hay *submallas*, se calcularán primero, y sólo entonces se aplicará la definición de malla de *Mesh_1* al resto de la geometría.
 
-### Sub-mesh on solid
+:::
 
-To create a *sub-mesh* you need to **right-click** your main mesh (*Mesh_1*), and click ***Create Sub-mesh*** (![createMesh](assets/mesh-overview/createsubmesh.png)).
+## Mallas secundarias
 
-From partition dropdown in *Object Browser* select the geometry group for which you want to create a *sub-mesh* and create an automatic mesh as mentioned previously. *Sub-mesh* will appear under ***SubMeshes on Solid***.
+*Sub-malla*, o malla secundaria, es lo mismo que la malla anterior en términos de definición, sólo que aplicada a un dominio más pequeño. **Son necesarias para aumentar la resolución de la malla localmente** para dominios como la pieza de trabajo y el inductor, donde se necesitan elementos de malla más pequeños, **mientras se dejan elementos de malla más grandes en otros dominios** (como el dominio del aire) donde no se necesita una resolución tan alta.
+
+La *sub-malla* puede adoptar muchas formas: normalmente se utiliza para la resolución de la pieza y el inductor, pero también es posible crear una *sub-malla* para determinadas partes de la pieza o el inductor, como superficies y bordes, para obtener una resolución aún mayor.
+
+### Sub-malla en un sólido
+
+Para crear una *sub-malla* necesitas hacer **click-derecho** en tu malla principal (*Mesh_1*), y hacer click en ***Create Sub-mesh*** (![createMesh](assets/mesh-overview/createsubmesh.png)).
+
+Desde el desplegable de particiones en *Object Browser* seleccione el grupo de geometría para el que desea crear una *sub-malla* y cree una malla automática como se ha mencionado anteriormente. La *sub-malla* aparecerá en ***SubMeshes on Solid***.
 
 <p align="center">
 
@@ -101,22 +114,24 @@ From partition dropdown in *Object Browser* select the geometry group for which 
 
 </p>
 
-The default "automatic" mesh size will most likely be too large, so we suggest going **3-5 times smaller in the first size iteration**.
+El tamaño de malla "automático" por defecto será probablemente demasiado grande, por lo que sugerimos ir **3-5 veces más pequeño en la primera iteración de tamaño**.
 
-Note that because we usually create a *sub-mesh* for every domain except air, the main mesh (*Mesh_1*) is responsible only for the air. Because of this the main mesh is usually made quite coarse.
+Tenga en cuenta que como normalmente creamos una *sub-malla* para cada dominio excepto el aire, la malla principal (*Mesh_1*) es responsable sólo del aire. Por ello, la malla principal suele ser bastante gruesa.
 
-### Sub-mesh on surface
+### Sub-malla en superficie
 
-In some cases **even greater local resolution of the mesh is needed**. For this you can use and create a *sub-mesh* on one or more surfaces.
+En algunos casos **se necesita una resolución local aún mayor de la malla**. Para ello puede utilizar y crear una *sub-malla* en una o más superficies.
 
-From partition dropdown in *Object Browser* select the geometry group for which you want to create a *sub-mesh* and create an automatic mesh as mentioned previously. *Sub-mesh* will appear under ***SubMeshes on Face***.
+Desde el desplegable de particiones en el *Object Browser* seleccione el grupo de geometría para el que desea crear una *sub-malla* y cree una malla automática como se ha mencionado anteriormente. La *submalla* aparecerá en ***SubMeshes on Face***.
 
-When creating multiple *sub-meshes* which **overlap each other** (for example, solid *sub-mesh* for the inductor and a surface *sub-mesh* for one part of the same inductor surface), a ***Submesh priority*** window will appear.
+Cuando se crean múltiples *sub-mallas* que **se solapan entre sí** (por ejemplo, una *sub-malla* sólida para el inductor y una *sub-malla* superficial para una parte de la misma superficie del inductor), aparecerá una ventana de ***Prioridad de la sub-malla***.
 
-In the *sub-mesh* window you **define the order** the overlaping *sub-meshes* will be calculated. It is important because *sub-mesh* with **lower priority** will be partially based on the *sub-mesh* with a **higher priority** - because of this prioritize *sub-meshes* for which the **quality of the mesh is more important**.
+En la ventana *sub-mesh* se **define el orden** en que se calcularán las *sub-mallas* superpuestas. Es importante porque las *sub-mallas* con **menor prioridad** se basarán parcialmente en las *sub-mallas* con **mayor prioridad** - por ello priorice las *sub-mallas* para las que la **calidad de la malla es más importante**.
 
-:::note
-In this example *sub-meshes* are used on the shaft surface to create finer mesh near the key hole and on part of the shaft surface:
+:::note Nota
+
+En este ejemplo se utilizan *sub-mallas* en la superficie del eje para crear una malla más fina cerca de la apertura de la cerradura y en parte de la superficie del eje:
+
 :::
 
 <p align="center">
@@ -131,17 +146,22 @@ In this example *sub-meshes* are used on the shaft surface to create finer mesh 
 
 </p>
 
-:::important
-*Sub-mesh* can also be created for **edges** if you need additional refinement or if you are working with a **2D** case.
+:::info Información
+
+También se pueden crear *Sub-mallas* para **bordes** si necesita un refinamiento adicional o si está trabajando con un caso **2D**.
+
 :::
-## 2D Algorithms 
 
-If you use the **automatic mesh** option, it will use ***Mefisto*** algorithm for 2D surface definitions.
+## Algoritmos 2D 
 
-*Mesfisto* algorithm creates a mostly uniform mesh. Even though it is sufficient most of the time, sometimes it's needed a finer mesh element distribution near different *sub-meshe* borders. In that case you can change *Mefisto* algorithm to *NETGEN 2D* under 2D tab.
+Si utiliza la opción **malla automática**, utilizará el algoritmo ***Mefisto*** para la definición de superficies 2D.
 
-:::note
-Here is an example of *Mefisto* vs. *NETGEN 2D* air mesh:
+El algoritmo ***Mesfisto*** crea una malla mayoritariamente uniforme. Aunque es suficiente la mayoría de las veces, a veces se necesita una distribución de elementos de malla más fina cerca de los diferentes bordes de la *sub-malla*. En ese caso puede cambiar el algoritmo *Mefisto* a *NETGEN 2D* en la pestaña 2D.
+
+:::note Nota
+
+He aquí un ejemplo de *Mefisto* frente a la malla de aire *NETGEN 2D*:
+
 :::
 
 <p align="center">
@@ -150,16 +170,18 @@ Here is an example of *Mefisto* vs. *NETGEN 2D* air mesh:
 
 </p>
 
-In our experience the ***NETGEN*** algorithm tends to be **more resilient** so we suggest using it for more complex geometries and air.
+Según nuestra experiencia, el algoritmo ***NETGEN*** tiende a ser **más resistente**, por lo que sugerimos utilizarlo para el rol de aire y geometrías más complejas.
 
-## Skin layer
+## Efecto piel
 
-Both inductor and workpiece domains need a fine mesh layer on the surface to **model the high density of currents near the surface** it occurs due to the physical phenomenon known as skin effect. In Salome this can be easily resolved with ***Viscous Layers***. 
+Tanto el dominio del inductor como el de la pieza de trabajo necesitan una capa de malla fina en la superficie para **modelar la alta densidad de corrientes cerca de la superficie**. Esto se produce debido al fenómeno físico conocido como _efecto piel (skin effect)_. En Salome esto puede resolverse fácilmente con ***Capas viscosas***. 
 
-For induction heating simulations (usually in the workpiece) the *Viscous Layers* serves a **dual purpose of both resolving surface currents and the heat conduction from the skin layer** deeper into the workpiece.
+Para simulaciones de calentamiento por inducción (normalmente en la pieza de trabajo) las *Capas viscosas* sirven para **el doble propósito de resolver tanto las corrientes superficiales como la conducción de calor desde la capa de piel** más profunda en la pieza de trabajo.
 
-:::note
-Here you can see an example of *Viscous Layers* used to create a small layered elements on the surface of the workpiece to resolve current density:
+:::note Nota
+
+Aquí puede ver un ejemplo de *Capas Viscosas* utilizadas para crear pequeños elementos en capas en la superficie de la pieza de trabajo para resolver la densidad de corriente:
+
 :::
 
 <p align="center">
@@ -168,23 +190,22 @@ Here you can see an example of *Viscous Layers* used to create a small layered e
 
 </p>
 
-### Creating Viscous Layers
+### Creación de Capas Viscosas
 
-To create *Viscous Layers* in your *sub-mesh* window select **2D or 3D tab** depending on the simulation type - *2D* or *3D*. Click the **gear icon** (![gear icon](assets/mesh-overview/4.png)) next to *Add. Hypothesis* and select *Viscous Layers*.
-
+Para crear *Capas Viscosas* en su ventana *sub-malla* seleccione la pestaña **2D o 3D** dependiendo del tipo de simulación - *2D* o *3D*. Haga clic en el ícono **gear** (![gear icon](assets/mesh-overview/4.png)) junto a *Add. Hipótesis* y seleccione *Viscous Layers*.
 <p align="center">
 
 ![Mesh](assets/mesh-overview/skinlayer.png)
 
 </p>
 
-To define *Viscous Layers*, you need to enter 3 parameters - *Total thickness*, *Number of layers* and *Stretch factor*.
+Para definir *Capas Viscosas*, debe introducir 3 parámetros: *Espesor total*, *Número de capas* y *Factor de estiramiento*.
 
-+ ***Total thickness*** - the total size of the skin layer, dependent from frequency and material properties;
++ ***Grosor total (Total thickness)*** - tamaño total de la capa de piel, que depende de la frecuencia y de las propiedades del material;
 
-+ ***Number of layers*** - defines how many layers you will create within the previously defined skin layer size;
++ ***Número de capas (Number of layers)*** - define cuántas capas se crearán dentro del tamaño de capa de piel definido previamente;
 
-+ ***Stretch factor*** - determines the gradient of the layer sizes - by how much the next layer will be larger that the previous one;
++ ***Factor de estiramiento (Stretch factor)*** - determina el gradiente del tamaño de las capas - en cuánto será mayor la siguiente capa que la anterior;
 
 <p align="center">
 
@@ -192,30 +213,30 @@ To define *Viscous Layers*, you need to enter 3 parameters - *Total thickness*, 
 
 </p>
 
-We suggest to start with the following parameters, where **δ is skin effect depth** for the respective domain:
+Sugerimos empezar con los siguientes parámetros, donde **δ es la profundidad del efecto piel** para el dominio respectivo:
     
-|                  |     Workpiece    |    Inductor    |
-|------------------|:----------------:|:--------------:|
-| Total thickness  | 1.5 δ          |     δ          |
-| Number of layers |     ≈ 5 to 8     |    ≈  4 to 7   |
-| Stretch factor   |        1.5       |       1.4      |
+|                       | Pieza de trabajo |    Inductor    |
+|-----------------------|:----------------:|:--------------:|
+| Espesor total         |     1.5 δ        |     δ          |
+| Número de capas       |     ≈ 5 to 8     |    ≈  4 to 7   |
+| Factor de elasticidad |       1.5        |       1.4      |
 
 
-### Faces without layers (inlets and outlets)
+### Caras sin capas (entradas y salidas)
 
-This feature allows us to exclude certain faces or edges from the skin layer, possibly decreasing element count significantly. This should be used for:
+Esta característica permite excluir ciertas caras o aristas de la capa de la piel, posiblemente disminuyendo el número de elementos significativamente. Esto debería usarse para:
 
- * Terminals of the inductor
- * Inductor inside surface if the inductor has a **cooling channel**.
- * Symmetry axis of a 2D workpiece. 
- * Any other workpiece parts that far away from the inductor.
+ * Terminales del inductor
+ * Superficie interior del inductor si éste tiene un **canal de refrigeración**.
+ * Eje de simetría de una pieza 2D. 
+ * Cualquier otra pieza alejada del inductor.
 
-To use this feature:
-1. Select the desired groups under your ***partition*** or select them directly from the *Object window*;
-2. Click ***Add***;
-3. Verify the number of faces or edges in the ***selected faces*** window;
-4. Click ***OK*** and ***Apply and Close***.
-5. **Clear mesh data** and **recompute** the submesh to see the changes.
+Para utilizar esta función:
+1. Seleccione los grupos deseados en su ***partición*** o selecciónelos directamente en la *ventana Objeto*;
+2. Haga clic en ***Add***;
+3. Verifique el número de caras o aristas en la ventana ***caras seleccionadas***;
+4. Haga clic en ***OK*** y ***Apply*** y ***Close***.
+5. **Borrar datos de malla** y **recalcular** la sub-malla para ver los cambios.
 
 <p align="center">
 
@@ -230,12 +251,12 @@ To use this feature:
 </p>
 
 
-## Mesh size
+## Tamaño de malla
 
-We strongly recommend **starting with a coarse mesh**, so you have a shorter calculation time, just to see if everything is working correctly.
-Even with the absolute coarsest, the temperature and power estimation will be only about **6% off**. 
+Recomendamos **comenzar con una malla gruesa**, para tener un tiempo de cálculo más corto, sólo para ver si todo funciona correctamente.
+Incluso con la malla más gruesa, la estimación de la temperatura y la potencia será de sólo un **6%** de diferencia. 
 
-When you approximately have the results you were looking for, you can then decrease the mesh size to increase the accuracy of your results.
+Cuando tenga aproximadamente los resultados que estaba buscando, puede entonces disminuir el tamaño de la malla para aumentar la precisión de sus resultados.
 
 <p align="center">
 
@@ -243,7 +264,9 @@ When you approximately have the results you were looking for, you can then decre
 
 </p>
 
-:::important
-These results are just to demonstrate the effects and should **not be used for reference**, as your geometry shape will have a significant effect on your results.
-As you can see, the calculation time increases **exponentially** with the mesh size, so it is not worth pursuing the marginal gains with an overly fine mesh.
+:::info Información
+
+Estos resultados son sólo para demostrar los efectos y **no deben utilizarse como referencia**, ya que la forma de la geometría tendrá un efecto significativo en los resultados.
+Como puede ver, el tiempo de cálculo aumenta **exponencialmente** con el tamaño de la malla, por lo que no merece la pena perseguir las ganancias marginales con una malla demasiado fina.
+
 :::
