@@ -1,19 +1,19 @@
 ---
 id: templates
-title: Templates
-sidebar_label: Templates
+title: Plantillas
+sidebar_label: Plantillas
 sidebar_position: 2
 ---
 
-Simulation consists of creating **geometry** and its **mesh**, defining physical **parameters**, and, after running calculations, **post-processing** the results into suitable quantities and graphics.
+La simulación consiste en crear la **geometría** y su **malla**, definir los **parámetros físicos** y, tras realizar los cálculos, **postprocesar** los resultados en cantidades y gráficos adecuados.
 
-If you are **new to simulation** and CENOS, we suggest to **start with predefined geometry templates**, as they will focus more on the structure and basics of the simulation.
+Si usted es **nuevo en la simulación** y en CENOS, le sugerimos que **comience con las plantillas de geometría predefinidas**, ya que se centrarán más en la estructura y los fundamentos de la simulación.
 
-Alternatively, you can use your CAD file or create geometry from scratch.  
+También puede utilizar su archivo CAD o crear la geometría desde cero.
 
-## Select the geometry building approach
+## Seleccionar el enfoque de construcción geométrica
 
-To use geometry templates, click **Template** in the CENOS home window.
+Para utilizar plantillas de geometría, haga clic en **Template** en la ventana de inicio de CENOS.
 
 <p align="center">
 
@@ -21,7 +21,7 @@ To use geometry templates, click **Template** in the CENOS home window.
 
 </p>
 
-**Templates automatically define the non-critical parts of the simulation setup** and offer new users a **preset simulation physical and geometrical values** to get a view on how simulations are defined, to leave you with only the important decisions.
+**Las plantillas definen automáticamente las partes no críticas de la configuración de la simulación** y ofrecen a los nuevos usuarios un **preajuste de los valores físicos y geométricos de la simulación** para hacerse una idea de cómo se definen las simulaciones, para dejarle al usuario sólo las decisiones importantes.
 
 <p align="center">
 
@@ -29,9 +29,9 @@ To use geometry templates, click **Template** in the CENOS home window.
 
 </p>
 
-### Define units
+### Definir las unidades
 
-On the *Create Geometry* window in the left lower corner click **select units of your geometry**. 
+En la ventana *Create Geometry*, en la esquina inferior izquierda, haga clic en **seleccionar unidades de su geometría**. 
 
 <p align="center">
 
@@ -39,9 +39,9 @@ On the *Create Geometry* window in the left lower corner click **select units of
 
 </p>
 
-### Choose template
+### Elegir plantilla
 
-Under WORKPIECE and INDUCTOR tabs **choose the template** geometry that suits your system for simulation domains.
+En las pestañas WORKPIECE e INDUCTOR **elija la geometría de plantilla** que se adapte mejor a su sistema para los dominios de simulación.
 
 <p align="center">
 
@@ -55,12 +55,14 @@ Under WORKPIECE and INDUCTOR tabs **choose the template** geometry that suits yo
 
 </p>
 
-### Enter geometrical properties
+### Introducir propiedades geométricas
 
-Enter the geometrical properties such as diameter, height, thickness, etc. to **define your geometry**.
+Introduzca las propiedades geométricas, tales como diámetro, altura, grosor, etc. para **definir su geometría**.
 
 :::tip
-**For reference on how to input the geometrical properties take a look at the sketch next to it!**
+
+**Para saber cómo introducir las propiedades geométricas, observe el esquema que se encuentra del lado derecho**.
+
 :::
 
 <p align="center">
@@ -69,7 +71,7 @@ Enter the geometrical properties such as diameter, height, thickness, etc. to **
 
 </p>
 
-When done, **switch to physics setup** by clicking GO TO PHYSICS in the upper right corner of the screen.
+Cuando haya terminado, **cambie a la configuración de física** haciendo clic en *GO TO PHYSICS* en la esquina superior derecha de la pantalla.
 
 <p align="center">
 
@@ -77,11 +79,11 @@ When done, **switch to physics setup** by clicking GO TO PHYSICS in the upper ri
 
 </p>
 
-## Define simulation parameters
+## Definir parámetros de simulación
 
-### Enter physical parameters
+### Ingresar parámetros físicos
 
-In the SIMULATION CONTROL window **define global parameters** such as *frequency*, *calculation time*, etc.
+En la ventana CONTROL DE SIMULACIÓN **defina los parámetros globales** como *frecuencia*, *tiempo de cálculo*, etc.
 
 <p align="center">
 
@@ -89,7 +91,7 @@ In the SIMULATION CONTROL window **define global parameters** such as *frequency
 
 </p>
 
-In the SIMULATION DOMAIN windows such as WORKPIECE and WINDINGS **define the physical parameters of each domain** like *material*, *heat exchange*, *current* etc.
+En las ventanas de DOMINIO DE SIMULACIÓN como *WORKPIECE* y *WINDINGS* **defina los parámetros físicos de cada dominio** tales como *material*, *intercambio de calor*, *corriente* etc.
 
 <p align="center">
 
@@ -97,9 +99,9 @@ In the SIMULATION DOMAIN windows such as WORKPIECE and WINDINGS **define the phy
 
 </p>
 
-### Run the simulation
+### Ejecutar simulación
 
-Once the simulation has been set up, **click RUN** in the upper right corner of the CENOS screen.
+Una vez configurada la simulación, **haga clic en RUN** en la esquina superior derecha de la pantalla de CENOS.
 
 <p align="center">
 
@@ -107,9 +109,9 @@ Once the simulation has been set up, **click RUN** in the upper right corner of 
 
 </p>
 
-## Post-processing
+## Post-procesamiento
 
-At the end of the calculation the post-processing tool *ParaView* will automatically **open with a pre-set temperature state**, and you will be able to see the **temperature field distribution** in the workpiece in the last time step.
+Al final de los cálculos, la herramienta de postprocesamiento *ParaView* se **abrirá automáticamente con un estado de temperatura preestablecido**, y podrás ver la **distribución del campo de temperatura** en la pieza en el último paso de tiempo.
 
 <p align="center">
 
@@ -117,11 +119,11 @@ At the end of the calculation the post-processing tool *ParaView* will automatic
 
 </p>
 
-To **learn more** about result manipulations, visit our [**result evaluation**](/results).
+Para **aprender más** sobre las manipulaciones de resultados, visite nuestra [**evaluación de resultados**](/results).
 
-### Integral values
+### Valores integrales
 
-For integral values such as **apparent power, induced heat and complex voltage** you can use the .csv file, which comes along with the visual results. You can access it through *Note* button next to the *Visualization* block *Play* button.
+Para valores integrales como **potencia aparente, calor inducido y tensión compleja** puedes utilizar el archivo .csv, que viene junto con los resultados visuales. Puedes acceder a él a través del botón *Nota* situado junto al botón *Play* del bloque *Visualization*.
 
 <p align="center">
 

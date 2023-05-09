@@ -1,19 +1,17 @@
 ---
 id: cad
-title: Create simulation with From CAD
-sidebar_label: Using CAD files
+title: Crear simulación con From CAD
+sidebar_label: Uso de archivos CAD
 sidebar_position: 3
 ---
 
-You can import premade CAD files and prepare geometry for simulation directly into CENOS.
+Usted puede importar archivos CAD prefabricados y preparar la geometría para la simulación directamente en CENOS.
 
-**Generate an air box and mesh automatically**, and set up the simulation without the need for manual geometry or mesh editing.
+**Genere automáticamente una caja de aire y una malla**, y configure la simulación sin necesidad de editar manualmente la geometría o la malla.
 
-## Select the geometry-building approach
+## Seleccionar el enfoque de construcción geométrica
 
-To import premade CAD files, click **From CAD** in the CENOS home window.
-
-
+Para importar archivos CAD prefabricados, haga clic en **From CAD** en la ventana de inicio de CENOS.
 
 <p align="center">
 
@@ -21,7 +19,7 @@ To import premade CAD files, click **From CAD** in the CENOS home window.
 
 </p>
 
-Click on the *Folder* icon to **select and import CAD files**.
+Haga clic en el icono *Carpeta* para **seleccionar e importar archivos CAD**.
 
 <p align="center">
 
@@ -29,9 +27,9 @@ Click on the *Folder* icon to **select and import CAD files**.
 
 </p>
 
-### Create an Air Box
+### Crear una caja de aire
 
- Create an air box **automatically**.
+Cree una caja de aire automáticamente.
 
 <p align="center">
 
@@ -39,7 +37,7 @@ Click on the *Folder* icon to **select and import CAD files**.
 
 </p>
 
-**Select the inductor terminals** as references for the air box size and click on *create air*.
+**Seleccione las terminales del inductor** como referencias para el tamaño de la caja de aire y pulse en *create air*.
 
 <p align="center">
 
@@ -47,9 +45,13 @@ Click on the *Folder* icon to **select and import CAD files**.
 
 </p>
 
-### Prepare volumes
+### Preparar volúmenes
 
-**IMPORTANT**: To make volume and surface selection and preparation easier, the *From CAD* feature includes multiple useful tools.
+:::info Importante
+
+Para facilitar la selección y preparación de volúmenes y superficies, la función *From CAD* incluye múltiples herramientas útiles.
+
+:::
 
 <p align="center">
 
@@ -57,15 +59,15 @@ Click on the *Folder* icon to **select and import CAD files**.
 
 </p>
 
- + **Select all** - Selects all volumes or boundaries available for selection.
+ + **Select all** - Selecciona todos los volúmenes o condiciones de frontera disponibles para la selección.
  
- + **Show all** - Turns the object visibility on or off.
+ + **Show all** - Activa o desactiva la visibilidad del objeto seleccionado.
  
- + **Merge** - Merge or *group* multiple volumes or surfaces into one.
+ + **Merge** - Fusiona o *agrupa* varios volúmenes o superficies en uno solo.
  
- + **Unmerge** - Split previously merged or *grouped* objects into their initial state.
+ + **Unmerge** - Dividir objetos previamente fusionados o *agrupados* en su estado inicial.
 
-**Group and rename the volume domains** as needed.
+**Agrupe y renombre los dominios de volumen** según sea necesario.
 
 <p align="center">
 
@@ -73,9 +75,9 @@ Click on the *Folder* icon to **select and import CAD files**.
 
 </p>
 
-### Prepare boundaries
+### Preparar las condiciones de frontera
 
-Click on **Workpice surface**, where you will select the faces that will serve as boundary conditions for the analysis, you can also filter the faces by volume, to make selection easier.
+Haga clic en **Workpice surface**, donde seleccionará las caras que servirán como condiciones de frontera para el análisis, también puede filtrar las caras por volumen, para facilitar la selección.
 
 <p align="center">
 
@@ -83,7 +85,7 @@ Click on **Workpice surface**, where you will select the faces that will serve a
 
 </p>
 
-Finally, add as many roles as your system require such as **extra workpieces**, **extra inductors and their terminals**, **flux concentrators**, **air** and *others*.
+Por último, añada tantas funciones como requiera su sistema, como **piezas de trabajo adicionales**, **inductores adicionales y sus terminales**, **concentradores de flujo**, **aire** y *otros*.
 
 <p align="center">
 
@@ -91,7 +93,7 @@ Finally, add as many roles as your system require such as **extra workpieces**, 
 
 </p>
 
-After setting the geometry, click on **GO TO PHYSICS** to enter physics setup.
+Después de configurar la geometría, haga clic en **GO TO PHYSICS** para entrar en la configuración de la física.
 
 <p align="center">
 
@@ -99,11 +101,11 @@ After setting the geometry, click on **GO TO PHYSICS** to enter physics setup.
 
 </p>
 
-## Define simulation parameters
+## Definir los parámetros de simulación
 
-### Enter physical parameters
+### Introducir los parámetros físicos
 
-In the SIMULATION CONTROL window **define global parameters** such as *frequency*, *calculation time* etc.
+En la ventana SIMULATION CONTROL **defina los parámetros globales** como *frecuencia*, *tiempo de cálculo*, etc.
 
 <p align="center">
 
@@ -111,7 +113,7 @@ In the SIMULATION CONTROL window **define global parameters** such as *frequency
 
 </p>
 
-In the SIMULATION DOMAIN windows such as "WORKPIECE" **define the physical parameters and boundaries of each domain** such as *material*, *heat exchange*, *current*, etc.
+En las ventanas de DOMINIO DE SIMULACIÓN como "WORKPIECE" **defina los parámetros físicos y las condiciones de frontera de cada dominio** como *material*, *intercambio térmico*, *corriente*, etc.
 
 <p align="center">
 
@@ -119,7 +121,7 @@ In the SIMULATION DOMAIN windows such as "WORKPIECE" **define the physical param
 
 </p>
 
-In the inductor section, you will be able to input either ***voltage***, ***current*** or ***power***
+En la sección de inductores, podrás introducir ***voltaje***, ***corriente*** o ***potencia***.
 
 <p align="center">
 
@@ -127,9 +129,9 @@ In the inductor section, you will be able to input either ***voltage***, ***curr
  
 </p>
 
-## Meshing
+## Mallado
 
-CENOS has an integrated mesh builder, after setting up the physics, click **GO TO MESH** to enter physics setup.
+CENOS cuenta con un generador de mallas integrado, después de configurar la física, haga clic en **GO TO MESH** para entrar en la configuración de la física.
 
 <p align="center">
 
@@ -137,7 +139,7 @@ CENOS has an integrated mesh builder, after setting up the physics, click **GO T
  
 </p>
 
-Select how dense you want the automatic mesh to be 
+Seleccione la densidad que desea que tenga la malla automática.
  
 <p align="center">
 
@@ -145,7 +147,7 @@ Select how dense you want the automatic mesh to be
 
 </p>
 
-In case you want to make any changes to the mesh generated by our algorithm you can do it by enabling the ***mesh refinement*** and selecting the element you'd like to adjust
+En caso de que desee realizar algún cambio en la malla generada por nuestro algoritmo puede hacerlo activando el ***refinamiento de malla*** y seleccionando el elemento que quiera ajustar.
 
 <p align="center">
 
@@ -153,7 +155,7 @@ In case you want to make any changes to the mesh generated by our algorithm you 
 
 </p>
 
-From there, you will be able to disable the automatic skin layer calculator and refine the whole section, or faces and edges, according to your needs. 
+En esta sección, podrá desactivar la calculadora automática de capas viscosas y refinar toda la sección, o las caras y bordes, según sus necesidades.
  
 <p align="center">
 
@@ -161,11 +163,11 @@ From there, you will be able to disable the automatic skin layer calculator and 
 
 </p>
 
-**To learn more** about meshing, visit our [**meshing documentation**](#meshing).
+**Para saber más** sobre el mallado, visita nuestra [**documentación sobre mallado**](#meshing).
 
-## Post-processing
+## Post-procesamiento
 
-In the end of the calculation the post-processing tool *ParaView* will automatically **open with a pre-set temperature state**, and you will be able to see the **temperature field distribution** in the workpiece on the last time step.
+Al finalizar los cálculos, la herramienta de post-procesamiento *ParaView* se **abrirá automáticamente con un estado de temperatura preestablecido**, y podrá ver la **distribución del campo de temperatura** en la pieza en el último paso de tiempo.
 
 <p align="center">
 
@@ -173,11 +175,11 @@ In the end of the calculation the post-processing tool *ParaView* will automatic
 
 </p>
 
-**To learn more** about customizing the view of results, visit our [**result evaluation**](/results) article.
+**Para obtener más información** acerca de cómo personalizar la visualización de los resultados, visite nuestro artículo [**evaluación de resultados**](/results).
 
-### Integral values
+### Valores integrales
 
-For integral values such as **apparent power, induced heat and complex voltage** you can use the .csv file, which is generated along with the visual results. You can access it through the *Note* button next to the *Visualization* block *Play* button.
+Para valores integrales, tales como **potencia aparente, calor inducido y tensión compleja**, puedes utilizar el archivo .csv, que se genera junto con los resultados visuales. Puedes acceder a él a través del botón *Nota* situado junto al botón *Play* del bloque *Visualization*.
 
 <p align="center">
 
