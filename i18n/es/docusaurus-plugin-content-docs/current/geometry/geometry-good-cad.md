@@ -1,17 +1,17 @@
 ---
 id: good-cad
-title: How to make good CAD for Induction Heating simulation
-sidebar_label: How to make a good CAD
+title: Cómo crear un buen modelo CAD para simulación de Calentamiento por Inducción
+sidebar_label: Cómo crear un buen modelo CAD
 sidebar_position: 2
 ---
 
-The gometrical model of your workpiece and inductor plays a big role in how easy or hard it will be to set up and get accurate results from an induction heating simulation.
+El modelo gométrico de la pieza de trabajo y del inductor desempeña un papel importante en la facilidad o dificultad de configuración y obtener resultados precisos de una simulación de calentamiento por inducción.
 
-We have summarized the main aspects for good, simulation-friendly CAD file, which should be followed in order to **create a simple, trouble-free geometry** for your simulation.
+Hemos resumido los principales aspectos ue deben seguirse para conseguir un buen archivo CAD y **crear una geometría sencilla y sin problemas** para su simulación.
 
-## Create geometry as a single solid
+## Crear la geometría como un único sólido
 
-In many CAD softwares it is easier to build the inductor geometry from blocks, which are then combined to form a complete inductor CAD. When creating geometry for simulation, these **blocks must be fused together to form a single solid** – doing this helps remove unnecessary faces between blocks and simplifies setting up geometric properties, but the meshing process as well.
+En muchos softwares CAD es más fácil construir la geometría del inductor a partir de bloques, que luego se combinan para formar un inductor CAD completo. Al crear la geometría para la simulación, estos **bloques deben fusionarse para formar un único sólido** - hacer esto ayuda a eliminar caras innecesarias entre bloques y simplifica la configuración de las propiedades geométricas, pero también el proceso de mallado.
 
 <p align="center">
 
@@ -19,15 +19,15 @@ In many CAD softwares it is easier to build the inductor geometry from blocks, w
 
 </p>
 
-## Simplify geometry
+## Simplificar la geometría
 
-Computer simulation starts with a geometrical model of the real life problem – you need to accurately depict the geometry to precisely calculate the physical aspects of the model. However, in most cases **you can disregard some of the geometrical details, which do not have such a significant impact on the physical results**, to optimize the simulation.
+La simulación por ordenador comienza con un modelo geométrico del problema de la vida real: es necesario representar con exactitud la geometría para calcular con precisión los aspectos físicos del modelo. Sin embargo, en la mayoría de los casos **puede prescindir de algunos de los detalles geométricos, que no tienen un impacto tan significativo en los resultados físicos**, para optimizar la simulación.
 
-The following features can be deleted, as they take up significant amount of calculation time and computer power without considerable contribution to results. 
+Las siguientes características pueden omitirse, ya que consumen una cantidad significativa de tiempo de cálculo y potencia informática sin contribuir de forma considerable a los resultados.
 
-### Remove terminals
+### Remover las terminales
 
-Inductor terminals are not important for induction heating simulation and should be removed.
+Los terminales del inductor no son importantes para la simulación de calentamiento por inducción y deben retirarse.
 
 <p align="center">
 
@@ -35,9 +35,9 @@ Inductor terminals are not important for induction heating simulation and should
 
 </p>
 
-### Delete unnecessary elements
+### Borrar elementos innecesarios
 
-Inductor elements such as holding parts or connections with outer elements can be deleted. 
+Se pueden eliminar elementos del inductor como piezas de agarre o conexiones con elementos exteriores.
 
 <p align="center">
 
@@ -45,9 +45,9 @@ Inductor elements such as holding parts or connections with outer elements can b
 
 </p>
 
-### Get rid of small details
+### Deshacerse de los pequeños detalles
 
-Small details have a negligible impact on the simulation results, but they take up a lot of calculation time, as they need to be resolved through mesh, which increases the mesh element count significantly. **Get rid of details such as small fillets, holes and narrow gaps** in both workpiece, inductor etc.
+Los pequeños detalles tienen un impacto insignificante en los resultados de la simulación, pero consumen mucho tiempo de cálculo, ya que deben resolverse a través de la malla, lo que aumenta significativamente el número de elementos de malla. **Deshágase de detalles como pequeñas curvaturas, orificios y huecos estrechos** tanto en la pieza de trabajo como en el inductor, etc.
 
 <p align="center">
 
@@ -55,13 +55,17 @@ Small details have a negligible impact on the simulation results, but they take 
 
 </p>
 
-**IMPORTANT**: If you have a cooling duct running through your inductor, do not forget to **remove fillets within** it as well!
+:::info Importante
 
-## Resolve inaccurately connected geometrical parts
+Si tiene un conducto de refrigeración atravesando su inductor, ¡no olvide **eliminar también las curvaturas dentro** de él!
 
-During geometry creation be careful with connections between different inductor parts – inaccurate connections will result in meshing problems and calculation errors!
+:::
 
-### Overlapping
+## Resolver partes geométricas conectadas de forma imprecisa
+
+Durante la creación de la geometría, tenga cuidado con las conexiones entre las distintas partes del inductor: las conexiones incorrectas provocarán problemas de mallado y errores de cálculo.
+
+### Superposición
 
 <p align="center">
 
@@ -69,7 +73,7 @@ During geometry creation be careful with connections between different inductor 
 
 </p>
 
-### Gaps
+### Huecos
 
 <p align="center">
 
@@ -77,9 +81,9 @@ During geometry creation be careful with connections between different inductor 
 
 </p>
 
-## Ensure that the inductor geometry is continuous
+## Asegúrese de que la geometría del inductor es continua
 
-If your inductor has a cooling channel, be sure that the **cooling channel is continuous through all inductor length**, otherwise it will cause problems during meshing.
+Si su inductor tiene un canal de refrigeración, asegúrese de que el **canal de refrigeración es continuo en toda la longitud del inductor**, de lo contrario causará problemas durante el mallado.
 
 <p align="center">
 
@@ -87,4 +91,4 @@ If your inductor has a cooling channel, be sure that the **cooling channel is co
 
 </p>
 
-If you follow these tips for achieving good CAD, you will have a geometry which will be **easy to manipulate and mesh**, and **fast to calculate**!
+Si sigue estos consejos para conseguir un buen modelo CAD, tendrá una geometría **fácil de manipular y mallar**, y **rápida de calcular**.
