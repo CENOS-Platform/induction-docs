@@ -1,50 +1,51 @@
 ---
 id: thermal-losses
-title: Thermal loss definition in CENOS
-sidebar_label: Thermal losses
+title: Definición de pérdidas térmicas en CENOS
+sidebar_label: Pérdidas térmicas
 sidebar_position: 6
 ---
 
-		
-Heat transfer is a very important part of the simulation physical setup - without correct heat exchange definition accurate results cannot be acquired. There are different parameters to define heat exchange, each with specific values that depend on material properties and cooling methods.
 
-## Heat transfer types and values
+La transferencia de calor es una parte muy importante de la configuración física de la simulación: sin una definición correcta del intercambio de calor no se pueden obtener resultados precisos. Existen diferentes parámetros para definir el intercambio de calor, cada uno con valores específicos que dependen de las propiedades del material y de los métodos de enfriamiento.
 
-CENOS offers **4 types of heat exchange definitions** - *convection*, *radiation*, *heat flux*, and *heat flow*. Each of these definitions can be used for specific applications, depending on temperature and  cooling approach.
+## Tipos y valores de transferencia de calor
 
-### Convection
+CENOS ofrece **4 tipos de definiciones de intercambio de calor** - *convección*, *radiación*, *flujo térmico* y *transferencia de calor*. Cada una de estas definiciones puede utilizarse para aplicaciones específicas, dependiendo de la temperatura y del enfoque de enfriamiento.
 
-Convective heat transfer, often referred to simply as convection, is the transfer of heat from one place to another by the motion of fluid or gas. Convection is usually the dominant form of heat transfer in liquids and gases, and plays a significant role through a wide range of heat treatment applications. Convective heat transfer is defined with $h$ - **Heat Transfer Coefficient** $( W/m^2K )$ and the $T_0$ - **Ambient temperature** $(^{\circ} C)$. Coefficient $h$ measures the intensity at which the heat is removed from the surface by the fluid or gas with temperature $T_0$.
-The appropriate *Heat Transfer Coefficient* value is very important for correct simulation definition. It ranges from small to very large numbers and can be confusing. *Heat Transfer Coefficient* depends on the chosen cooling approach (natural or forced convection) and the fluid used in the process. The approximate values of different colling approaches are as follows:
+### Convección
 
-| Forced convection :                       | $W/m^2K$ :   |
-|:-----------------------------------------:|:------------:|
-| Low speed flow of air over a surface      | 10           |
-| Moderate speed flow of air over a surface | 100          |
-| Moderate flow of water in a pipe          | 3000         |
-| Water and liquids                         | 50 to 10'000 |
+La transferencia de calor por convección, a menudo denominada simplemente convección, es la transferencia de calor de un lugar a otro por el movimiento de un fluido o un gas. La convección suele ser la forma dominante de transferencia de calor en líquidos y gases, y desempeña un papel importante en una amplia gama de aplicaciones de tratamiento térmico. La transferencia de calor por convección se define con $h$ - **Coeficiente de transferencia de calor** $( W/m^2K )$ y la $T_0$ - **Temperatura ambiente** $(^{\circ} C)$. El coeficiente $h$ mide la intensidad a la que el calor es retirado de la superficie por el fluido o gas con temperatura $T_0$.
+El valor adecuado del *Coeficiente de Transferencia de Calor* es muy importante para la correcta definición de la simulación. Oscila entre números pequeños y muy grandes y puede ser confuso. El *Coeficiente de Transferencia de Calor* depende del método de enfriamiento elegido (convección natural o forzada) y del fluido utilizado en el proceso. Los valores aproximados de los distintos métodos de refrigeración son los siguientes:
 
-| Natural convection :    | $W/m^2K$ :   |
-|:-----------------------:|:------------:|
-| Gases and dry vapors    | 5 to 37      |
-| Gas flow in tubes       | 10 to 350    |
-| Water and liquids       | 50 to 3000   |
-| Air                     | 10 to 100    |
-| Water                   | 100 to 1200  |
-| Water flowing in tubes  | 500 to 1200  |
-| Oil                     | 50 to 350    |
+| Convección forzada:                                     | $W/m^2K$ :   |
+|:-------------------------------------------------------:|:------------:|
+| Flujo de aire a baja velocidad sobre una superficie     | 10           |
+| Flujo de aire a velocidad moderada sobre una superficie | 100          |
+| Flujo moderado de agua en una tubería                   | 3000         |
+| Agua y líquidos                                         | 50 to 10'000 |
 
-It is possible to define *Heat Transfer Coefficient* as temperature dependent for special cooling liquids, such as PAG solutions.
+| Convección natural:      | $W/m^2K$ :   |
+|:------------------------:|:------------:|
+| Gases y vapores secos    | 5 to 37      |
+| Flujo de gas en tubos    | 10 to 350    |
+| Agua y líquidos          | 50 to 3000   |
+| Aire                     | 10 to 100    |
+| Agua                     | 100 to 1200  |
+| Agua que fluye por tubos | 500 to 1200  |
+| Aceite                   | 50 to 350    |
+
+Es posible definir el *coeficiente de transferencia de calor* en función de la temperatura para líquidos refrigerantes especiales, como las soluciones PAG.
 
 <div class="cen-multiple">
 
-**PAG 12% solution spray quench Heat Transfer Coefficient dependance from temperature**
+**Dependencia de latemperatura  del coeficiente de transferencia de calor en solución de enfriamiento por pulverización  PAG 12%**
 
 </div>
 
 <div class="cen-multiple">
 
-| Temperature $(^{\circ} C)$ : | Heat Transfer Coeff. $(W/m^2K)$ : |
+
+| Temperatura $(^{\circ} C)$ : | Coeficiente de transferencia de calor $(W/m^2K)$ : |
 |:--------------------:|:------------------------------:|
 | 33                   | 2975                           |
 | 59                   | 3828                           |
@@ -68,34 +69,33 @@ It is possible to define *Heat Transfer Coefficient* as temperature dependent fo
 
 </div>
 
-### Radiation
+### Radiación
 
-Thermal radiation is electromagnetic radiation emitted from the material. All matter with a temperature greater than absolute zero emits thermal radiation. Radiation is defined with **Emissivity** and **Ambient Temperature**. It occurs through vacuum or any transparent medium (solid, fluid, or gas) and plays a big role at temperatures above 800 $^{\circ} C$.
+La radiación térmica es la radiación electromagnética emitida por el material. Toda materia con una temperatura superior al cero absoluto emite radiación térmica. La radiación se define con **Emisividad** y **Temperatura ambiente**. Se produce a través del vacío o de cualquier medio transparente (sólido, fluido o gas) y juega un gran papel a temperaturas superiores a 800 $^{circ} C$.
 
-Emissivity coefficient for some common materials can be found in the table below. Emissivity coefficient for some materials varies with temperature - emissivity coefficients given below are at the temperature of 26.85 $(^{\circ} C)$.
+El coeficiente de emisividad para algunos materiales comunes se puede encontrar en la siguiente tabla. El coeficiente de emisividad de algunos materiales varía con la temperatura. Los coeficientes de emisividad que se indican a continuación corresponden a una temperatura de 26.85 $(^{\circ} C)$.
 
-| Material :                                        |Emissivity ($\epsilon$) :|
-|:-------------------------------------------------:|:--------------:|
-| Aluminum commercial sheet                         | 0.09           |
-| Cast iron, turned and heated                      | 0.60 - 0.70    |
-| Copper, heated and covered with thick oxide layer | 0.78           |
-| Copper, polished                                  | 0.023 - 0.052  |
-| Gold                                              | 0.47           |
-| Gold, polished                                    | 0.025          |
-| INCONEL X, oxidized                               | 0.71           |
-| Iron, polished                                    | 0.14 - 0.38    |
-| Iron, rough ingot                                 | 0.87 - 0.95    |
-| Cast iron, turned and heated                      | 0.60 - 0.70    |
-| Nickel, polished                                  | 0.072          |
-| Platinum, polished plate                          | 0.054 - 0.104  |
-| Carbon/stainless steel                            | 0.7 - 0.8      |
-| Tin, unoxidized                                   | 0.025          |
+| Material:                                                 |Emisividad ($\epsilon$) :|
+|:---------------------------------------------------------:|:--------------:|
+| Placa comercial de aluminio                               | 0.09           |
+| Hierro fundido, torneado y calentado                      | 0.60 - 0.70    |
+| Cobre, calentado y recubierto de una gruesa capa de óxido | 0.78           |
+| Cobre pulido                                              | 0.023 - 0.052  |
+| Oro                                                       | 0.47           |
+| Oro pulido                                                | 0.025          |
+| INCONEL X, oxidado                                        | 0.71           |
+| Hierro pulido                                             | 0.14 - 0.38    |
+| Hierro, lingote bruto                                     | 0.87 - 0.95    |
+| Hierro fundido, torneado y calentado                      | 0.60 - 0.70    |
+| Níquel pulido                                             | 0.072          |
+| Platino, placa pulida                                     | 0.054 - 0.104  |
+| Acero al carbono/inoxidable                               | 0.7 - 0.8      |
+| Estaño sin oxidar                                         | 0.025          |
 
-### Heat Flux and Heat Flow
+### Flujo Térmico y Transferencia de Calor
 
-*Heat Flux* or thermal flux is a flow of energy per unit area per unit of time ($W/m^2$).
+*Flujo de Calor* o flujo térmico es un flujo de energía por unidad de superficie por unidad de tiempo ($W/m^2$).
 
-*Heat Flow* ($W$) is the integral value of *Heat Flux*.
+*Transferencia de Calor* ($W$) es el valor integral de *Flujo de calor*.
 
-These heat exchange definitions **can be used if the energy value that is going through a specific area is known**.
-
+Estas definiciones de intercambio de calor **pueden utilizarse si se conoce el valor de la energía que atraviesa un área específica**.

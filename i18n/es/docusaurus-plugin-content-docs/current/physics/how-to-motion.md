@@ -1,17 +1,17 @@
 ---
 id: motion
-title: How to define motion in CENOS
-sidebar_label: Motion
+title: Cómo definir el movimiento en CENOS
+sidebar_label: Movimiento
 sidebar_position: 12
 ---
 
-Movement is an important part for a lot of induction heating systems, as translational or rotational movement helps to heat/harden the specific part uniformly and efficiently. To **accurately simulate** such processes, you need to **take into account the respective types and speeds of the movement** present in your system.
+El movimiento es una parte importante para muchos sistemas de calentamiento por inducción, ya que el movimiento de traslación o rotación ayuda a calentar/endurecer la pieza específica de manera uniforme y eficiente. Para **simular con precisión** este tipo de procesos, es necesario **tener en cuenta los respectivos tipos y velocidades de movimiento** presentes en el sistema.
 
-In this article we are going to take a look at **how movement can be defined in CENOS**, what are the **requirements for movement** and what limitations are currently present with such setup.
+En este artículo vamos a echar un vistazo a **cómo puede definirse el movimiento en CENOS**, cuáles son los **requisitos para el movimiento** y qué limitaciones existen actualmente con dicha configuración.
 
-## Motion in CENOS
+## Movimiento en CENOS
 
-CENOS supports both translational (*scanning*) and rotational (*single-shot*) movement. To define motion in your simulation, go to **Motion** tab in PHYSICS section and click **CREATE NEW MOTION**.
+CENOS admite movimiento traslacional (*escaneo*) y rotacional (*disparo único*). Para definir el movimiento en su simulación, vaya a la pestaña **MOTION** en la sección FÍSICA y haga clic en **CREAR NUEVO MOVIMIENTO**.
 
 <p align="center">
 
@@ -19,7 +19,7 @@ CENOS supports both translational (*scanning*) and rotational (*single-shot*) mo
 
 </p>
 
-Select the **type of motion**, **which part** you want to move, in **which direction** and with **what speed**, and CENOS will do the rest!
+Seleccione el **tipo de movimiento**, **qué parte** desea mover, en **qué dirección** y con **qué velocidad**, ¡y CENOS hará el resto!
 
 <p align="center">
 
@@ -27,9 +27,9 @@ Select the **type of motion**, **which part** you want to move, in **which direc
 
 </p>
 
-## Types of Motion
+## Tipos de movimiento
 
-When defining *Motion*, you will notice that there are 2 options to choose from - **Simple Motion** and **Complex Motion**.
+Cuando defina *movimiento*, notará que hay 2 opciones para elegir - **Movimiento simple** y **Movimiento complejo**.
 
 <p align="center">
 
@@ -37,9 +37,9 @@ When defining *Motion*, you will notice that there are 2 options to choose from 
 
 </p>
 
-### Simple Motion
+### Movimiento simple
 
-This option allows you to simulate motion for **axially symmetrical** or **continuous** workpieces.
+Esta opción le permite simular el movimiento para piezas **axialmente simétricas** o **continuas**.
 
 <p align="center">
 
@@ -47,7 +47,7 @@ This option allows you to simulate motion for **axially symmetrical** or **conti
 
 </p>
 
-Some examples would include:
+Algunos ejemplos serían:
 
 <p align="center">
 
@@ -55,15 +55,17 @@ Some examples would include:
 
 </p>
 
-As you can see, *Simple Motion* can be **applied to systems where it can be assumed that the geometry is not moving**. This can be very useful for completely symmetrical part rotation or modelling of continuous feed of material through the system.
+Como puede ver, el *movimiento simple* puede **aplicarse a sistemas en los que puede suponerse que la geometría no se mueve**. Esto puede ser muy útil para la rotación de piezas completamente simétricas o el modelado de la alimentación continua de material a través del sistema.
 
-:::note
-Use *Simple Motion* if it is possible, as it calculates **a lot faster than** ***Complex Motion***.
+:::note Nota
+
+Utilice *movimiento simple* si es posible, ya que calcula **mucho más rápido** que el **movimiento complejo**.
+
 :::
 
-### Complex Motion
+### Movimiento complejo
 
-If *Simple Motion* is not applicable to your case, you need to use *Complex Motion*.
+Si el *movimiento simple* no es aplicable a su caso, debe utilizar *movimiento complejo*.
 
 <p align="center">
 
@@ -71,7 +73,7 @@ If *Simple Motion* is not applicable to your case, you need to use *Complex Moti
 
 </p>
 
-For parts with splines, teeth, holes, gaps and other kinds on unsymmetrical details an actual motion needs to be simulated. *Complex Motion* enables you to move the respective parts in your system.
+Para piezas con ranuras, dientes, agujeros, huecos y otros tipos de detalles asimétricos, es necesario simular un movimiento real. El *movimiento complejo* le permite mover las piezas correspondientes en su sistema.
 
 <p align="center">
 
@@ -79,17 +81,19 @@ For parts with splines, teeth, holes, gaps and other kinds on unsymmetrical deta
 
 </p>
 
-:::note
-Make sure that the calculation **time step is small enough to capture the rotation smoothly**! No more than 30 deg turn in one time step!
+:::note Nota
+
+¡Asegúrese de que el **paso de tiempo de cálculo es lo suficientemente pequeño como para capturar la rotación suavemente**! ¡No más de 30 grados de giro en un paso de tiempo!
+
 :::
 
-## Limitations
+## Limitaciones
 
-Even though the Movement definition is easy to use, there are still some **things to keep in mind when defining movement** in CENOS.
+Aunque la definición de *movimiento* es fácil de usar, hay **algunas cosas que hay que tener en cuenta al definir el movimiento** en CENOS.
 
-### Rotation axis
+### Eje de rotación
 
-Rotation currently is limited only around the Z axis, so be sure that your rotational system is **positioned around the Z axis**!
+¡La rotación actualmente está limitada sólo alrededor del eje Z, así que asegúrese de que su sistema de rotación está **posicionado alrededor del eje Z**!
 
 <p align="center">
 

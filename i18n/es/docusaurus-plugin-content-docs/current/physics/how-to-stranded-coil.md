@@ -1,13 +1,13 @@
 ---
 id: stranded-coil
-title: Stranded coil/Litz wire
-sidebar_label: Stranded Coil/Litz wire
+title: Bobina trenzada/Hilo de Litz
+sidebar_label: Bobina trenzada/Hilo de Litz
 sidebar_position: 1
 ---
 
-Many different coils and inductors are used in induction heating process, one of them being stranded coil. Stranded coil refers to a **coil consisting of many fine turns of conducting wires**.
+En el proceso de calentamiento por inducción se utilizan muchas bobinas e inductores diferentes, uno de los cuales es la bobina trenzada. Por bobina trenzada se entiende una **bobina formada por muchas vueltas finas de alambres conductores**.
 
-Electromagnetic analysis of a stranded coil can be complicated, because the geometry of the coil is complex. CENOS gives you the advantage of **defining a solid coil as stranded** through a specific domain type, and ease the simulation of it to a minimum. CENOS allows you to define and simulate a specific stranded coil type, called **Litz wire**.
+El análisis electromagnético de una bobina trenzada puede ser complicado, porque la geometría de la bobina es compleja. CENOS le ofrece la ventaja de **definir una bobina sólida como trenzada** mediante un tipo de dominio específico, y facilitar la simulación de la misma al mínimo. CENOS le permite definir y simular un tipo específico de bobina trenzada, denominada **hilo Litz**.
 
 <p align="center">
 
@@ -16,13 +16,17 @@ Electromagnetic analysis of a stranded coil can be complicated, because the geom
 
 </p>
 
-## When to use Stranded Coil domain?
+## ¿Cuándo utilizar el dominio de bobina trenzada?
 
-*Stranded Coil domain* type can be used in **2D and 3D simulations** of stranded coils where the **count of strands is too high to efficiently resolve them through geometry**.
+El tipo de dominio *Bobina Trnzada - Stranded Coil* puede utilizarse en **simulaciones 2D y 3D** de bobinas trenzadas en las que el **número de trenzados es demasiado alto para resolverlos eficientemente a través de la geometría**.
 
-With *Stranded Coil domain* type definition you can not only **decrease the mesh element count and calculation time** of your simulation, but also **ease the geometry creation process**,by creating a solid coil and defining it as stranded, without the need to manually create each strand.
+Con la definición del tipo *dominio de bobina trenzada* no sólo puede **reducir el número de elementos de malla y el tiempo de cálculo** de su simulación, sino también **facilitar el proceso de creación de geometría**, creando una bobina sólida y definiéndola como trenzada, sin necesidad de crear manualmente cada filamento.
 
-**IMPORTANT**: Simply **replace the stranded coil with an equivalent size cross-section shape**, define it as *Stranded Coil Source* and calculate!
+:::info Importante
+
+Basta con **sustituir la bobina trenzada por una forma de sección transversal de tamaño equivalente**, definirla como *fuente de bobina trenzada* y ¡calcular!
+
+:::
 
 <p align="center">
 
@@ -30,9 +34,9 @@ With *Stranded Coil domain* type definition you can not only **decrease the mesh
 
 </p>
 
-## How to use Stranded Coil?
+## ¿Cómo utilizar una bobina trenzada?
 
-You can easily access *Stranded Coil Source* domain under *Domain type* dropdown menu.
+Puede acceder fácilmente al dominio *Stranded Coil Source* en el menú desplegable de *tipo de dominio*.
 
 <p align="center">
 
@@ -40,7 +44,7 @@ You can easily access *Stranded Coil Source* domain under *Domain type* dropdown
 
 </p>
 
-When *Stranded Coil Source* has been selected, *Domain properties* will appear, consisting of 4 parameters - *Current (Amplitude)* or *Voltage* (only for 2D), *Number of turns*, *Fill Factor* and *Cross section area* (specific to 3D definitions only).
+Cuando se ha seleccionado *Stranded Coil Source*, aparecerán las  *propiedades de dominio*, que constan de 4 parámetros - *Corriente (Amplitud)* o *Voltaje* (sólo para 2D), *Número de vueltas*, *Factor de llenado* y *Área de sección transversal* (específico sólo para definiciones 3D).
 
 <p align="center">
 
@@ -48,9 +52,9 @@ When *Stranded Coil Source* has been selected, *Domain properties* will appear, 
 
 </p>
 
-*Number of turns*, *Fill Factor* and *Cross section area* are stranded-specific parameters, which are used to **define the geometrical distribution of strands over the solid inductor**.
+*Número de vueltas*, *Factor de llenado* y *Área de sección transversal* son parámetros específicos de los filamentos, que se utilizan para **definir la distribución geométrica de los filamentos sobre el inductor sólido**.
 
-If you want to simulate *Litz wire* inductor, simply check the *Litz wire* check box.
+Si desea simular un inductor con *alambre Litz*, simplemente marque la casilla *Litz wire*.
 
 <p align="center">
 
@@ -58,13 +62,13 @@ If you want to simulate *Litz wire* inductor, simply check the *Litz wire* check
 
 </p>
 
-### Current
+### Corriente
 
-Current definition depends on the stranded coil type you are using. 
+La definición de corriente depende del tipo de bobina trenzada que esté utilizando. 
 
-The current you define when using only *Stranded Current Source* domain type is **current in one strand**.
+La corriente que defina cuando utilice sólo el tipo de dominio *Fuente de Corriente Trenzada* es **corriente en una hebra**.
 
-+ **Example**: If you want to switch from a solid inductor with 1000 A current to a *simple stranded coil* with 10 strands and total current of 1000 A, then you need to enter 100 A in *Current (Amplitude)* box.
++ **Ejemplo**: Si desea cambiar de un inductor sólido con una corriente de 1000 A a una *bobina trenzada simple* con 10 hilos y una corriente total de 1000 A, deberá introducir 100 A en la casilla *Current (Amplitude)*.
 
 <p align="center">
 
@@ -72,9 +76,9 @@ The current you define when using only *Stranded Current Source* domain type is 
 
 </p>
 
-If you have checked the **Litz wire** check box, then the **total current  will be equal with the current in each strand**, as the strands are connected together in the ends.
+Si ha marcado la casilla **Litz wire**, entonces la **corriente total será igual a la corriente en cada filamento**, ya que los filamentos están conectados entre sí en los extremos.
 
-+ **Example**: If you want to switch from a solid inductor with 1000 A current to a *Litz wire* with 10 strands and total current of 1000 A, then you need to enter 1000 A in *Current (Amplitude)* box.
++ **Ejemplo**: Si desea pasar de un inductor sólido con una corriente de 1000 A a un *hilo Litz* con 10 filamentos y una corriente total de 1000 A, entonces deberá introducir 1000 A en la casilla *Current (Amplitude)*.
 
 <p align="center">
 
@@ -82,17 +86,17 @@ If you have checked the **Litz wire** check box, then the **total current  will 
 
 </p>
 
-When reviewing the results inside the .cvs file generated by Cenos.
+Al revisar los resultados dentro del archivo .cvs generado por Cenos.
 
-**For stranded coil**: 
-You will see the results for each strand (current, resistance, etc)
+**Para bobina trenzada**: 
+Verá los resultados para cada filamento (corriente, resistencia, etc)
 
-**For litz wire**:
-You will see the results for the whole inductor. 
+**Para alambre Litz**:
+Verá los resultados de todo el inductor.
 
-### Number of turns
+### Número de vueltas
 
-Each strand of a stranded coil is called a turn. With *Number of turns* you define **how many strands** your coil has.
+Cada filamento de una bobina se denomina vuelta. Con *Número de vueltas* define **cuántas hebras** tiene su bobina.
 
 <p align="center">
 
@@ -100,13 +104,13 @@ Each strand of a stranded coil is called a turn. With *Number of turns* you defi
 
 </p>
 
-### Fill Factor/Cross section area
+### Factor de llenado/Área de sección transversal
 
-*Fill Factor* defines **how much of the solid inductor area is occupied by strands**.
+*El Factor de Llenado* define **qué parte del área sólida del inductor está ocupada por filamentos**.
 
-*Cross section area* defines the **total area occupied by strands**.
+*El Área de Sección Transversal define el área total ocupada por los filamentos.
 
-For example, if you define a 10x10 mm square as *Stranded Coil Source* (area in blue) with 1 turn and a radius of 5 mm, the *Fill factor* and *Cross section area* (area in green) could be calculated as follows:
+Por ejemplo, si se define un cuadrado de 10x10 mm como *fuente de bobina trenzada* (área en azul) con 1 vuelta y un radio de 5 mm, el *factor de llenado* y el *área de sección transversal* (área en verde) podrían calcularse como sigue:
 
 <p align="center">
 
@@ -114,11 +118,15 @@ For example, if you define a 10x10 mm square as *Stranded Coil Source* (area in 
 
 </p>
 
-### Mesh
+### Malla
 
-*Stranded Coil Source* domain allows not only to simplify the geometry, but to save on element count as well. If you are using *Stranded Coil Source* domain, **you don't need to resolute the skin layer** which you would if you would use simple *Current Source* domain. 
+El dominio *fuente de bobina trenzada* permite no sólo simplificar la geometría, sino también ahorrar en el número de elementos. Si utilizas este dominio, **no necesitas resolver la capa de piel** como harías si utilizaras el dominio simple *Current Source*. 
 
-**IMPORTANT**: Make sure that the mesh in *Stranded Coil Source* domain is uniform!
+:::caution Importante
+
+¡Asegúrese de que la malla en el dominio *Fuente de bobina trenzada* sea uniforme!
+
+:::
 
 <p align="center">
 

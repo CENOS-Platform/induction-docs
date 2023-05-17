@@ -1,25 +1,27 @@
 ---
 id: symmetry
-title: Symmetry Boundary Conditions
-sidebar_label: Symmetry
+title: Simetría en Condiciones de Frontera
+sidebar_label: Simetría
 sidebar_position: 8
 ---
 
-With CENOS it is possible to simulate a symmetrical part of an object (half, quarter, slice, etc.), which gives valid results that can be mirrored to represent the whole geometry, but in the same time significantly decreases the calculation time.
+Con CENOS es posible simular una parte simétrica de un objeto (mitad, cuarto, rebanada, etc.), lo que da resultados válidos que pueden reflejarse para representar toda la geometría, pero al mismo tiempo disminuye significativamente el tiempo de cálculo.
 
-To take into account the symmetry of the object and set up the simulation properly, symmetry boundary conditions (BC) are used, through which the position of magnetic field lines in respect to symmetry planes are defined.
+Para tener en cuenta la simetría del objeto y configurar correctamente la simulación, se utiliza simetría en condiciones de contorno (CC), mediante las cuales se define la posición de las líneas de campo magnético con respecto a los planos de simetría.
 
-:::important
-Symmetry planes are defined as parallel or normal in respect to the magnetic field created by the inductor - if the inductor is unconventionally placed, the definitions of these planes may change.
+:::info Importante
+
+Los planos de simetría se definen como paralelos o normales con respecto al campo magnético creado por el inductor - si el inductor se coloca de forma no convencional, las definiciones de estos planos pueden cambiar.
+
 :::
 
-**Symmetry conditions should be defined for every domain** in the simulation, e.g. not only for the workpiece slice, but for the air and flux concentrator domains as well!
+**Las condiciones de simetría deben definirse para cada dominio** de la simulación, por ejemplo, no sólo para el corte de la pieza, sino también para los dominios del aire y del concentrador de flujo.
 
-## Symmetry boundary conditions
+## Simetría de condiciones de borde
 
-When a current is flowing through a wire, it creates a magnetic field around it, with magnetic field moving around the current flow direction.
+Cuando una corriente fluye a través de un alambre, crea un campo magnético a su alrededor, con el campo magnético moviéndose alrededor de la dirección del flujo de corriente.
 
-In induction heating when complex inductors are used and an object is placed within this magnetic field, some **faces of the object are parallel to the magnetic field lines, while other are normal to them**.
+En el calentamiento por inducción, cuando se utilizan inductores complejos y se coloca un objeto dentro de este campo magnético, algunas **caras del objeto son paralelas a las líneas de campo magnético, mientras que otras son normales a ellas**.
 
 <p align="center">
 
@@ -27,15 +29,15 @@ In induction heating when complex inductors are used and an object is placed wit
 
 </p>
 
-By knowing how the magnetic field lines are positioned, we can understand their position in respect to different surfaces or boundaries of our geometry.
+Conociendo la posición de las líneas de campo magnético, podemos comprender su posición con respecto a diferentes superficies o límites de nuestra geometría.
 
-Based on this fact, two symmetry boundary conditions are introduced - *Flux Parallel* and *Flux Normal*.
+Basándonos en este hecho, se introducen dos condiciones de contorno de simetría - *Flujo Paralelo* y *Flujo Normal*.
 
-### Flux parallel
+### Flujo paralelo
 
-Flux parallel BC defines that the **magnetic field lines are parallel to the surface**, meaning that these lines do not cross the plane.
+Las condiciones de borde de flujo paralelo define que las **líneas de campo magnético son paralelas a la superficie**, lo que significa que estas líneas no cruzan el plano.
 
-In this example a straight inductor is generating a magnetic field, which lines are positioned parallel to a plane and are going along the side of it.
+En este ejemplo un inductor recto está generando un campo magnético, cuyas líneas se sitúan paralelas a un plano y van por el lado de éste.
 
 <p align="center">
 
@@ -43,11 +45,11 @@ In this example a straight inductor is generating a magnetic field, which lines 
 
 </p>
 
-### Flux normal
+### Flujo normal
 
-Flux normal BC defines that the **magnetic field lines are normal to the surface**, meaning that they go directly through the plane.
+Las condiciones de contorno de flujo normal define que las **líneas de campo magnético son normales a la superficie**, lo que significa que pasan directamente por el plano.
 
-In this example a straight inductor is generating a magnetic field, which lines are positioned normal to a plane and are going straight through it.
+En este ejemplo, un inductor recto está generando un campo magnético cuyas líneas se sitúan normales a un plano y lo atraviesan directamente.
 
 <p align="center">
 
@@ -55,24 +57,28 @@ In this example a straight inductor is generating a magnetic field, which lines 
 
 </p>
 
-## Use of Symmetry BC
+## Uso de simetría en BC
 
-Symmetry BC are used to simulate only a small part of the whole geometry, significantly decreasing the calculation time while producing the same accurate results as full geometry cases.
+La simetría en BC se utiliza para simular sólo una pequeña parte de la geometría completa, disminuyendo significativamente el tiempo de cálculo y produciendo los mismos resultados precisos que los casos de geometría completa.
 
-In the next examples we will **demonstrate the outer boundary definitions for different symmetry cases**.
+En los siguientes ejemplos **demostraremos las definiciones de los límites exteriores para diferentes casos de simetría**.
 
-:::important
-The only difference in physics setup for symmetry cases are the additional boundary conditions on the symmetry planes - the rest remains the same!
+:::info Importante
+
+La única diferencia en la configuración física para los casos de simetría son las condiciones de contorno adicionales en los planos de simetría - ¡el resto permanece igual!
+
 :::
 
-### Half
+### Mitad
 
-Most of the induction heating systems are at some level symmetrical and **can be sliced in half while preserving the accuracy of the results**.
+La mayoría de los sistemas de calentamiento por inducción son en cierto grado simétricos y **pueden cortarse por la mitad conservando la precisión de los resultados**.
 
-In this example we will look at a simple multiwinding coil and a cylindrical billet system. For full system on the outer boundaries we define ***Current (Amplitude)*** and ***Ground*** on the terminals, and the outer air faces with ***Infinity***.
+En este ejemplo veremos una simple bobina de devanado múltiple y un sistema de palanquilla cilíndrica. Para el sistema completo en los límites exteriores definimos ***Corriente (Amplitud)*** y ***Tierra*** en los terminales, y las caras exteriores al aire con ***Infinito***.
 
-:::Important
-Notice how the same boundary condition (*Flux parallel*) is differently colored on differend domain surfaces - **you need to define symmetry BC's separately for each domain**!
+:::info Importante
+
+Observa como la misma condición de contorno (*Flujo paralelo*) es coloreada de forma diferente en superficies de dominios diferentes - **¡necesita definir la simetría de las condiciones de borde separadamente para cada dominio**!
+
 :::
 
 <p align="center">
@@ -81,9 +87,9 @@ Notice how the same boundary condition (*Flux parallel*) is differently colored 
 
 </p>
 
-If we cut the geometry in half, we need additional boundary conditions to define the symmetry cut. We need to define the new symmetry planes for air and workpiece with ***Flux parallel***, and for each half of the winding we need to create new terminals, on which we will define ***Current (Amplitude)*** and ***Ground***.
+Si cortamos la geometría por la mitad, necesitamos condiciones de contorno adicionales para definir el corte de simetría. Necesitamos definir los nuevos planos de simetría para el aire y la pieza con ***Flujo paralelo***, y para cada mitad del bobinado necesitamos crear nuevos terminales, en los que definiremos ***Corriente (Amplitud)*** y ***Tierra***.
 
-Symmetry boundary condition for this case is ***Flux parallel***, because the inductor parts which go into the plane creates a magnetic field parallel to these planes.
+La condición de contorno de la simetría para este caso es ***Flujo paralelo***, porque las partes del inductor que entran en el plano crean un campo magnético paralelo a estos planos.
 
 <p align="center">
 
@@ -91,15 +97,15 @@ Symmetry boundary condition for this case is ***Flux parallel***, because the in
 
 </p>
 
-### Quarter
+### Cuarto
 
-You can use the symmetry of your geometry even more and simulate not half, but a **quarter** of your system.
+Puedes utilizar la simetría de tu geometría aún más y simular no la mitad, sino un **cuarto** de tu sistema.
 
-We will use the same geometry as we did for the half symmetry example, but this time we will set up only quarter of it.
+Utilizaremos la misma geometría que en el ejemplo de media simetría, pero esta vez sólo simularemos una cuarta parte.
 
-The boundary conditions used are exactly the same as for half symmetry - define the symmetry planes for air and workpiece with ***Flux parallel***, and for each quarter of the winding we need to create new terminals, on which we will define ***Current (Amplitude)*** and ***Ground***.
+Las condiciones de contorno utilizadas son exactamente las mismas que para media simetría - definir los planos de simetría para el aire y la pieza de trabajo con ***Flujo paralelo***, y para cada cuarto del bobinado necesitamos crear nuevos terminales, en los que definiremos ***Corriente (Amplitud)*** y ***Tierra***.
 
-Symmetry boundary condition on both symmetry planes are ***Flux parallel***, because the inductor quarters which go into the plane creates a magnetic field parallel to both symmetry planes.
+La condición de contorno de simetría en ambos planos de simetría es ***Flujo paralelo***, porque los cuartos del inductor que entran en el plano crean un campo magnético paralelo a ambos planos de simetría.
 
 <p align="center">
 
@@ -107,11 +113,11 @@ Symmetry boundary condition on both symmetry planes are ***Flux parallel***, bec
 
 </p>
 
-### Slice
+### Porción
 
-For geometries with some level of axial symmetry you can simulate only a **slice**.  
+Para geometrías con cierto nivel de simetría axial puede simular sólo un **corte**.  
 
-In the example below a half slice of the gear tooth has been cut out, and symmetry conditions need to be used not only for parallel, but for normal symmetry as well (notice that the **slice is only a part of the full system height**).
+En el ejemplo de abajo se ha cortado media rebanada del diente del engranaje, y las condiciones de simetría deben utilizarse no sólo para la simetría paralela, sino también para la normal (observe que la **rebanada es sólo una parte de la altura total del sistema**).
 
 <p align="center">
 
@@ -119,12 +125,14 @@ In the example below a half slice of the gear tooth has been cut out, and symmet
 
 </p>
 
-Parallel symmetry BC's are exactly the same as in the previous examples - define the symmetry planes for air and workpiece with ***Flux parallel***, and for inductor slice create terminals, on which to define ***Current (Amplitude)*** and ***Ground***.
+Las CC de simetría paralela son exactamente las mismas que en los ejemplos anteriores - definir los planos de simetría para el aire y la pieza con ***Flux paralelo***, y para la rebanada del inductor crear terminales, en los que hay que definir ***Corriente (Amplitud)*** y ***Tierra***.
 
-We also need to define the normal symmetry (part of the full height of the system), which is why for inductor, air and workpiece top and bottom faces ***Flux normal*** is defined.
+También necesitamos definir la simetría normal (parte de la altura completa del sistema), por lo que para las caras superior e inferior del inductor, el aire y la pieza de trabajo se define ***Flujo normal***.
 
-:::important
-If the inductor is sliced and only a part of the full height is simulated, the current value should be decreased respectively, e.g. if only half of the full conductor height is simulated, the current should be decreased by half.
+:::info Importante
+
+Si el inductor es cortado y sólo se simula una parte de la altura completa, el valor de la corriente debe disminuirse respectivamente, por ejemplo, si sólo se simula la mitad de la altura completa del conductor, la corriente debe disminuirse a la mitad.
+
 :::
 
 <p align="center">
@@ -133,37 +141,42 @@ If the inductor is sliced and only a part of the full height is simulated, the c
 
 </p>
 
-## Limitations
 
-Symmetry usage for case optimization is very useful, but there are some things to keep in mind when creating simulations with symmetry.
+## Limitaciones
 
-### Separate windings
+El uso de la simetría para la optimización de casos es muy útil, pero hay algunas cosas a tener en cuenta cuando se crean simulaciones con simetría.
 
-For simulations with full geometries you have one inductor volume, for which you define two terminals. If you are slicing this inductor in half or in smaller parts to use symmetry, remember that you need to **define each inductor volume (windings) separately** and **create two terminals and set current on each of them**.
+### Devanados separados
+
+Para simulaciones con geometrías completas tiene un volumen inductor, para el que define dos terminales. Si corta este inductor por la mitad o en partes más pequeñas para utilizar la simetría, recuerde que necesita **definir cada volumen inductor (bobinados) por separado** y **crear dos terminales y establecer la corriente en cada uno de ellos**.
 
 <p align="center">
 
 ![Flux parallel](assets/symmetry/9.png)
 
 </p>
-:::Important
 
-For voltage control input, if you have the full applied voltage value ( let's say 1000v ) and have sliced the inductor into 5x loops, then the voltage in each of these loops will be full voltage / number of loops
+::: info Importante
+
+Para la entrada de control de voltaje, si tiene el valor de voltaje aplicado completo (digamos 1000v) y has cortado el inductor en 5x bucles, entonces el voltaje en cada uno de estos bucles será el voltaje completo / número de bucles
 
 exmple= 1000 / 5 = 200 volts.
 
-You have to apply also the slice angle to this equation.
+También hay que aplicar el ángulo de corte a esta ecuación.
 
-For example we have a 180 degree slice,  180 degree slice means we have to divide this voltage-per-loop by 2.
-Meaning 200 / 2 = 100 volts as the input for each loop.
-In physics, also input the "Slice" angle of 180 degrees, this will mainly make sure the power calculated should be as expected.
+Por ejemplo, tenemos una rebanada de 180 grados, rebanada de 180 grados significa que tenemos que dividir esta tensión por bucle por 2.
+Es decir, 200 / 2 = 100 voltios como entrada para cada bucle.
+En física, introduzca también el ángulo "Slice" de 180 grados, esto asegurará principalmente que la potencia calculada sea la esperada.
+
 :::
 
-### Rotation
+### Rotación
 
-If you want to simulate **rotation using Complex Motion**, *Symmetry Boundary Conditions* **cannot be applied** and you will need to calculate a case with full geometry.
+Si quiere simular **rotación usando Movimiento Complejo**, las *Condiciones Límite de Simetría* **no se pueden aplicar** y tendrá que calcular un caso con geometría completa.
 
-:::note
-*for training review our webinar*:
+:::note Nota 
+
+*para capacitación revise nuestro seminario web*:
 https://www.youtube.com/watch?v=YKKJyNz-OPg
+
 :::

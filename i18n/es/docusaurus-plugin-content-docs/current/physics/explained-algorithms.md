@@ -1,17 +1,17 @@
 ---
 id: algorithms
-title: Computation algorithms
-sidebar_label: Computation algorithms
+title: Algoritmos de cálculo
+sidebar_label: Algoritmos de cálculo
 sidebar_position: 4
 ---
 
-When setting up a simulation in CENOS, you will see in SIMULATION CONTROL that you are given a **choice of selecting computation algorithm**.
+Al configurar una simulación en CENOS, verá en la sección de CONTROL DE SIMULACIÓN que se le da la **opción de seleccionar el algoritmo de cálculo**.
 
-In this article we will take a look behind the computation algorithms, **understand their differences** and find out **in which situations to use which algorithm**.
+En este artículo echaremos un vistazo a los algoritmos de cálculo, **comprenderemos sus diferencias** y descubriremos **en qué situaciones utilizar cada algoritmo**.
 
-## Fast
+## Rápido
 
-The Fast algorithm (also weak coupling, one way coupling) **calculates electromagnetic sources once and apply them to the thermal model**. Reverse interaction (change of electromagnetic properties due to heating) is not taken into account.
+El algoritmo Rápido (también acoplamiento débil, acoplamiento unidireccional) **calcula las fuentes electromagnéticas una vez y las aplica al modelo térmico**. La interacción inversa (cambio de las propiedades electromagnéticas debido al calentamiento) no se tiene en cuenta.
 
 <p align="center">
 
@@ -19,11 +19,13 @@ The Fast algorithm (also weak coupling, one way coupling) **calculates electroma
 
 </p>
 
-:::important
-The fast algorithm gives good results if the **time step is small** compared to the heating rate.
+:::info Información
+
+El algoritmo rápido da buenos resultados si el **paso de tiempo es pequeño** en comparación con la velocidad de calentamiento.
+
 :::
 
-Schematic of the calculation with **Fast**:
+Esquema de cálculo con **algoritmo Rápido**:
 
 <p align="center">
 
@@ -31,8 +33,9 @@ Schematic of the calculation with **Fast**:
 
 </p>
 
-## Accurate
-The accurate algorithm uses two-way coupling - **electromagnetic sources are recalculated according to the temperature field** until convergence is reached.
+## Preciso
+
+El algoritmo Preciso utiliza el acoplamiento bidireccional - **las fuentes electromagnéticas se recalculan en función del campo de temperatura** hasta que se alcanza la convergencia.
 
 <p align="center">
 
@@ -40,11 +43,13 @@ The accurate algorithm uses two-way coupling - **electromagnetic sources are rec
 
 </p>
 
-:::important
-The accurate algorithm gives **very precise results** with rougher time step size and is important for highly nonlinear problems.
+:::info Información
+
+El algoritmo de Precisión proporciona **resultados muy precisos** con un tamaño de paso de tiempo más aproximado y es importante para problemas altamente no lineales.
+
 :::
 
-Schematic of the calculation with **Accurate**:
+Esquema de cálculo con **algoritmo Preciso**:
 
 <p align="center">
 
@@ -52,13 +57,13 @@ Schematic of the calculation with **Accurate**:
 
 </p>
 
-## Automatic
+## Automático
 
-Automatic algorithm switches between **Fast** and **Accurate** according to user input:
+El algoritmo Automático cambia entre **rápido** y **preciso** en función de los datos introducidos por el usuario:
 
-* **Fast if** materials have constant permeability and electrical conductivity;
+* **Rápido si** los materiales tienen permeabilidad y conductividad eléctrica constantes;
 
-* **Accurate if** materials have nonlinear magnetic properties ([**B-H model**](/physics/magnetic-properties#treatment-of-non-linear-magnetic-properties-in-harmonic-ac-simulation) and/or [**temperature dependence**](/physics/magnetic-properties#temperature-dependence-of-magnetic-properties)) and temperature dependent electrical conductivity.
+* **Preciso si** los materiales tienen propiedades magnéticas no lineales ([**modelo B-H**](/physics/magnetic-properties#treatment-of-non-linear-magnetic-properties-in-harmonic-ac-simulation) y/o [**dependencia de la temperatura**](/physics/magnetic-properties#temperature-dependence-of-magnetic-properties)) y conductividad eléctrica dependiente de la temperatura.
 
 <p align="center">
 

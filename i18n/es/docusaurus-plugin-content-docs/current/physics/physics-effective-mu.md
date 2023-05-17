@@ -1,31 +1,31 @@
 ---
 id: effective-mu
-title: How to estimate effective permeability (μ)
-sidebar_label: Estimate effective μ
+title: Cómo estimar la permeabilidad efectiva (μ)
+sidebar_label: Estimación efectiva de μ
 sidebar_position: 13
 ---
 
-Correct material definitions within CENOS are critical for good results. One such definition is the B(H) curve, which is needed to accurately simulate the materials response to the electromagnetic field. However, the **B(H) curve increases the calculation time significantly**, hence it is not so effective to use during the first design iterations.
+Las definiciones correctas de los materiales en CENOS son críticas para obtener buenos resultados. Una de estas definiciones es la curva B(H), necesaria para simular con precisión la respuesta de los materiales al campo electromagnético. Sin embargo, la **curva B(H) aumenta el tiempo de cálculo significativamente**, por lo que no es tan eficaz utilizarla durante las primeras iteraciones de diseño.
 
-For this reason it is possible to **replace the B(H) definition with a constant permeability** value, which provides the same results, but in much **shorter period of time**.
+Por este motivo, es posible **sustituir la definición de B(H) por un valor de permeabilidad constante**, que proporciona los mismos resultados, pero en mucho **menos tiempo**.
 
-In this article we will take a look at **how to estimate the correct permeability value** to use instead of a full B(H) curve.
+En este artículo veremos **cómo estimar el valor correcto de permeabilidad** para utilizarlo en lugar de una curva B(H) completa.
 
-## How to find the effective μ value?
+## ¿Cómo encontrar el valor de μ efectiva?
 
-Effective permeability can be estimated by finding the maximum electric field in the workpiece. This can be done within the simulation you already have, or you can make a simplified version of your system (through symmetry, for example) to make the estimation faster.
+La permeabilidad efectiva se puede estimar encontrando el campo eléctrico máximo en la pieza de trabajo. Esto se puede hacer dentro de la simulación que ya tiene, o usted puede hacer una versión simplificada de su sistema (a través de la simetría, por ejemplo) para hacer la estimación más rápida.
 
-There are two approaches to find maximum electric field H value  - with and without initial B(H) calculation.
+Hay dos enfoques para encontrar el valor máximo del campo eléctrico H - con y sin cálculo inicial B(H).
 
-## Effective μ from B(H) calculation
+## μ efectiva a partir del cálculo de B(H)
 
-This approach nedds an initial simulation calculation with full B(H) material definition. The B(H) calculation will take **more time**, but in the end the μ estimation will be **more precise**.
+Este enfoque requiere un cálculo de simulación inicial con la definición completa del material B(H). El cálculo de B(H) llevará **más tiempo**, pero al final la estimación de μ será **más precisa**.
 
-### 1) Calculate the initial case with B(H)
+### 1) Calcular el caso inicial con B(H)
 
-Run one purely electromagnetic simulation of your system, **without thermal analysis** to decrease the calculation time.
+Realice una simulación puramente electromagnética de su sistema, **sin análisis térmico** para reducir el tiempo de cálculo.
 
-Make sure that for this test calculation you have the **B(H) curve enabled** for the part material, the **power settings are accurate**, and **µ field calculation is checked** in the results (to access result settings, click on the **gear icon** under *Results* block)!
+Asegúrese de que para este cálculo de prueba tiene activada la **curva B(H)** para el material de la pieza, los **ajustes de potencia son precisos** y el **cálculo del campo µ está marcado** en los resultados (para acceder a los ajustes de resultados, haga clic en el **icono de engranaje** bajo el bloque de *Resultados*).
 
 <p align="center">
 
@@ -35,11 +35,11 @@ Make sure that for this test calculation you have the **B(H) curve enabled** for
 
 </p>
 
-### 2) Calculate maximum electrical field H value
+### 2) Calcular el valor máximo del campo magnético H
 
-Calculate the magnetic field strength through $ H = \frac{B}{μ μ_0}$  where
+Calcular la intensidad del campo magnético a través de $H = \frac{B}{μ μ_0}$ donde
 
-- $B$ – **Largest** magnetic field value within workpiece domain
+- $B$ - **Mayor** valor del campo magnético dentro del dominio de la pieza.
 
 <p align="center">
 
@@ -47,7 +47,7 @@ Calculate the magnetic field strength through $ H = \frac{B}{μ μ_0}$  where
 
 </p>
 
-- $μ$ - **Lowest** permeability value on the workpiece surface from results
+- $μ$ - **Valor de permeabilidad más bajo** en la superficie de la pieza de trabajo a partir de los resultados.
 
 <p align="center">
 
@@ -57,15 +57,15 @@ Calculate the magnetic field strength through $ H = \frac{B}{μ μ_0}$  where
 
 - $μ_0 = 12.57×10^{-7}$ [H/m]
 
-For this example:
+Para este ejemplo:
 
 $H = \frac{3.93}{8×12.57×10^{-7}} = 390811 A/m$
 
-### 3) Plot μ(H)
+### 3) Graficar μ(H)
 
-Now you need to make a µ(H) plot. Do that by first copying the B(H) definition from CENOS material properties and pasting it in *MS Excel* (or anywhere else).
+Ahora necesita hacer un gráfico de µ(H). Para ello, primero copie la definición de B(H) de las propiedades de material de CENOS y péguela en *MS Excel* (o en cualquier otro sitio).
 
-**AISI 1045** B(H) curve is used in the example.
+**En el ejemplo se utiliza la curva B(H) de AISI 1045**.
 
 <p align="center">
 
@@ -73,13 +73,13 @@ Now you need to make a µ(H) plot. Do that by first copying the B(H) definition 
 
 </p>
 
-Convert the B(H) curve to µ(H) through 
+Convertir la curva B(H) a µ(H) mediante
 
 $µ = \frac{B}{H μ_0}$
 
-(take the necessary values from the calculation done previously).
+(tomar los valores necesarios del cálculo realizado anteriormente).
 
-For this example we get such *μ(H)* graph:
+Para este ejemplo obtenemos tal gráfico *μ(H)*:
 
 <p align="center">
 
@@ -87,13 +87,13 @@ For this example we get such *μ(H)* graph:
 
 </p>
 
-As you can see, two graphs are visualised. The **upper one** is to show how the **permeability changes at very low H field values** - it increases and then decreases in a smooth curve.
+Como se puede ver, se visualizan dos gráficos. El **superior** muestra cómo cambia la **permeabilidad a valores de campo H muy bajos**: aumenta y luego disminuye en una curva suave.
 
-In the **lower graph**, where the **whole H range is visualized**, this initial permeability change is shown only as a spike, which is why in the full plot we cannot see the curve so clearly.
+En el **gráfico inferior**, donde se visualiza **todo el rango H**, este cambio de permeabilidad inicial se muestra sólo como un pico, por lo que en el gráfico completo no podemos ver la curva con tanta claridad.
 
-### 4) Read the effective μ from μ(H) plot
+### 4) Leer la μ efectiva a partir del gráfico μ(H)
 
-Once the μ(H) plot is visualized, you can read the effectve μ value corresponding to the max H value.
+Una vez visualizado el gráfico μ(H), puede leer el valor μ efectivo correspondiente al valor H máximo.
 
 <p align="center">
 
@@ -101,23 +101,23 @@ Once the μ(H) plot is visualized, you can read the effectve μ value correspond
 
 </p>
 
-In this example the estimated effective permeability value is 6.
+En este ejemplo, el valor estimado de permeabilidad efectiva es 6.
 
-### 5) Test the estimated effective μ
+### 5) Probar la μ efectiva estimada
 
-Once you have estimated the effective µ, replace the B(H) curve with it in the CENOS material definition. Run the simulation with the new µ value (adjust the power if necessary).
+Una vez que haya estimado la µ efectiva, sustituya la curva B(H) por ella en la definición del material CENOS. Ejecute la simulación con el nuevo valor de µ (ajuste la potencia si es necesario).
 
-**If the result does not exactly match** the one which you got with the full B(H) curve, **increase or decrease the µ value** and calculate some iterations until you reach the same result as with B(H) curve.
+**Si el resultado no coincide exactamente** con el que obtuvo con la curva B(H) completa, **aumente o disminuya el valor de µ** y calcule algunas iteraciones hasta alcanzar el mismo resultado que con la curva B(H).
 
-Once the results are in agreement, you have found the effective µ value, which you can use instead of B(H)!
+Una vez que los resultados coincidan, habrá encontrado el valor µ efectivo, que puede utilizar en lugar de B(H).
 
-## Effective μ without B(H) calculation
+## μ efectiva sin cálculo de B(H)
 
-This approach nedds an initial simulation calculation with workpiece material permeability defined as 1. The initial calculation will take **less time**, but in the end the μ estimation will help only to **determine the order of μ** value (1, 10, 100 etc.).
+Este enfoque necesita un cálculo de simulación inicial con la permeabilidad del material de la pieza definida como 1. El cálculo inicial llevará **menos tiempo**, pero al final la estimación de μ sólo ayudará a **determinar el orden del valor de μ** (1, 10, 100, etc.).
 
-### 1) Define workpiece μ as 1
+### 1) Definir la pieza de trabajo μ como 1.
 
-In CENOS disable the B(H) definition for your workpiece material and replace it with μ = 1. Make sure that the **power settings are accurate**!
+En CENOS desactive la definición B(H) para el material de su pieza de trabajo y sustitúyala por μ = 1. ¡Asegúrese de que los **ajustes de potencia son precisos**!
 
 <p align="center">
 
@@ -125,21 +125,23 @@ In CENOS disable the B(H) definition for your workpiece material and replace it 
 
 </p>
 
-### 2) Check the magnetic field B value in the workpiece
+### 2) Comprobar el valor del campo magnético B en la pieza
 
-Run purely electromagnetic simulation (**without thermal analysis**), and in results check the maximum Magnetic field B value in the workpiece.
+Ejecute una simulación puramente electromagnética (**sin análisis térmico**) y compruebe en los resultados el valor máximo del campo magnético B en la pieza.
 
-### 3) Calculate maximum electrical field H value
+### 3) Calcular el valor H del campo eléctrico máximo
 
-Calculate the maximum H value through
+Calcular el valor H máximo mediante
 
 $H = \frac{B}{μ_0}$
 
-### 4) Estimate effective μ value
+### 4) Estimar el valor μ efectivo
 
-Once you have calculated the maximum H value, follow the steps 3. - 5. in the previous approach to estimate the effective μ value.
+Una vez calculado el valor máximo de H, siga los pasos 3. - 5. del planteamiento anterior para estimar el valor μ efectivo.
 
 
-:::important
-This method is **only an approximation** with high error margin, which will help to determine only the order of the μ value (1, 10, 100, etc.). If you want to have a more closer first estimation for the effective permeability, you will need to use B(H) curve approach.
+:::info Importante
+
+Este método es **sólo una aproximación** con alto margen de error, que ayudará a determinar sólo el orden del valor μ (1, 10, 100, etc.). Si desea obtener una primera estimación más aproximada de la permeabilidad efectiva, deberá utilizar el método de la curva B(H).
+
 :::

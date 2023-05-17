@@ -1,25 +1,25 @@
 ---
 id: field-expressions
-title: Field expressions
-sidebar_label: Field expressions
+title: Expresiones de campo
+sidebar_label: Expresiones de campo
 sidebar_position: 2
 ---
 
-Sometimes physical definitions of the simulation are too complex to define them with a constant value or table. To **define things like material anisotropy or non-uniform field, field expressions are available** in CENOS.
+A veces las definiciones físicas de la simulación son demasiado complejas para definirlas con un valor constante o una tabla. Para **definir cosas como la anisotropía del material o el campo no uniforme, se dispone de expresiones de campo** en CENOS.
 
-Field expressions applications are limited only by the imagination of the user, but a simple user guideline is still required. In this article we will look into ways on **how we can define expressions** and go over some of the **most used applications for expressions**.
+Las aplicaciones de las expresiones de campo sólo están limitadas por la imaginación del usuario, pero sigue siendo necesaria una pauta sencilla del usuario. En este artículo veremos **cómo podemos definir expresiones** y repasaremos algunas de las **aplicaciones más utilizadas para las expresiones**.
 
-## How to use expressions
+## Cómo utilizar expresiones
 
-You can use expressions in two different ways:
+Puede utilizar las expresiones de dos maneras diferentes:
 
-+ **Directly** - enter expression directly into the field.
++ **Directamente** - introduzca la expresión directamente en el campo.
 
-+ **Indirectly** - enter expression as *Solver script* and use it indirectly.
++ **Indirectamente** - introduzca la expresión como *Script del solucionador* y utilícela indirectamente.
 
-### Direct definition
+### Definición directa
 
-**Choose the field** of the physical value which you want to define with an expression. Then in the right part of the field **change entry type** from *Constant* to *Expression*, and **enter your expression**. 
+**Seleccione el campo** del valor físico que desea definir con una expresión. A continuación, en la parte derecha del campo **cambie el tipo de entrada** de *Constant* a *Expression*, e **introduza su expresión**.
 
 <p align="center">
 
@@ -27,9 +27,9 @@ You can use expressions in two different ways:
 
 </p>
 
-### Indirect definition
+### Definición indirecta
 
-You can **enter the expression or value as a parameter** in *Solver script* in *Advanced computation settings* and then use this parameter as an expression input in you desired field.
+Puede **introducir la expresión o el valor como parámetro** en *Solver script* en *configuración avanzada de cálculo* y luego utilizar este parámetro como entrada de expresión en el campo que desee.
 
 <p align="center">
 
@@ -49,22 +49,24 @@ You can **enter the expression or value as a parameter** in *Solver script* in *
 
 </p>
 
-## Expression applications
+## Aplicaciones de las expresiones
 
-There are numerous applications on expression usage. Here we will outline the most used expression examples and provide you with an **example expressions** which you can **copy into your simulation and alter to your liking**.
+Existen numerosas aplicaciones sobre el uso de expresiones. Aquí esbozaremos los ejemplos de expresiones más utilizados y le proporcionaremos un **ejemplo de expresiones** que podrá **copiar en su simulación y modificar a su gusto**.
 
-### Anisotropy
+### Anisotropía
 
-Many materials such as *Fluxtrol* have anisotropic thermal and magnetic properties, meaning that **material properties depend on the direction**.
+Muchos materiales como el *Fluxtrol* tienen propiedades térmicas y magnéticas anisótropas, lo que significa que **las propiedades del material dependen de la dirección**.
 
-:::note equation
+:::note Ecuación
+
 Tensor[**X**, 0, 0, 0, **Y**, 0, 0, 0, **Z**]
+
 :::
 
-where X, Y and Z are the parameters in respective directions.
-This can be applied to any parameter such as $σ, μ$ or $λ$.
+donde X, Y y Z son los parámetros en las respectivas direcciones.
+Esto se puede aplicar a cualquier parámetro tales como $σ, μ$ o $λ$.
 
-Here is an example of **thermal conductivity anisotropy** for a Carbon-Fiber thermoplastic piece, with a lower thermal conductivity in the **Z** direction. In this case we choose ***Expression*** as the parameter types and use:
+Aquí hay un ejemplo de **anisotropía de conductividad térmica** para una pieza termoplástica de fibra de carbono, con una conductividad térmica más baja en la dirección **Z**. En este caso, elegimos ***Expression*** como tipo de parámetro y usamos:
 
 <p align="center">
 
@@ -78,32 +80,34 @@ Here is an example of **thermal conductivity anisotropy** for a Carbon-Fiber the
 
 </p>
 
-#### Rotate anisotropy
-If **axis of anisotropy tensor do not align with XYZ**, it is possible to rotate the tensor.
+#### Rotar anisotropía
+Si **el eje del tensor de anisotropía no se alínea con XYZ**, es posible rotar el tensor.
 
-:::note equation
-Rotate [Tensor[X, 0, 0, 0, Y, 0, 0, 0, Z], **Rx, Ry, Rz**]
+:::note Ecuación
+Rotar [Tensor[X, 0, 0, 0, Y, 0, 0, 0, Z], **Rx, Ry, Rz**]
 :::
 
-where, Rx, Ry, Rz are rotation about that axis in radians.
+donde, Rx, Ry, Rz son la rotación alrededor de ese eje en radianes.
 
-**Example on how to rotate tensor**:
+**Ejemplo de cómo rotar un tensor**:
 
-:::note equation
-Rotate [ Tensor[2.50, 0, 0, 0, 2.50, 0, 0, 0, 0.32], 0, 0, **3.14/4**]
+:::note Ecuación
+
+Rotar [Tensor[2.50, 0, 0, 0, 2.50, 0, 0, 0, 0.32], 0, 0, **3.14/4**]
+
 :::
 
-In this example thermal conductivity would be maximal along the line rotated 45 degrees (**pi/4 radians**) around **Z axis**.
+En este ejemplo, la conductividad térmica sería máxima a lo largo de la línea girada 45 grados (**pi/4 radianes**) alrededor del **eje Z**.
 
-### Global current parameter
+### Parámetro de corriente global
 
-In *3D slice multi-winding case* you will have multiple winding domains which all have the same physical definitions, but which cannot be grouped because of different boundary condition names.
+En el caso de *corte 3D de bobinado múltiple* tendrás múltiples dominios de bobinado que tienen las mismas definiciones físicas, pero que no pueden agruparse debido a los diferentes nombres de las condiciones de frontera.
 
-If you want to change the current for such simulation, you need to *separately change current in each winding*.
+Si quiere cambiar la corriente para tal simulación, necesita *cambiar separadamente la corriente en cada devanado*.
 
-To simplify this, current can be defined in *Solver script* as a parameter, which can be then entered in each winding current definition. This way you will be able to **change current in all windings simultaneously** from *Solver script*.
+Para simplificar esto, la corriente puede ser definida en *Solver script* como un parámetro, que puede ser introducido en la definición de corriente de cada devanado. De esta forma podrá **cambiar la corriente en todos los devanados simultáneamente** desde *Solver script*.
 
-Enter expression such as *I_0 = 5000;* in *Solver script*, and in winding current expression enter *I_0*. When you change the value of *I_0*, current values will change as well.
+Introduzca una expresión como *I_0 = 5000;* en *Solver script*, y en la expresión de la corriente del devanado introduzca *I_0*. Cuando cambie el valor de *I_0*, los valores de corriente cambiarán también.
 
 <p align="center">
 
@@ -111,31 +115,35 @@ Enter expression such as *I_0 = 5000;* in *Solver script*, and in winding curren
 
 </p>
 
-### Moving spray cooling
+### Enfriamiento por pulverización en movimiento
 
-In most of the induction heating scanning applications a cooling ring follows directly after the inductor, spraying cooling liquid on the workpiece and cooling it right after the heating. 
+En la mayoría de las aplicaciones de escaneado de calentamiento por inducción, un anillo de enfriamiento o refrigeración sigue directamente al inductor, pulverizando líquido refrigerante sobre la pieza y enfriándola justo después del calentamiento. 
 
-With field expressions you can define a moving cooling zone to **simulate spray ring which moves along with the inductor**. This is done by using an expression for the convection ***h*** parameter in the workpiece domain.
+Con expresiones de campo se puede definir una zona de enfriamiento móvil para **simular un anillo de pulverización que se mueve junto con el inductor**. Esto se hace utilizando una expresión para el parámetro de convección ***h*** en el dominio de la pieza de trabajo.
 
-:::note equation
->**axis**[] < **y0** + **velocity** * $Time ? **cooling_after** : **cooling_infront**
+:::note Ecuación
+
+>**eje**[] < **y0** + **velocidad** * $Tiempo ? **enfriamiento_detrás** : **enfriamento_delante**
+
 :::
 
-Where:
+Donde:
 
-+ *axis* - axis of movement;
-+ *y0* - initial spray shower position in the beginning of the movement [m];
-+ *velocity* - scanning velocity [m/s];
-+ *cooling_behind* - Heat Transfer coef. (h) value behind inductor position;
-+ *cooling_infront* - Heat Transfer coef. (h) in front of the inductor.
++ *eje* - eje del movimiento;
++ *y0* - posición inicial de la ducha de pulverización al principio del movimiento [m];
++ *velocidad* - velocidad de barrido [m/s];
++ *enfriamiento_detrás* - coeficiente de transferencia de calor (h) detrás de la posición del inductor;
++ *enfriamento_delante* - coeficiente de transferencia de calor (h) delante del inductor.
 
-With this expression you **define a line which is parallel to the movement axis and divides the boundary on which it has been set into two parts each with different heat transfer coefficient**. When time changes, this line will change its position as well, in this way simulating the moving spray shower.
+Con esta expresión se **define una línea que es paralela al eje de movimiento y divide la frontera en la que se ha fijado en dos partes cada una con diferente coeficiente de transferencia de calor**. Cuando cambie el tiempo, esta línea cambiará también su posición, simulando de esta forma la ducha de pulverización en movimiento.
 
-:::caution
-Initial position and velocity values must me written in *m* and *m/s*, regardless of the unit set on the geometry.
+:::caution Advertencia
+
+Los valores iniciales de posición y velocidad deben escribirse en *m* y *m/s*, independientemente de la unidad establecida en la geometría.
+
 :::
 
-In the ilustration below you can see a simple billet with convection expression set on its surface. In the beginning of calculation (t = 0s) the dividing line is positioned on X axis (because y0 = 0), so below it h = 5000, but above it h = 10. After two seconds the line has moved 0.02m into Y direction, and now the workpiece surface division has changed and larger part of workpiece surface has h = 5000. If you imagine that in front of this line an inductor is moving, then in this way the spray cooling is simulated.
+En la siguiente ilustración se puede ver un simple modelo con la expresión de convección establecida en su superficie. Al principio del cálculo (t = 0s) la línea divisoria está situada en el eje X (porque y0 = 0), por lo que por debajo de ella h = 5000, pero por encima de ella h = 10. Después de dos segundos la línea se ha movido 0.02m en dirección Y, y ahora la división de la superficie de la pieza ha cambiado y la mayor parte de la superficie de la pieza tiene h = 5000. Si se imagina que delante de esta línea se mueve un inductor, entonces de esta manera se simula el enfriamiento por pulverización.
 
 <p align="center">
 
@@ -143,13 +151,15 @@ In the ilustration below you can see a simple billet with convection expression 
 
 </p>
 
-:::important
-Moving spray cooling is not connected to the inductor movement - you define it separately and tune it to follow the inductor.
+:::info Información
+
+El enfriamiento por pulverización en movimiento no está conectada al movimiento del inductor: se define por separado y se ajusta para que siga al inductor.
+
 :::
 
-You simply need to choose the *y0* value such that it follows the inductor. For example, if the inductor moves along Y axis and its initial position is *Y=20mm*, then for spray shower definition you would choose *y0=0.01m* (depending on inductor diameter).
+Simplemente hay que elegir el valor de *y0* de forma que siga al inductor. Por ejemplo, si el inductor se mueve a lo largo del eje Y y su posición inicial es *Y=20mm*, entonces para la definición de la ducha pulverizadora elegiría *y0=0.01m* (dependiendo del diámetro del inductor).
 
-**Example:**
+**Ejemplo:**
 
 <p align="center">
 
@@ -157,19 +167,21 @@ You simply need to choose the *y0* value such that it follows the inductor. For 
 
 </p>
 
-:::note equation
+:::note Ecuación
+
 > **Y**[] < **-0.01** + **0.01** * $Time ? **5000** : **10**
+
 :::
 
-Where:
+Donde:
 
-+ *Y* - axis of movement;
-+ *-0.01 m* - initial spray shower position in the beginning of the movement;
-+ *0.01 m/s* - scanning velocity;
-+ *5000* - Heat Transfer coef. (h) value behind inductor position;
-+ *10* - Heat Transfer coef. (h) in front of the inductor.
++ *Y* - eje del movimiento;
++ *-0.01 m* - posición inicial de la ducha de pulverización al principio del movimiento;
++ *0.01 m/s* - velocidad de barrido;
++ *5000* - coeficiente de transferencia de calor (h) detrás de la posición del inductor;
++ *10* - coeficiente de transferencia de calor (h) delante del inductor.
 
-**In this example the inductor is moving along Y axis**. Expression puts h = 5000, if Y coordinate is smaller than *y0*, otherwise it puts h = 10. Notice how *y0* and *velocity* is tuned to values which are taken from the *Dynamic geometry variables* - velocity remains the same (for inductor movement *mm/s* were used), but the *y0* value is 10 mm smaller than inductors initial position to simulate the shower being behind the inductor.
+**En este ejemplo el inductor se mueve a lo largo del eje Y**. La expresión pone h = 5000, si la coordenada Y es menor que *y0*, de lo contrario pone h = 10. Observa cómo *y0* y *velocidad* se ajustan a los valores que se toman de las *variables de geometría dinámica* - la velocidad sigue siendo la misma (para el movimiento del inductor se usaron *mm/s*), pero el valor de *y0* es 10 mm menor que la posición inicial del inductor para simular que la ducha está detrás del inductor.
 
 <p align="center">
 
@@ -177,13 +189,15 @@ Where:
 
 </p>
 
-Below is a comparison between different *Convection* definitions for the same simulation. On the left side are results with constant *h = 10* (notice the **excessive overheating** on the surface), and on the right side is moving spray definition using expression.
+En seguida se muestra una comparación entre diferentes definiciones de *Convección* para la misma simulación. A la izquierda están los resultados con la constante *h = 10* (observe el **sobrecalentamiento excesivo** en la superficie), y a la derecha está la definición de pulverización en movimiento usando la expresión.
 
 
-:::important Definitions for gifs below
-Left : *h = 10*
+:::important Definiciones de los gifs a continuación
 
-Right : *Y[] < -0.01 + 0.01$Time ? 5000 : 10*
+Izquierda: *h = 10*
+
+Derecha: *Y[] < -0.01 + 0.01$Time ? 5000 : 10*
+
 :::
 
 <p align="center">
@@ -192,23 +206,25 @@ Right : *Y[] < -0.01 + 0.01$Time ? 5000 : 10*
 
 </p>
 
-### Non-uniform initial temperature
+### Temperatura inicial no uniforme
 
-For some simulations **non-uniform initial heat distribution** is required. You can define such distribution through expressions by defining initial temperature as dependent from coordinate.
+Para algunas simulaciones se requiere **una distribución de calor inicial no uniforme**. Se puede definir dicha distribución mediante expresiones, definiendo la temperatura inicial como dependiente de la coordenada.
 
-:::note equation
->**axis**[] < **reference_coordinate** ? **T1** : **T2**
+:::note Ecuación
+
+>**eje**[] < **coordenada_referencia** ? **T1** : **T2**
+
 :::
 
-Where
-+ *axis* - axis of non-uniform distribution
-+ *reference_coordinate* - coordinate at which temperature changes
-+ *T1* - temperature if coordinate is smaller than *reference_coordinate*
-+ *T2* - temperature if coordinate is bigger than *reference_coordinate*
+Donde
++ *eje* - eje de la distribución no uniforme.
++ *coordenada_referencia* - coordenada de referencia, coordenada en la que cambia la temperatura.
++ *T1* - temperatura si la coordenada es menor que *coordenada_referencia*.
++ *T2* - temperatura si la coordenada es mayor que *coordenada_referencia*.
 
-Which puts *T = T1* if *coordinate* is smaller than *reference_coordinate*, otherwise puts *T = T2*.
+Que pone *T = T1* si *coordenada* es menor que *coordenada_referencia*, en caso contrario pone *T = T2*.
 
-To define non-uniform initial temperature through expression, enter it in *Initial conditions* field under workpiece domain.
+Para definir la temperatura inicial no uniforme mediante una expresión, introdúzcala en el campo *Condiciones iniciales* bajo el dominio de la pieza de trabajo.
 
 <p align="center">
 
@@ -216,13 +232,15 @@ To define non-uniform initial temperature through expression, enter it in *Initi
 
 </p>
 
-**Example of non-uniform initial temperature**:
+**Ejemplo de temperatura inicial no uniforme**:
 
-:::note equation
+:::note Ecuación
+
 **Y**[] < **0** ? **100** : **200**
+
 :::
 
-In this example the temperature distribution happens along **Y axis**. The expression uses a temperature of 100 °C on workpiece below Y = 0 coordinate. Above it it uses a temperature of 200 °C.
+En este ejemplo, la distribución de la temperatura se produce a lo largo del eje **Y**. La expresión utiliza una temperatura de 100 °C en la pieza por debajo de la coordenada Y = 0. Por encima, utiliza una temperatura de 200 °C.
 
 <p align="center">
 
@@ -230,22 +248,22 @@ In this example the temperature distribution happens along **Y axis**. The expre
 
 </p>
 
-## Limitations
+## Limitaciones
 
-Field expressions are very useful for advanced simulation setup, but there are some things to remember to set them up correctly.
+Las expresiones de campo son muy útiles para la configuración avanzada de simulaciones, pero hay que recordar algunas cosas para configurarlas correctamente.
 
-### Units
+### Unidades
 
-Values you enter in expression, such as initial position or velocity, **must be entered in meters**, because that is the only unit which is supported by the expressions right now - if you enter values in other units, the expression will still work, but the value will be in meters, so the results will be incorrect.
+Los valores que introduzca en la expresión, como la posición inicial o la velocidad, **deben introducirse en metros**, porque es la única unidad que soportan las expresiones en este momento - si introduce valores en otras unidades, la expresión seguirá funcionando, pero el valor estará en metros, por lo que los resultados serán incorrectos.
 
-### Capital letters
+### Letras mayúsculas
 
-Letters in field expressions are case-sensitive. For correct definition **in expressions axis and other letters must be entered as capital letters**, otherwise the expression will produce an error.
+Las letras de las expresiones de campo distinguen entre mayúsculas y minúsculas. Para una definición correcta **en las expresiones eje, y otras letras, deben introducirse en mayúsculas**, de lo contrario la expresión producirá un error.
 
-Correct:
+Correcto:
 
 > **Y**[] < -0.01 + 0.01 * $Time ? 5000 : 10
 
-Incorrect:
+Incorrecto:
 
 > **y**[] < -0.01 + 0.01 * $Time ? 5000 : 10

@@ -1,13 +1,13 @@
 ---
 id: power-control
-title: Power controlled simulation
-sidebar_label: Power control
+title: Simulación de potencia controlada
+sidebar_label: Control de potencia
 sidebar_position: 9
 ---
 
-CENOS is a powerful tool that allows you to input *****voltage***, ***current*** , or ***POWER*** to control your system.
+CENOS es una potente herramienta que le permite introducir ***voltaje***, ***corriente*** , o ***potencia*** para controlar su sistema.
 
-To do so, go to the *inductor* section of the **physics** module, there you'll be able to select either ***voltage***, ***current*** or ***power*** as your control input. 
+Para ello, vaya a la sección *inductor* del módulo **física**, allí podrá seleccionar ***voltaje***, ***corriente*** o ***potencia*** como entrada de control.
 
 <p align="center">
 
@@ -15,29 +15,31 @@ To do so, go to the *inductor* section of the **physics** module, there you'll b
 
 </p>
 
-The most commonly used induction heating process control is power control, but what happens when you must set it up with voltage or current? When a simulation is built to optimize the heating process, many engineers stumble upon the fact that they instead **need to define the current or voltage in the inductor.**
+El control del proceso de calentamiento por inducción más utilizado es el control de potencia, pero ¿qué ocurre cuando hay que configurarlo con tensión o corriente? Cuando se construye una simulación para optimizar el proceso de calentamiento, muchos ingenieros tropiezan con el hecho de que en su lugar **necesitan definir la corriente o la tensión en el inductor.**
 
-## How to find the input current?
+## ¿Cómo encontrar la corriente de entrada?
 
-If the current or voltage values in the inductor ar unknown, multiple approaches can be used depending on simulation setup.
+Si se desconocen los valores de corriente o tensión en el inductor, se pueden utilizar varios métodos en función de la configuración de la simulación.
 
-### Without B(H) (constant permeability)
+### Sin utilizar B(H) (permeabilidad constante)
 
-If you do not use a B(H) curve in your simulation, you can easily **calculate the current value** which corresponds to your desired power value with just one simulation. 
+Si no utiliza una curva B(H) en su simulación, puede **calcular fácilmente el valor de corriente** que corresponde a su valor de potencia deseado con una sola simulación.
 
-:::important
-Run the test calculation **without Thermal Analysis**, it will run faster and the calculated current value will be correct for simulation with thermal analysis as well!
+:::info Important
+
+¡Ejecute el cálculo de prueba **sin Análisis Térmico**, se ejecutará más rápido y el valor de corriente calculado será correcto para la simulación con análisis térmico también!
+
 :::
 
-To do this, you need to follow these steps:
+Para ello, tiene que seguir estos pasos:
 
-1) Choose one random current value and run 1 time step. You will find the power value corresponding to the current you defined.
+1) Elija un valor de corriente aleatorio y ejecute un paso de tiempo. Encontrará el valor de potencia correspondiente a la corriente que haya definido.
 
 $$
 I_1 \to P_1
 $$
 
-2) Without the B(H) curve the power value is proportional to the current. Calculate the necessary current value $I_2$, as the relation between $I_1$ and $P_1$ is known.
+2) Sin la curva B(H) el valor de la potencia es proporcional a la corriente. Calcule el valor de corriente necesario $I_2$, ya que se conoce la relación entre $I_1$ y $P_1$.
 
 $$
 P=UI=I^2R \to \frac{P_1}{P_2}=\frac{I_1^2}{I_2^2}
@@ -47,24 +49,25 @@ $$
 I_2=\sqrt\frac{I_1^2P_2}{P_1}
 $$
 
-:::note example
+:::note Example
 
-We have a **3kW power** consumption, and we want to calculate the necessary current to put in CENOS.
+Tenemos un consumo de **3kW de potencia**, y queremos calcular la corriente necesaria para poner en CENOS.
 
-1) Run one time step with **150 A**. From results we see that **150 A** current produces **12.45 W** power.
+1) Ejecute un paso de tiempo con **150 A**. A partir de los resultados vemos que **150 A** de corriente produce **12,45 W** de potencia.
 
-2) We use the previously mention equation and calculate the current necessary to produce **3 kW**:
+2) Usamos la ecuación mencionada anteriormente y calculamos la corriente necesaria para producir **3 kW**:
 
 $$
 I_2=\sqrt\frac{150^2*3000}{12.45}=2328.45 A
 $$
 
-Once you have calculated the necessary current $I_2$ you can enable thermal analysis, enter the calculated current value and run the simulation with a specified power.
+Una vez calculada la corriente necesaria $I_2$ se puede activar el análisis térmico, introducir el valor de corriente calculado y ejecutar la simulación con una potencia especificada.
+
 :::
 
-### With B(H)
+### Utilizando B(H)
 
-If the B(H) curve is used, input current will no longer be proportional to the output power. In such a case you need to take your best guess at what the inductor current could be and run one time step of purely electromagnetic simulation. Take a look at the power value in the results and **increase or decrease the current until you reach the desired power consumption**.
+Si se utiliza la curva B(H), la corriente de entrada ya no será proporcional a la potencia de salida. En tal caso, tiene que hacer su mejor estimación de lo que podría ser la corriente del inductor y ejecutar un paso de tiempo de simulación puramente electromagnética. Observe el valor de potencia en los resultados y **aumente o disminuya la corriente hasta que alcance el consumo de potencia deseado**.
 
 $$
 I_1 \to P_1
@@ -78,15 +81,15 @@ $$
 I_3 \to P_3
 $$
 
-With this approach you will need to carry out a couple of simulations to find the correct current value. Remember to **calculate only 1 time step without thermal analysis**!
+Con este planteamiento tendrá que realizar un par de simulaciones para encontrar el valor de corriente correcto. ¡Recuerde **calcular sólo 1 paso de tiempo sin análisis térmico**!
 
-### μ(T) (heated above Curie temperature)
+### μ(T) (calentada por encima de la temperatura de Curie)
 
-If the part is heated above Curie temperature, power controlled simulation is not possible, as the impedance of the system changes around and after Curie point that causes jump in current and voltage values. Because of this, to keep the same power value, there needs to be different current or voltage values before and after the Curie point.
+Si la pieza se calienta por encima de la temperatura de Curie, la simulación controlada por potencia no es posible, ya que la impedancia del sistema cambia alrededor y después del punto de Curie, lo que provoca saltos en los valores de corriente y tensión. Debido a esto, para mantener el mismo valor de potencia, es necesario que haya diferentes valores de corriente o tensión antes y después del punto de Curie.
 
-In such a case **current or voltage can be defined as table** values depending on time. Just run one purely EM calculation with a constant current through all your heating range.
+En tal caso **la corriente o la tensión pueden definirse como valores en una tabla** en función del tiempo. Basta con realizar un cálculo puramente EM con una corriente constante a lo largo de todo el rango de calentamiento.
 
-Open the .csv file and take a look at the total calculated power in each time step.
+Abra el archivo .csv y eche un vistazo a la potencia total calculada en cada paso temporal.
 
 <p align="center">
 
@@ -94,7 +97,7 @@ Open the .csv file and take a look at the total calculated power in each time st
 
 </p>
 
-As you know the input current, just apply the previously discussed equation to calculate $ I_2$ for each time step.
+Como conoce la corriente de entrada, sólo tiene que aplicar la ecuación anteriormente discutida para calcular $I_2$ para cada paso de tiempo.
 
 <p align="center">
 
@@ -102,7 +105,7 @@ As you know the input current, just apply the previously discussed equation to c
 
 </p>
 
-Then just copy the new table value into CENOS, and you have found the necessary current table to get a constant power over all heating time!
+A continuación, copie el nuevo valor de la tabla en CENOS y habrá encontrado la tabla de corriente necesaria para obtener una potencia constante durante todo el tiempo de calentamiento.
 
 <p align="center">
 

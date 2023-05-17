@@ -1,19 +1,19 @@
 ---
 id: time-step
-title: Time step
-sidebar_label: Time step
+title: Paso de tiempo
+sidebar_label: Paso de tiempo
 sidebar_position: 10
 ---
 
-There are a lot of different physical parameters, which, if defined incorrectly, can affect the precision of the results. One of such parameters with a great impact on the results is the **time step**. In this article we will learn what a calculation time step is, how it can affect the results and how to define it.
+Hay muchos parámetros físicos diferentes que, si se definen incorrectamente, pueden afectar a la precisión de los resultados. Uno de estos parámetros con un gran impacto en los resultados es el **paso de tiempo**. En este artículo aprenderemos qué es un paso de tiempo de cálculo, cómo puede afectar a los resultados y cómo definirlo.
 
-## What is a time step?
+## ¿Qué es un paso de tiempo?
 
-If put simply, the calculation time step is a **period of time after which the electromagnetic and thermal calculation of the simulation is done**. Because of this it is quite important to correctly define the time step size, so that the calculated results would be continuous and without jumps or unphysical increases in temperature and other parameters.
+En pocas palabras, el paso de tiempo de cálculo es un **periodo de tiempo tras el cual se realiza el cálculo electromagnético y térmico de la simulación**. Por eso es muy importante definir correctamente el tamaño del paso de tiempo, para que los resultados calculados sean continuos y sin saltos o aumentos no físicos de la temperatura y otros parámetros.
 
-### How to define the time step?
+### ¿Cómo definir el paso de tiempo?
 
-Time step is defined in the physical settings under the SIMULATION CONTROL.
+El paso de tiempo se define en los ajustes físicos bajo el CONTROL DE SIMULACIÓN.
 
 <p align="center">
 
@@ -21,19 +21,19 @@ Time step is defined in the physical settings under the SIMULATION CONTROL.
 
 </p>
 
-There are two ways on the time step definition. It is possible to define a **constant calculation time step** or use the **adaptive time step** by checking the *Use adaptive time step* box.
+Hay dos formas de definir el paso de tiempo. Es posible definir un **paso de tiempo de cálculo constante** o utilizar el **paso de tiempo adaptativo** marcando la casilla *Use adaptive time step*.
 
-If you use **constant time step**, then the **time step size will not change** over the whole calculation time.
+Si utiliza **paso de tiempo constante**, entonces el **tamaño del paso de tiempo no cambiará** a lo largo de todo el tiempo de cálculo.
 
-If **adaptive time step** is used, its **size will automatically change** from how fast the parameters such as temperature are changing.
+Si se utiliza el **paso de tiempo adaptativo**, su **tamaño cambiará automáticamente** en función de la velocidad a la que cambien los parámetros, como la temperatura.
 
-To understand which time step definition to choose, you need to evaluate the expected results and choose the one which will provide the best accuracy.
+Para saber qué definición de paso temporal elegir, hay que evaluar los resultados esperados y elegir la que proporcione la mayor precisión.
 
-## Static heating
+## Calentamiento estático
 
-In case you have a **static simulation**, e.g. there is no movement, the **temperature increase in the workpiece is usually the most rapid in the very beginning** of the heating. Because of this we need to choose a time step size appropriate to resolute such fast heating.
+En el caso de una **simulación estática**, es decir, sin movimiento, el **aumento de temperatura en la pieza suele ser muy rápido al principio** del calentamiento. Por ello, debemos elegir un tamaño de paso de tiempo apropiado para resolver este calentamiento tan rápido.
 
-Below are the graphs of temperature at a point on the workpiece surface from the same simulation calculated with *adaptive time step* and *two diffrent constant time steps* (0.1s and 1s).
+A continuación se muestran los gráficos de temperatura en un punto de la superficie de la pieza de trabajo de la misma simulación. Se calculó con *paso de tiempo adaptativo* y *dos pasos de tiempo constantes diferentes* (0,1s y 1s).
 
 <p align="center">
 
@@ -41,17 +41,19 @@ Below are the graphs of temperature at a point on the workpiece surface from the
 
 </p>
 
-As you can see, the temperature rises very quickly in the begining, and **with a rougher time step**, if the heating rate is projected to the next time step, it can be **unrealistically high (1200 degC)**.
+Como se puede ver, la temperatura aumenta rápidamente al principio. **Con un paso de tiempo más grande**, si la velocidad de calentamiento se proyecta al siguiente paso de tiempo, puede ser **irrealmente alta (1200 degC)**.
 
-:::important
-The end temperature ir roughly similar with finer and smaller time step. However these jumps created by the rougher time step can affect the hardened profile calculation.
+:::info Importante
+
+La temperatura final es aproximadamente similar con un paso de tiempo más fino y más pequeño. Sin embargo, estos saltos creados por el paso de tiempo más grande pueden afectar al cálculo del perfil endurecido.
+
 :::
 
-As you can see, even with the 0.1s time step, there is still a small jump in the temperature during the first time step. The **adaptive time step resolves initial part much better**, and increases the time step size further on. With adaptive there were *38* time steps, as opposed to *50* with the 0.1s time step, which means that **with the adaptive step size the calculation time for this case was also lower**.
+Como se puede ver, incluso con el paso de tiempo de 0,1 s, sigue habiendo un pequeño salto en la temperatura durante el primer paso de tiempo. El **paso de tiempo adaptativo resuelve mucho mejor la parte inicial**, y aumenta el tamaño del paso de tiempo más adelante. Con adaptativo había *38* pasos de tiempo, frente a *50* con el paso de tiempo de 0,1s, lo que significa que **con el tamaño de paso adaptativo el tiempo de cálculo para este caso también era menor**.
 
-### Table values
+### Valores de la tabla
 
-If you want to resolve the initial heating better, but don't want to use *Adaptive* time step (to keep the control over how many time steps will be calculated), you can **define the time step size in a table** and make the step size smaller in the very beginning of the heating, and then increase it to save calculation time.
+Si quiere resolver mejor el calentamiento inicial, pero no quiere usar el paso de tiempo *Adaptativo* (para mantener el control sobre cuántos pasos de tiempo se calcularán), puede **definir el tamaño del paso de tiempo en una tabla** y hacer el tamaño del paso más pequeño en el inicio del calentamiento, y luego aumentarlo para ahorrar tiempo de cálculo.
 
 <p align="center">
 
@@ -59,19 +61,19 @@ If you want to resolve the initial heating better, but don't want to use *Adapti
 
 </p>
 
-## Scanning
+## Escaneado
 
-If your **system is not static**, e.g. a translation movement is present, the time step can affect the results even more.
+Si su **sistema no es estático**, por ejemplo, existe un movimiento de traslación, el paso de tiempo puede afectar aún más a los resultados.
 
-In a scanning simulation time step size directly affects the movement of the inductor. If the time step is too rough, inductor will "jump" from one position to another (as seen in the GIF below), making the **thermal patter inconsistent and unphysical**.
+En una simulación de escaneo, el tamaño del paso de tiempo afecta directamente al movimiento del inductor. Si el paso de tiempo es demasiado grande, el inductor "saltará" de una posición a otra (como se ve en el GIF de abajo), haciendo que el **patrón térmico sea inconsistente y poco físico**.
 
 
 ![GIF](assets/time-step/comb123.gif)
 
 
-Because of this reason the **time step should be chosen so to create a smooth movement** (*1 s in the example*), and **not to create sudden jumps** in the position of it (*15 s in the example*).
+Por esta razón, el **paso de tiempo debe elegirse de modo que se cree un movimiento suave** (*1 s en el ejemplo*), y **que no se creen saltos bruscos** en la posición del mismo (*15 s en el ejemplo*).
 
-For simple, circular-profile one-winding inductors, the **neccessary time step size can be determined** by considering the distance from the surface of the part to the inductor (**d**), as well as the distance inductor travels in one time step (**Δl**).
+Para inductores simples, de perfil circular y un solo devanado, el **tamaño del paso de tiempo necesario puede determinarse** considerando la distancia desde la superficie de la pieza al inductor (**d**), así como la distancia que recorre el inductor en un paso de tiempo (**Δl**).
 
 <p align="center">
 
@@ -79,7 +81,7 @@ For simple, circular-profile one-winding inductors, the **neccessary time step s
 
 </p>
 
-If the ratio between these two values (**d** and **Δl**) is equal or less than 1, the time step size will be enough for accurate result resolution. Below you can find a table with different **d**, time step size (**Δt**), **Δl** and their corresponding ratio.
+Si la relación entre estos dos valores (**d** y **Δl**) es igual o inferior a 1, el tamaño del paso de tiempo será suficiente para una resolución precisa del resultado. A continuación puede encontrar una tabla con diferentes **d**, tamaño de paso de tiempo (**Δt**), **Δl** y su correspondiente proporción.
 
 <p align="center">
 

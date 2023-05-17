@@ -1,25 +1,24 @@
 ---
 id: magnetic-properties
-title: Magnetic material properties
-sidebar_label: B(H) / permeability
+title: Propiedades magnéticas de los materiales
+sidebar_label: B(H) / permeabilidad
 sidebar_position: 7
 ---
 
-In simulation creation the correct material property definitions are vital to the precision and duration of the calculations. There are different ways to define thermal and electromagnetic properties of the materials, and some parameters are more sensitive to change than others.
+En la creación de simulaciones, las definiciones correctas de las propiedades de los materiales son vitales para la precisión y duración de los cálculos. Hay distintas formas de definir las propiedades térmicas y electromagnéticas de los materiales, y algunos parámetros son más sensibles a los cambios que otros.
 
-## Input
-In induction heating simulations, proper selection of magnetic properties has significant influence on both results and simulation time. As a user, you have several options on how to specify magnetic properties:
+## Entrada
+En las simulaciones de calentamiento por inducción, la selección adecuada de las propiedades magnéticas tiene una influencia significativa tanto en los resultados como en el tiempo de simulación. Como usuario, tiene varias opciones sobre cómo especificar las propiedades magnéticas:
 
-### Magnetic permeability - $\mu$ option
+### Permeabilidad magnética - $\mu$ opción
 
-Magnetic permeability is required for all materials in electromagnetic simulation. Non-magnetic materials (air, aluminum, copper) have magnetic permeability $\mu_r = 1$. Ferromagnetic materials have $\mu_r > 1$.
+La permeabilidad magnética es necesaria para todos los materiales en la simulación electromagnética. Los materiales no magnéticos (aire, aluminio, cobre) tienen una permeabilidad magnética $\mu_r = 1$. Los materiales ferromagnéticos tienen $\mu_r > 1$.
 
+### Material magnético no lineal - opción *$B(H)$##.
 
-### Non-linear magnetic material - *$B(H)$ option*
-
-Permeability of magnetic materials depend on the magnetic field intensity *H*. This dependence is described by *B(H)* curve.
-This curve can be used independently of the simulation setup, but calculation with *B(H)* curve takes significantly more time, especially for 3D geometries.
-*B(H)* curve defines how magnetic flux density *B* changes in respect to magnetic field intensity *H*.
+La permeabilidad de los materiales magnéticos depende de la intensidad del campo magnético *H*. Esta dependencia se describe mediante la curva *B(H)*.
+Esta curva puede utilizarse independientemente de la configuración de la simulación, pero el cálculo con la curva *B(H)* lleva mucho más tiempo, especialmente para geometrías 3D.
+La curva *B(H)* define cómo cambia la densidad de flujo magnético *B* con respecto a la intensidad del campo magnético *H*.
 
 <p align="center">
 
@@ -27,38 +26,43 @@ This curve can be used independently of the simulation setup, but calculation wi
 
 </p>
 
-:::note
-To use this option, check **Use B(H) model** in Material editing section.
+:::note Nota
+
+Para utilizar esta opción, marque **Utilizar modelo B(H)** en la sección Edición de materiales.
+
 :::
 
-## Temperature dependence of magnetic properties
+## Dependencia de la temperatura de las propiedades magnéticas
 
-There are two options for including temperature dependence of magnetic properties in your simulation.
+Hay dos opciones para incluir la dependencia de la temperatura de las propiedades magnéticas en su simulación.
 
 ### $\mu(T)$ table
 
-If exprimental data of magnetic permeability dependence on temperature is known, this option can be used. User has to input $\mu(T)$ as it is done also for other material properties. 
+Si se conocen los datos experimentales de la dependencia de la permeabilidad magnética con la temperatura, se puede utilizar esta opción. El usuario tiene que introducir $\mu(T)$ como se hace también para otras propiedades de los materiales. 
 
-:::note
-This option only works with $\mu$ option
+:::note Nota
+
+Esta opción sólo funciona con la opción $\mu$.
+
 :::
 
-### Temperature correction
+### Corrección de la temperatura
 
-To account for temperature dependence, following function for relative magnetic permeability $\mu$ is used [1] :
+Para tener en cuenta la dependencia de la temperatura, se utiliza la siguiente función para la permeabilidad magnética relativa $\mu$ [1] :
 
 $$
 \mu(T) = 1 + \left(\mu_r - 1\right) \left( 1- \left(\frac{T}{T_C}\right)^{\beta} \right)
 $$
 
-Here $T_C$ is Curie temperature, $\beta$ is characteristic exponent for temperature dependence. The same equation applies also when *$B(H)$ option* is used.
+Aquí $T_C$ es la temperatura de Curie, $\beta$ es el exponente característico para la dependencia de la temperatura. La misma ecuación se aplica también cuando se utiliza la opción *$B(H)$*.
 
 $$
 \mu(H, T) = 1 + \left(\mu_r(H) - 1\right) \left( 1- \left(\frac{T}{T_C}\right)^{\beta} \right)
 $$
 
-Here $\mu_r(H) = \frac{B(H)}{H\mu_0}$.
-Characteristic exponent $\beta$ influences the shape of magnetic permeability temperature dependence. Higher $\beta$ means more rapid change of $\mu$ near Curie point (see Figure for explanation). Literature suggests different values for $\beta$. Early works [1] suggest $\beta = 2..4$. More recent works [2], [3] show that higher values ($\beta \approx 25$ ) allow modelling striation effect. For most cases recommended value is in the range $\beta = 4..6$.
+
+Aquí $\mu_r(H) = \frac{B(H)}{H\mu_0}$.
+El exponente característico $\beta$ influye en la forma de la dependencia de la temperatura de la permeabilidad magnética. Cuanto mayor sea $\beta$, más rápido será el cambio de $\mu$ cerca del punto de Curie (véase la explicación en la figura). La bibliografía sugiere distintos valores para $\beta$. Los primeros trabajos [1] sugieren $\beta = 2..4$. Trabajos más recientes [2], [3] muestran que valores más altos ($\beta \aprox 25$ ) permiten modelar el efecto de estriación. Para la mayoría de los casos, el valor recomendado está en el intervalo $\beta = 4..6$.
 
 <p align="center">
 
@@ -66,22 +70,25 @@ Characteristic exponent $\beta$ influences the shape of magnetic permeability te
 
 </p>
 
-:::note
-To use this option, check **Use temperature dependence** in Material editing section.
+:::note Nota
+
+Para utilizar esta opción, marque **Usar dependencia de la temperatura** en la sección Edición de materiales.
+
 :::
 
-### Treatment of non-linear magnetic properties in harmonic (AC) simulation
+### Tratamiento de las propiedades magnéticas no lineales en la simulación armónica (CA)
 
-Magnetic field intensity change over period is not sinusoidal in ferromagnetic material. This restricts use of harmonic approach with non-linear magnetic materials. However, to account for nonlinear phenomena in time harmonic simulation, fictitious time independent material can be introduced. This approximation considers the conservation of the exchange of the magnetic energy along a period [4]:
+El cambio de intensidad del campo magnético a lo largo del periodo no es sinusoidal en el material ferromagnético. Esto restringe el uso del enfoque armónico con materiales magnéticos no lineales. Sin embargo, para tener en cuenta los fenómenos no lineales en la simulación armónica temporal, puede introducirse un material ficticio independiente del tiempo. Esta aproximación considera la conservación del intercambio de la energía magnética a lo largo de un periodo [4]:
 
 $$
 B_{eff}(H) = \frac{2}{H} \int_{0}^{H} B(H') d H'
 $$
 
-Here $H$ is the amplitude of the harmonic field, and $B(H')$ is the original magnetization curve.
-Figure below shows magnetic flux density B at certain point in magnetic material. In transient calculation signal is not sinusoidal, and contains higher harmonics. For applications where higher harmonics can be neglected (also induction heating), effective B-H curve is suggested as it requires less computational resources. Especially important for induction heating applications - total power in both methods is very similar (differences below 5% in [5]).
+Aquí $H$ es la amplitud del campo armónico, y $B(H')$ es la curva de magnetización original.
+La figura siguiente muestra la densidad de flujo magnético B en un punto determinado del material magnético. En el cálculo transitorio, la señal no es sinusoidal y contiene armónicos superiores. Para aplicaciones en las que los armónicos superiores pueden despreciarse (también el calentamiento por inducción), se sugiere la curva B-H efectiva, ya que requiere menos recursos computacionales. Especialmente importante para aplicaciones de calentamiento por inducción: la potencia total en ambos métodos es muy similar (diferencias inferiores al 5% en [5]).
 
-It is important to remember that in harmonic simulations of non-linear magnetic materials, results may contain high magnetic flux density values which are well above saturation. This is normal, as this value is obtained with fictitious material.
+Es importante recordar que en las simulaciones armónicas de materiales magnéticos no lineales, los resultados pueden contener valores elevados de densidad de flujo magnético que están muy por encima de la saturación. Esto es normal, ya que este valor se obtiene con material ficticio.
+
 
 <p align="center">
 

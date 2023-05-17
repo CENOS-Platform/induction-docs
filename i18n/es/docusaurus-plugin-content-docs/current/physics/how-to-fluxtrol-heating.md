@@ -1,15 +1,15 @@
 ---
 id: fluxtrol-heating
-title: How to set up thermal calculation for flux concentrators
-sidebar_label: Flux concentrator heating
+title: Cómo configurar el cálculo térmico de los concentradores de flujo
+sidebar_label: Calefacción de concentradores de flujo
 sidebar_position: 11
 ---
 
-The most basic induction heating system consists of only two parts - workpiece and inductor. More advanced systems incorporate flux concentrators, which help to concentrate the magnetic field and improve the economy of the system.
+El sistema de calentamiento por inducción más básico consta sólo de dos partes: la pieza de trabajo y el inductor. Los sistemas más avanzados incorporan concentradores de flujo, que ayudan a concentrar el campo magnético y mejoran la economía del sistema.
 
-When flux concentrators are introduced in the simulation, additional parameters must be known from the results, such as **power loss and heating of concentrators**.
+Cuando se introducen concentradores de flujo en la simulación, deben conocerse parámetros adicionales a partir de los resultados, como **la pérdida de potencia y el calentamiento de los concentradores**.
 
-In this article we will **learn how to set up flux concetrator thermal definition** for calculation of heating and losses.
+En este artículo **aprenderemos a configurar la definición térmica del concetrador de flujo** para el cálculo del calentamiento y las pérdidas.
 
 <p align="center">
 
@@ -17,9 +17,9 @@ In this article we will **learn how to set up flux concetrator thermal definitio
 
 </p>
 
-## Enable thermal calculation
+## Habilitar cálculo térmico
 
-To calculate *Thermal Analysis* of flux concentrators, you need to **enable this type of analysis** in the physics setup under concentrator domain.
+Para calcular el *Análisis Térmico* de los concentradores de flujo, es necesario **habilitar este tipo de análisis** en la configuración de física bajo el dominio del concentrador.
 
 <p align="center">
 
@@ -27,13 +27,13 @@ To calculate *Thermal Analysis* of flux concentrators, you need to **enable this
 
 </p>
 
-## Add material properties
+## Añadir propiedades del material
 
-For additional analysis you need to define thermal properties and parameters for losses.
+Para el análisis adicional es necesario definir las propiedades térmicas y los parámetros para las pérdidas.
 
-### Thermal properties
+### Propiedades térmicas
 
-Define *Thermal Conductivity* and *Heat capacity* in the same way as for other domains, such as workpiece.
+Defina *Conductividad Térmica* y *Capacidad Térmica* de la misma manera que para otros dominios, como la pieza de trabajo.
 
 <p align="center">
 
@@ -41,9 +41,9 @@ Define *Thermal Conductivity* and *Heat capacity* in the same way as for other d
 
 </p>
 
-### Power loss
+### Pérdidas de potencia
 
-To calculate power loss in flux concentrators, check the *Use power losses in non-conducting material* box. Enter *Amplitude for power loss*, *Frequency exponent* and *Magnetic field exponent*.
+Para calcular la pérdida de potencia en concentradores de flujo, marque la casilla *Use power losses in non-conducting material*. Introduzca *Amplitud para la pérdida de potencia*, *Exponente de frecuencia* y *Exponente de campo magnético*.
 
 <p align="center">
 
@@ -51,9 +51,9 @@ To calculate power loss in flux concentrators, check the *Use power losses in no
 
 </p>
 
-## Define boundary conditions
+## Definir las condiciones de contorno
 
-For *Thermal analysis* you need to **create surface group for concentrator-air interface**, and **define heat exchange** on this surface.
+Para el *Análisis térmico* es necesario **crear un grupo de superficies para la interfaz concentrador-aire**, y **definir el intercambio de calor** en esta superficie.
 
 <p align="center">
 
@@ -61,6 +61,6 @@ For *Thermal analysis* you need to **create surface group for concentrator-air i
 
 </p>
 
-If the concentrator is in contact with inductor (have a common surface), **create a separate group for concentrator-inductor surface**. Define it with *Fixed temperature* or *Heat Flow*.
+Si el concentrador está en contacto con el inductor (tienen una superficie común), **necesita crear un grupo separado para la superficie concentrador-inductor**. Defínalo con *Temperatura fija* o *Flujo de calor*.
 
-For EM analysis define each of these groups as *Interface*.
+Para el análisis EM defina cada uno de estos grupos como *Interfaz*.

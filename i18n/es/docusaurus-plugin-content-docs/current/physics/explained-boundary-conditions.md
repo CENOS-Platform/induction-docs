@@ -1,19 +1,19 @@
 ---
 id: boundary-conditions
-title: Boundary conditions
-sidebar_label: Boundary conditions
+title: Condiciones de contorno
+sidebar_label: Condiciones de contorno
 sidebar_position: 5
 ---
 
-Boundary conditions (BC) are physical definitions on domain boundary surfaces for thermal conditions and electromagnetism. Here are listed **all boundary conditions used in CENOS**, as well as the **most common usage for each BC**.
+Las condiciones de contorno (CC) son definiciones físicas en las superficies de contorno del dominio para las condiciones térmicas y de electromagnetismo. Aquí se enumeran **todas las condiciones límite utilizadas en CENOS**, así como el **uso más común para cada CC**.
 
-## Thermal BC
+## Condiciones de contorno térmicas
 
-Thermal BC's are boundary conditions through which the heat exchange between domains is defined.
+Las CC térmicas son condiciones de contorno a través de las cuales se define el intercambio de calor entre dominios.
 
-### Fixed temperature
+### Temperatura fija
 
-*Fixed temperature* boundary condition defines a fixed temperature on the boundary surface.
+La condición de contorno *temperatura fija* define una temperatura fija en la superficie límite.
 
 <p align="center">
 
@@ -21,13 +21,15 @@ Thermal BC's are boundary conditions through which the heat exchange between dom
 
 </p>
 
-:::note usage
-When *Motion* is used on infinite billet, the surface through which the billet enters the computational domain can be defined with *Fixed Temperature*.
+:::note Uso
+
+Cuando *Motion* se usa en palanquilla infinita, la superficie a través de la cual la palanquilla ingresa al dominio computacional se puede definir con *Temperatura fija*.
+
 :::
 
-### Heat flux
+### Flujo térmico
 
-*Heat flux* boundary condition defines a constant heat flux density on the boundary surface.
+La condición límite de *flujo térmico* define una densidad de flujo térmico constante en la superficie de contorno.
 
 <p align="center">
 
@@ -35,13 +37,15 @@ When *Motion* is used on infinite billet, the surface through which the billet e
 
 </p>
 
-:::note usage
-Can be used if the heat flux going through a specific area is known
+:::note Uso
+
+Puede utilizarse si se conoce el flujo de calor que atraviesa un área específica
+
 :::
 
-### Heat flow
+### Transferencia de calor
 
-*Heat flow* boundary condition defines a constant heat flow (in watts) on the boundary surface.
+La condición de contorno de *transferencia de calor* define un flujo de calor constante (en watts) en la superficie límite.
 
 <p align="center">
 
@@ -49,13 +53,15 @@ Can be used if the heat flux going through a specific area is known
 
 </p>
 
-:::note usage
-Can be used if the heat flow going through a specific area is known
+:::note Uso
+
+Puede utilizarse si se conoce la transferencia de calor que atraviesa una zona específica
+
 :::
 
-### Convection
+### Convección
 
-*Convection* boundary condition defines the heat flux as dependent from the ambient temperature and heat transfer coefficient. *Convection* is defined as:
+La condición de contorno de *convección* define el flujo térmico como dependiente de la temperatura ambiente y el coeficiente de transferencia de calor. *Convección* se define como:
 
 $$
 q=h(T-T_{amb})
@@ -67,15 +73,16 @@ $$
 
 </p>
 
-:::note usage
-*Convection* is used on the workpiece-air interface to define heat exchange when temperature is low. Usually used together with *Radiation*.
+:::note Uso
+
+*Convección* se utiliza en la interfaz pieza de trabajo-aire para definir el intercambio de calor cuando la temperatura es baja. Normalmente se utiliza junto con *Radiación*.
 :::
 
-To **learn more** about *Convection* definition, [**click here**](/physics/thermal-losses#convection).
+Para **aprender más** sobre la definición de *Convección*, [**haga clic aquí**](/physics/thermal-losses#convection).
 
-### Radiation
+### Radiación
 
-*Radiation* boundary condition defines the thermal radiation to infinity on the boundary surface, where the heat flux is defined as:
+La condición de contorno *radiación* define la radiación térmica hasta el infinito en la superficie límite, donde el flujo de calor se define como:
 
 $$
 q=\sigma_{SB}\epsilon(T^4-T_{amb}^4)
@@ -87,15 +94,17 @@ $$
 
 </p>
 
-:::note usage
-*Radiation* is used on the workpiece-air interface to define heat exchange when temperature is high. Usually used together with *Convection*.
+:::note Uso
+
+La *radiación* se utiliza en la interfaz pieza de trabajo-aire para definir el intercambio de calor cuando la temperatura es alta. Normalmente se utiliza junto con *Convección*.
+
 :::
 
-To **learn more** about *Radiation* definition, [**click here**](/physics/thermal-losses#radiation).
+Para **aprender más** sobre la definición de *radiación*, [**haga clic aquí**](/physics/thermal-losses#radiation).
 
-### Combined
+### Combinadas
 
-*Combined* boundary condition allows you to combine multiple BC such as *Convection*, *Radiation*, *Heat Flux* and *Heat Flow* on a single domain surface.
+La condición de contorno *combinada* le permite combinar múltiples CC como *convección*, *radiación*, *flujo de calor* y *transferencia de calor* en una única superficie de dominio.
 
 <p align="center">
 
@@ -103,13 +112,15 @@ To **learn more** about *Radiation* definition, [**click here**](/physics/therma
 
 </p>
 
-:::note usage
-*Combined* is used on workpiece-air interface to define both *Convection* and *Radiation* for a complete heat trasfer definition over wide temperature range.
+:::note Uso
+
+La CC *combinada* se utiliza en la interfaz pieza de trabajo-aire para definir tanto *convección* como *radiación* para una definición completa de la transferencia de calor en un amplio rango de temperaturas.
+
 :::
 
-### Adiabatic
+### Adiabática
 
-*Adiabatic* boundary condition defines 0 heat flux on the surface.
+La condición de contorno *adiabática* define un flujo de calor 0 en la superficie.
 
 <p align="center">
 
@@ -117,13 +128,15 @@ To **learn more** about *Radiation* definition, [**click here**](/physics/therma
 
 </p>
 
-:::note usage
-*Adiabatic* is used on symmetry surfaces for domains with thermal analysis.
+:::note Uso
+
+La CC *adiabática* se utiliza en superficies de simetría para dominios con análisis térmico.
+
 :::
 
-### Interface
+### Interfaz
 
-*Interface* boundary condition defines boundary surface as the internal surface between two domains.
+La condición de contorno *interfaz* define la superficie de contorno como la superficie interna entre dos dominios.
 
 <p align="center">
 
@@ -131,13 +144,15 @@ To **learn more** about *Radiation* definition, [**click here**](/physics/therma
 
 </p>
 
-:::note usage
-Used to define interface between two domains which both have thermal analysis definition.
+:::note Uso
+
+Se utiliza para definir la interfaz entre dos dominios que tienen ambos definición de análisis térmico.
+
 :::
 
-### Thermal Contact Resistance
+### Resistencia térmica de contacto
 
-*Thermal Contact Resistance* boundary condition defines thermal resistance between two domains.
+La condición de contorno *resistencia de contacto térmico* define la resistencia térmica entre dos dominios.
 
 <p align="center">
 
@@ -145,17 +160,19 @@ Used to define interface between two domains which both have thermal analysis de
 
 </p>
 
-:::note usage
-Used to define interface between two domains who both have thermal analysis definition.
+:::note Uso
+
+Se utiliza para definir la interfaz entre dos dominios que tienen ambos definición de análisis térmico.
+
 :::
 
-## Electromagnetics
+## Electromagnetismo
 
-Electromagnetic BC's are boundary conditions through which the magnetic flux is defined.
+Las CC electromagnéticas son condiciones de contorno a través de las cuales se define el flujo magnético.
 
-### Infinity
+### Infinito
 
-*Infinity* boundary condition defines a zero vector potential on the boundary surface.
+La condición límite *infinito* define un potencial vectorial cero en la superficie de contorno.
 
 <p align="center">
 
@@ -163,13 +180,15 @@ Electromagnetic BC's are boundary conditions through which the magnetic flux is 
 
 </p>
 
-:::note usage
-*Infinity* is used to define the outer surface of the air box.
+:::note Uso
+
+La CC *infinito* se utiliza para definir la superficie exterior de la caja de aire.
+
 :::
 
-### Flux parallel
+### Flujo paralelo
 
-*Flux parallel* boundary condition defines the magnetic field lines as parallel to the boundary surface.
+La condición límite *flujo paralelo* define las líneas de campo magnético como paralelas a la superficie límite.
 
 <p align="center">
 
@@ -177,15 +196,17 @@ Electromagnetic BC's are boundary conditions through which the magnetic flux is 
 
 </p>
 
-:::note usage
-*Flux parallel* is used to define symmetry boundary conditions on the sides of slices and sectors.
+:::note Uso
+
+El *flujo paralelo* se utiliza para definir condiciones de contorno de simetría en los lados de los cortes y sectores.
+
 :::
 
-To **learn more** about *Flux parallel* definition, [**click here**](/physics/symmetry#flux-parallel).
+Para **aprender más** sobre la definición de *flujo paralelo*, [**haga clic aquí**](/physics/symmetry#flux-parallel).
 
-### Flux normal
+### Flujo normal
 
-*Flux normal* boundary condition defines the magnetic field lines as normal to the boundary surface.
+La condición de contorno *flujo normal* define las líneas de campo magnético como normales a la superficie de contorno.
 
 <p align="center">
 
@@ -193,15 +214,17 @@ To **learn more** about *Flux parallel* definition, [**click here**](/physics/sy
 
 </p>
 
-:::note usage
-*Flux normal* is used to define symmetry boundary conditions on top and bottom of slices and sectors.
+:::note Uso
+
+El *flujo normal* se utiliza para definir las condiciones de contorno de simetría en la parte superior e inferior de los cortes y sectores.
+
 :::
 
-To **learn more** about *Flux normal* definition, [**click here**](/physics/symmetry#flux-normal).
+Para **aprender más** sobre la definición de *flujo normal*, [**haga clic aquí**](/physics/symmetry#flux-normal).
 
-### Interface
+### Interfaz
 
-*Interface* boundary condition defines boundary surface as the internal surface between two domains.
+La condición de contorno *interfaz* define la superficie de contorno como la superficie interna entre dos dominios.
 
 <p align="center">
 
@@ -209,13 +232,15 @@ To **learn more** about *Flux normal* definition, [**click here**](/physics/symm
 
 </p>
 
-:::note usage
-Used to define interface between two domains from which only one has thermal analysis definition.
+:::note Uso
+
+Se utiliza para definir la interfaz entre dos dominios de los que sólo uno tiene definición de análisis térmico.
+
 :::
 
-### Surface Impedance
+### Impedancia superficial
 
-*Surface Impedance* boundary condition can be accessed only through the *Surface Impedance* domain. It defines the boundary surface as an infinitely thin layer for VH frequency skin layer resolution.
+Sólo se puede acceder a la condición de contorno *impedancia superficial* a través del dominio *impedancia superficiale*. Define la superficie límite como una capa infinitamente fina para la resolución de capa de piel de frecuencia VH.
 
 <p align="center">
 
@@ -223,13 +248,15 @@ Used to define interface between two domains from which only one has thermal ana
 
 </p>
 
-:::note usage
-*Surface Impedance* is used to replace manual skin layer resolution through mesh at very high frequency setup.
+:::note Uso
+
+*Impedancia superficial** se utiliza para reemplazar la resolución manual de la capa de piel a través de la malla en la configuración de frecuencias muy altas.
+
 :::
 
-### Symmetry axis
+### Eje de simetría
 
-*Symmetry axis* is a 2D-axial-symmetric specific boundary condition which defines 0 vector potential on the symmetry axis.
+*Eje de simetría* es una condición de contorno específica 2D-axial-simétrica que define un potencial vectorial 0 en el eje de simetría.
 
 <p align="center">
 
@@ -237,17 +264,19 @@ Used to define interface between two domains from which only one has thermal ana
 
 </p>
 
-:::note usage
-*Symmetry axis* is used in every 2D axial-symmetric case to define rotational axis.
+:::note Uso
+
+*Eje de simetría* se utiliza en todos los casos 2D axial-simétricos para definir el eje de rotación.
+
 :::
 
-## Current source
+## Fuente de corriente
 
-Current BC's are accessed only under the *Current source* domain and through which the current or voltage flowing through the conductor are defined.
+Las CC de corriente son accesibles solo bajo el dominio *fuente de corriente* y a través de las cuales se define la corriente o voltaje que fluye a través del conductor.
 
-### Voltage
+### Voltaje
 
-*Voltage* boundary condition defines the voltage on the boundary surface.
+La condición límite *voltaje* define la tensión en la superficie límite.
 
 <p align="center">
 
@@ -255,13 +284,15 @@ Current BC's are accessed only under the *Current source* domain and through whi
 
 </p>
 
-:::note usage
-*Voltage* is used to define the voltage on one of inductor terminals. For the other terminal use *Ground*.
+:::note Uso
+
+*Voltaje* se utiliza para definir el voltaje en uno de los terminales del inductor. Para el otro terminal utilice *tierra*.
+
 :::
 
-### Current
+### Corriente
 
-*Current* boundary condition defines a positive current supply to the boundary surface and the value of current.
+La condición límite *corriente* define un suministro de corriente positiva a la superficie de contorno y el valor de la corriente.
 
 <p align="center">
 
@@ -269,13 +300,15 @@ Current BC's are accessed only under the *Current source* domain and through whi
 
 </p>
 
-:::note usage
-*Current* is used to define current on one of the inductor terminals. For the other terminal use *Ground*.
+:::note Uso
+
+*Corriente* se utiliza para definir la corriente en uno de los terminales del inductor. Para el otro terminal utilice *tierra*.
+
 :::
 
-### Ground
+### Tierra
 
-*Ground* boundary condition defines a negative current supply to the boundary surface.
+La condición límite *tierra* define un suministro de corriente negativo a la superficie límite.
 
 <p align="center">
 
@@ -283,6 +316,8 @@ Current BC's are accessed only under the *Current source* domain and through whi
 
 </p>
 
-:::note usage
-*Ground* is used to define one of the inductor terminals. For the other terminal use *Voltage* or *Current*.
+:::note Uso
+
+*Tierra* se utiliza para definir uno de los terminales del inductor. Para el otro terminal utilice *Voltaje* o *Corriente*.
+
 :::
