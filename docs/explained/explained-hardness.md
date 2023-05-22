@@ -59,7 +59,7 @@ Other option is to use hardness data that is commonly added to CCT diagrams (con
 Pay attention - in the diagram below hardness is described using different scales - HV and HRC [3]. 
 <p align="center">
 
-![Bar Geometry](assets/hardness/cct-hardness.png)
+![Bar Geometry](assets/hardness/CCT-hardness.png)
 
 </p>
 
