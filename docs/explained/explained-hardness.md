@@ -13,7 +13,7 @@ First, you have to make sure that thermal physics is enabled for the domain wher
 
 <p align="center">
 
-![Bar Geometry](assets/hardness/enable-hardness.PNG)
+![Bar Geometry](assets/hardness/enable-hardness.png)
 
 </p>
 
@@ -33,7 +33,7 @@ This model can be used only for low-alloy steels. See the limitations below [1]:
 
 <p align="center">
 
-![Bar Geometry](assets/hardness/Hardness-module-constraints.PNG)
+![Bar Geometry](assets/hardness/Hardness-module-constraints.png)
 
 </p>
 
@@ -41,7 +41,7 @@ At the top of the hardness model definition, you will see that there are additio
 
 <p align="center">
 
-![Bar Geometry](assets/hardness/chemical-hardness.PNG)
+![Bar Geometry](assets/hardness/chemical-hardness.png)
 
 </p>
 
@@ -51,7 +51,7 @@ This is a simple model where material hardness is calculated from the hardness d
 
 <p align="center">
 
-![Bar Geometry](assets/hardness/hardness-aisi1045.PNG)
+![Bar Geometry](assets/hardness/hardness-aisi1045.png)
 
 </p>
 
@@ -59,7 +59,7 @@ Other option is to use hardness data that is commonly added to CCT diagrams (con
 Pay attention - in the diagram below hardness is described using different scales - HV and HRC [3]. 
 <p align="center">
 
-![Bar Geometry](assets/hardness/cct-hardness.PNG)
+![Bar Geometry](assets/hardness/cct-hardness.png)
 
 </p>
 
@@ -72,7 +72,7 @@ In this case end temperature is equal to the martensite start temperature ($M_s$
 Here is the preview of the model definition in the Cenos:
 <p align="center">
 
-![Bar Geometry](assets/hardness/table-hardness.PNG)
+![Bar Geometry](assets/hardness/table-hardness.png)
 
 </p>
 
