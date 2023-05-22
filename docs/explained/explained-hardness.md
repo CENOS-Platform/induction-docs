@@ -5,7 +5,7 @@ sidebar_label: Hardness calculation
 sidebar_position: 5
 ---
 
-There are two hardness calculation models implemented in the Cenos. Both models will be described in the chapters below.
+There are two hardness calculation models implemented in CENOS. Both models will be described in the chapters below.
 
 ## How to enable hardness calculation models?
 
