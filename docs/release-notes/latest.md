@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /latest
 ---
 
-## v4.1 (May 23rd, 2023)
+## v4.1 (May 23, 2023)
 
 Features:
 
@@ -19,17 +19,17 @@ Improvements:
 
 Bugfixes:
 
-* Fixed a bug when mesh element count was not instantly updated after mesh recalculation
+* Fixed a bug when submesh element count was not instantly updated after mesh recalculation
 * Fixed a problem where PDF report was not generated
 * Fixed an issue which did not allow to define counter-clockwise rotational movement
 * Fixed a bug which crashed calculation if no thermal analysis was enabled
 * Fixed a bug which caused geometry data inconsistency with mesh when mesh was created in Salome through FromCAD approach
 * Fixed a bug where hardening profile and steel phases developed incorrectly if complex motion for workpiece was used
-* Fixed a bug which did not save calculated results, if collision between objects happen
+* Fixed a bug which did not save calculated results if collision between objects occurs
 * Fixed a bug which caused an error when case with a state file was opened on another computer
 * Fixed a bug which crashed calculation if temperature dependent emissivity was used
 * Fixed a problem when in Advanced Geometry Editor approach resending changed group definitions from Salome to CENOS did not update previously sent groups
-* Re-added a possibility to define expression to Fixed Temperature boundary condition
+* Restored possibility to define expression to Fixed Temperature boundary condition
 * Reduced thermal shock effect in cases with rotation
 
 
