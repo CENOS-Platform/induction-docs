@@ -2,7 +2,7 @@
 id: power-control
 title: Power controlled simulation
 sidebar_label: Power control
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 CENOS is a powerful tool that allows you to input *****voltage***, ***current*** , or ***POWER*** to control your system.

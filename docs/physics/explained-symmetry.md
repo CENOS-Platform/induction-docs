@@ -2,7 +2,7 @@
 id: symmetry
 title: Symmetry Boundary Conditions
 sidebar_label: Symmetry
-sidebar_position: 8
+sidebar_position: 9
 ---
 
 With CENOS it is possible to simulate a symmetrical part of an object (half, quarter, slice, etc.), which gives valid results that can be mirrored to represent the whole geometry, but in the same time significantly decreases the calculation time.

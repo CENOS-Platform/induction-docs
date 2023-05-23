@@ -2,7 +2,7 @@
 id: magnetic-properties
 title: Magnetic material properties
 sidebar_label: B(H) / permeability
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 In simulation creation the correct material property definitions are vital to the precision and duration of the calculations. There are different ways to define thermal and electromagnetic properties of the materials, and some parameters are more sensitive to change than others.

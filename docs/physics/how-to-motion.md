@@ -2,7 +2,7 @@
 id: motion
 title: How to define motion in CENOS
 sidebar_label: Motion
-sidebar_position: 12
+sidebar_position: 13
 ---
 
 Movement is an important part for a lot of induction heating systems, as translational or rotational movement helps to heat/harden the specific part uniformly and efficiently. To **accurately simulate** such processes, you need to **take into account the respective types and speeds of the movement** present in your system.

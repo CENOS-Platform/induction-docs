@@ -2,7 +2,7 @@
 id: effective-mu
 title: How to estimate effective permeability (μ)
 sidebar_label: Estimate effective μ
-sidebar_position: 13
+sidebar_position: 14
 ---
 
 Correct material definitions within CENOS are critical for good results. One such definition is the B(H) curve, which is needed to accurately simulate the materials response to the electromagnetic field. However, the **B(H) curve increases the calculation time significantly**, hence it is not so effective to use during the first design iterations.
