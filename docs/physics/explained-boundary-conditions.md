@@ -2,7 +2,7 @@
 id: boundary-conditions
 title: Boundary conditions
 sidebar_label: Boundary conditions
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 Boundary conditions (BC) are physical definitions on domain boundary surfaces for thermal conditions and electromagnetism. Here are listed **all boundary conditions used in CENOS**, as well as the **most common usage for each BC**.

@@ -2,7 +2,7 @@
 id: algorithms
 title: Computation algorithms
 sidebar_label: Computation algorithms
-sidebar_position: 4
+sidebar_position: 5
 ---
 
 When setting up a simulation in CENOS, you will see in SIMULATION CONTROL that you are given a **choice of selecting computation algorithm**.

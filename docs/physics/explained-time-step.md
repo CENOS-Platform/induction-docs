@@ -2,7 +2,7 @@
 id: time-step
 title: Time step
 sidebar_label: Time step
-sidebar_position: 10
+sidebar_position: 11
 ---
 
 There are a lot of different physical parameters, which, if defined incorrectly, can affect the precision of the results. One of such parameters with a great impact on the results is the **time step**. In this article we will learn what a calculation time step is, how it can affect the results and how to define it.

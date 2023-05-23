@@ -1,8 +1,8 @@
 ---
-id: explained-hardness
+id: hardness
 title: Hardness calculation
 sidebar_label: Hardness calculation
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 There are two hardness calculation models implemented in CENOS. Both models will be described in the chapters below.
@@ -29,7 +29,11 @@ $$
 
 Time is counted while the temperature drops from $Ac_{3}$ to $T_{end}$.
 In the pre-field materials, we use martensite start temperature ($M_s$) as the end temperature since this temperature is associated with the end of the hardening process or in other words - when all austenite that has not reformed to bainite, pearlite, or ferrite changes its structure to martensitic. Originally model is developed using $T_{end}=100 ^{\circ} C$, but it is left as an optional parameter so the model could be more adjustable to a specific case.
-This model can be used only for low-alloy steels. See the limitations below [1]:
+
+:::warning important
+This model can be used only for low-alloy steels!  See the limitations in the table below [1]:
+:::
+
 
 <p align="center">
 
@@ -57,7 +61,7 @@ This is a simple model where material hardness is calculated from the hardness d
 
 Other option is to use hardness data that is commonly added to CCT diagrams (continuous-cooling phase change diagrams). You can read the hardness that material has achieved based on the cooling time that has passed beginning at the $Ac_{3}$ temperature. 
 Pay attention - in the diagram below hardness is described using different scales - HV and HRC [3]. 
-<p align="center">
+<p align="center"> 
 
 ![Bar Geometry](assets/hardness/CCT-hardness.png)
 

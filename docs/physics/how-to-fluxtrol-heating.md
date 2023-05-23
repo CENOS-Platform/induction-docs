@@ -2,7 +2,7 @@
 id: fluxtrol-heating
 title: How to set up thermal calculation for flux concentrators
 sidebar_label: Flux concentrator heating
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 The most basic induction heating system consists of only two parts - workpiece and inductor. More advanced systems incorporate flux concentrators, which help to concentrate the magnetic field and improve the economy of the system.
