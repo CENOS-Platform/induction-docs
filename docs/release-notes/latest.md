@@ -6,6 +6,13 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.1.1 (May 25, 2023)
+
+Bugfixes:
+
+* Fixed a bug which blocked users from creating new custom materials or editing and re-saving existing ones
+
+
 ## v4.1 (May 23, 2023)
 
 Features:
