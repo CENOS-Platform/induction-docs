@@ -1,23 +1,23 @@
 ---
 id: results
-title: How to evaluate results
-sidebar_label: Result evaluation
+title: Cómo evaluar los resultados
+sidebar_label: Evaluación de resultados
 sidebar_position: 5
 ---
 
-CENOS platform incorporates a powerfull post-processing tool - [**ParaView**](https://www.paraview.org/). It is being used all around the world by specialists of different fields ranging from *Structural Analysis* to *CFD* and *Climate Research*.
+La plataforma CENOS incorpora una potente herramienta de postprocesamiento - [**ParaView**](https://www.paraview.org/). Está siendo utilizada en todo el mundo por especialistas de diferentes campos que van desde el *Análisis Estructural* al *CFD* y la *Investigación Climática*.
 
-Being one of the most powerfull open source data analysis and visualization software, it has become complex enough to confuse new users about how to use it.
+Siendo uno de los programas de análisis y visualización de datos de código abierto más potentes, se ha vuelto lo suficientemente complejo como para confundir a los nuevos usuarios sobre cómo utilizarlo.
 
-In this article we will look into **some of the most common ParaView filters** and their usage, as well as **filters especially usefull in induction heating** simulation result analysis.
+En este artículo veremos **algunos de los filtros más comunes de ParaView** y su uso, así como **filtros especialmente útiles en el análisis de resultados de simulación de calentamiento por inducción**.
 
-## How to choose which result values to compute
+## Cómo elegir qué valores de resultado calcular
 
-Before we dive into *ParaView* and its workings, we need to first understand what is being visualized in *ParaView*. By default *ParaView* shows us the visual result components, such as *Temperature* or *Current Density*, but **you can add some aditional results**, such as *Lorentz Force, Electric scalar potential, Magnetic vector potential and magnetic permeability*.
+Antes de sumergirnos en *ParaView* y su funcionamiento, necesitamos entender primero qué se visualiza en *ParaView*. Por defecto *ParaView* nos muestra los componentes visuales de los resultados, como *Temperatura* o *Densidad de corriente*, pero **puedes añadir algunos resultados adicionales**, como *Fuerza de Lorentz, Potencial eléctrico escalar, Potencial magnético vectorial y Permeabilidad magnética*.
 
-To add this results you should go to the **Physics** block and click on *Show* under the tab **Aditional results to calculate**
+Para añadir estos resultados debe ir al bloque **Física** y hacer clic en *Show* en la pestaña de **resultados adicionales a calcular**.
 
-In there you can **select or deselect values you want to calculate**:
+Ahí puedes **seleccionar o deseleccionar los valores que quieres calcular**:
 
 <p align="center">
 
@@ -26,16 +26,16 @@ In there you can **select or deselect values you want to calculate**:
 </p>
 
 
-If you have calculated the case, but **forgot to select a specific value**, you can select it even after the calculation and recalculate only the result part to get the value of interest. Simply click **Re-calculate** to calculate the missing result values:
+Si ha calculado el caso, pero **olvidó seleccionar un valor específico**, puede seleccionarlo incluso después del cálculo y recalcular sólo la parte del resultado para obtener el valor que le interesa. Basta con hacer clic en **Recalcular** para calcular los valores de resultado que faltan:
 
 
-## How to access filters
+## Cómo acceder a los filtros
 
-ParaView *filters* are algorithms that extracts a specific information such as iso-contours and point data from the initial result data set and **are used to visualize specific physical properties** of the calculated simulation.
+Los *filtros* de ParaView son algoritmos que extraen una información específica, como isocontornos y datos puntuales, del conjunto de datos del resultado inicial y **se utilizan para visualizar propiedades físicas específicas** de la simulación calculada.
 
-Filters are accessible in different ways. If you know which filter you need, you can click *Filters → Search...* and **search directly for the filter** by entering its name in the *Search* window and clicking *Enter*.
+Se puede acceder a los filtros de distintas maneras. Si sabe qué filtro necesita, puede hacer clic en *Filtros → Buscar...* y **buscar directamente el filtro** introduciendo su nombre en la ventana *Buscar* y haciendo clic en *Enter*.
 
-In the example below the word ***plot*** has been written in the *Search* window, and all filters which names include ***plot*** are found and available for selection.
+En el ejemplo siguiente se ha escrito la palabra ***plot*** en la ventana *Buscar*, y todos los filtros cuyos nombres incluyen ***plot*** se encuentran y están disponibles para su selección.
 
 <p align="center">
 
@@ -44,7 +44,7 @@ In the example below the word ***plot*** has been written in the *Search* window
 </p>
 
 
-If you don't know which filter to use, you can choose from all filters available by clicking *Filters → Alphabetical*
+Si no sabe qué filtro utilizar, puede elegir entre todos los filtros disponibles haciendo clic en *Filtros → Alfabético*.
 
 <p align="center">
 
@@ -53,13 +53,13 @@ If you don't know which filter to use, you can choose from all filters available
 </p>
 
 
-## How to use filters
+## Cómo utilizar los filtros
 
-In order to use ParaView filters, first a ***data set*** must be chosen on which the filter will apply. After the end of the calculation CENOS will open ParaView window with a pre-set state consisting of 1 result window (in 3D case) or 2 result windows (in axial symmetric 2D case). The simulation data will also be divided into smaller data sets, such as *Workpiece*, *Inductor* etc. 
+Para utilizar los filtros en ParaView, primero debe elegirse un ***conjunto de datos*** sobre el que se aplicará el filtro. Una vez finalizado el cálculo, CENOS abrirá la ventana ParaView con un estado preestablecido consistente en 1 ventana de resultados (en el caso 3D) o 2 ventanas de resultados (en el caso 2D de simetría axial). Los datos de simulación también se dividirán en conjuntos de datos más pequeños, como *Pieza de trabajo*, *Inductor*, etc.
 
-**IMPORTANT**: If you want to apply filters to a specific data set, you need to first select them from the *Pipeline Browser*.
+**IMPORTANTE**: Si desea aplicar filtros a un conjunto de datos específico, primero debe seleccionarlos en el *Buscador de filtros*.
 
-For example, if you want to apply a filter such as *Plot Over Line* to the workpiece, the corresponding data set must be chosen before selecting the filter, otherwise none of the filters will be selectable.
+Por ejemplo, si desea aplicar un filtro como *Plot Over Line* a la pieza de trabajo, debe elegirse el conjunto de datos correspondiente antes de seleccionar el filtro; de lo contrario, no podrá seleccionarse ninguno de los filtros.
 
 <p align="center">
 
@@ -67,15 +67,15 @@ For example, if you want to apply a filter such as *Plot Over Line* to the workp
 
 </p>
 
-## Most commonly used filters
+## Filtros más utilizados
 
-Filters that are most commonly used as the means of **visual result evaluation** are also the first ones to be used in order to **determine the validity of the results**. Even though they are not as complex as other filters, they are still important for the post-processing.
+Los filtros más utilizados como medio de **evaluación visual de los resultados** son también los primeros que se utilizan para **determinar la validez de los resultados**. Aunque no son tan complejos como otros filtros, siguen siendo importantes para el postprocesamiento.
 
 ### Extract Block
 
-*Extract Block* allows to **extract single or multiple domains from the full data set** and manipulate the results in these domains independently. CENOS automatically exports data sets of *workpiece* and *inductor* domains, but *Extract Block* can be used even further.
+*Extract Block* permite **extraer uno o varios dominios del conjunto de datos completo** y manipular los resultados en estos dominios de forma independiente. CENOS exporta automáticamente conjuntos de datos de los dominios *pieza de trabajo* e *inductor*, pero *Extract Block* puede utilizarse aún más.
 
-For example, in [** single shot**](/physics/motion#simple-motion) case CENOS automatically exports and visualizes the temperature distribution in the workpiece as well as a solid inductor.
+Por ejemplo, en el caso de [** disparo único**](/physics/motion#simple-motion) CENOS exporta y visualiza automáticamente la distribución de temperatura en la pieza de trabajo, así como un inductor sólido.
 
 <p align="center">
 
@@ -83,9 +83,9 @@ For example, in [** single shot**](/physics/motion#simple-motion) case CENOS aut
 
 </p>
 
-**IMPORTANT**: Because workpiece and inductor data sets have been exported seperately, we can manipulate results independently for each domain.
+**IMPORTANTE**: Dado que los conjuntos de datos de la pieza de trabajo y del inductor se han exportado por separado, podemos manipular los resultados de forma independiente para cada dominio.
 
-If we select *Inductor* from *Pipeline Browser* and change the visualization from *Solid Color* to *Current Density*, we can visualize the current flow in the inductor, while keeping the temperature distribution in the workpiece.
+Si seleccionamos *Inductor* en *Pipeline Browser* y cambiamos la visualización de *Solid Color* a *Current Density*, podemos visualizar el flujo de corriente en el inductor, manteniendo la distribución de temperatura en la pieza.
 
 <p align="center">
 
@@ -93,7 +93,7 @@ If we select *Inductor* from *Pipeline Browser* and change the visualization fro
 
 </p>
 
-The single shot simulation incorporates *concentrators* around the coil, but they are **not automatically exported**. To visualize concentrators, select *Simulation Data* from *Pipeline Browser* and [**open Extract Block filter**](/results#how-to-access-filters). In *Properties* window select concentrator domain (*yoke* in this case) and click *Apply*.
+La simulación de disparo único incorpora *concentradores* alrededor de la bobina, pero **no se exportan automáticamente**. Para visualizar los concentradores, seleccione *Simulation Data* en *Pipeline Browser* y [**open Extract Block filter**](/results#how-to-access-filters). En la ventana de *Propepiedades* seleccione el dominio del concentrador (*yoke* en este caso) y haga clic en *Apply*.
 
 <p align="center">
 
@@ -101,7 +101,7 @@ The single shot simulation incorporates *concentrators* around the coil, but the
 
 </p>
 
-Select newly created *ExtractBlock1* and change the visualization from *Current Density* to *Solid Color*.
+Seleccione el recién creado *ExtractBlock1* y cambie la visualización de *Current Density* a *Solid Color*.
 
 <p align="center">
 
@@ -111,9 +111,9 @@ Select newly created *ExtractBlock1* and change the visualization from *Current 
 
 ### Slice
 
-*Slice* allows to **cut the domain with a plane** and visualize only a layer of it.
+*Slice* permite **cortar el dominio con un plano** y visualizar sólo una capa del mismo.
 
-To use *Slice*, select the domain of interest (extracted part or full computational domain) and [**open Slice filter**](/results#how-to-access-filters). Under *Properties* enter the parameters that define the plane which will be used to create the slice.
+Para utilizar *Slice*, seleccione el dominio de interés (parte extraída o dominio computacional completo) y [**abra el filtro Slice**](/results#how-to-access-filters). En las *propiedades* introduzca los parámetros que definen el plano que se utilizará para crear el corte.
 
 <p align="center">
 
@@ -121,7 +121,7 @@ To use *Slice*, select the domain of interest (extracted part or full computatio
 
 </p>
 
-Uncheck the *Show Plane* box to turn off the visibility of the slice plane, and click *Apply*. Select *Slice1* from *Pipeline Browser* and change the default *Current Density* visualization to *Temperature*.
+Desmarque la casilla *Show Plane* para desactivar la visibilidad del plano de corte y haga clic en *Apply*. Seleccione *Slice1* en *Pipeline Browser* y cambie la visualización por defecto *Current Density* a *Temperature*.
 
 <p align="center">
 
@@ -131,9 +131,9 @@ Uncheck the *Show Plane* box to turn off the visibility of the slice plane, and 
 
 ### Clip
 
-*Clip* is similar to the *Slice* filter and allows to **cut the domain in half** and visualize only a part of it.
+*Clip* es similar al filtro *Slice* y permite **cortar el dominio por la mitad** y visualizar sólo una parte del mismo.
 
-To use *Clip*, select the domain of interest (extracted part or full computational domain) and [**open Clip filter**](/results#how-to-access-filters). Under *Properties* enter the parameters that define the plane which will be used to create the clip.
+Para utilizar *Clip*, seleccione el dominio de interés (parte extraída o dominio computacional completo) y [**abra el filtro Clip**](/results#how-to-access-filters). En *propiedades* introduzca los parámetros que definen el plano que se utilizará para crear el clip.
 
 <p align="center">
 
@@ -141,7 +141,7 @@ To use *Clip*, select the domain of interest (extracted part or full computation
 
 </p>
 
-Uncheck the *Show Plane* box to turn off the visibility of the slice plane, and click *Apply*. Select *Clip1* from *Pipeline Browser* and change the default *Current Density* visualization to *Temperature*.
+Desmarque la casilla *Show Plane* para desactivar la visibilidad del plano de corte y haga clic en *Apply*. Seleccione *Clip1* en *Pipeline Browser* y cambie la visualización por defecto *Current Density* a *Temperature*.
 
 <p align="center">
 
@@ -151,13 +151,13 @@ Uncheck the *Show Plane* box to turn off the visibility of the slice plane, and 
 
 ### Stream Tracer
 
-*Stream Tracer* allows to generate streamlines for vector fields. It is usefull for **visualization of magnetic field lines**. 
+*Stream Tracer* permite generar líneas de corriente para campos vectoriales. Es útil para **visualizar líneas de campo magnético**.
 
-In order to better visualize magnetic field lines, filter should be applied to the whole computational domain, because it **generates streamlines within the selected domain**, meaning that if you want to visualize magnetic field lines around your geometry, you need to generate streamlines in the air domain which encloses the geometry, not in the geometry itself.
+Para visualizar mejor las líneas de campo magnético, el filtro debe aplicarse a todo el dominio computacional, porque **genera líneas de corriente dentro del dominio seleccionado**, lo que significa que si quieres visualizar líneas de campo magnético alrededor de su geometría, necesita generar líneas de corriente en el dominio de aire que encierra la geometría, no en la geometría misma.
 
-**IMPORTANT**: To generate streamlines around the geometry, apply *Stream Tracer* to the air domain or to the whole computational domain, which contains the geometry.
+**IMPORTANTE**: Para generar líneas de corriente alrededor de la geometría, aplique *Stream Tracer* al dominio del aire o a todo el dominio computacional, que contiene la geometría.
 
-To use *Stream Tracer*, select the domain of interest (select *Simulation data* for the whole computational domain), [**open Stream Tracer filter**](/results#how-to-access-filters) and click *Apply*.
+Para utilizar *Stream Tracer*, seleccione el dominio de interés (seleccione *Simulation data* para todo el dominio computacional), [**open Stream Tracer filter**](/results#how-to-access-filters) y haga clic en *Apply*.
 
 <p align="center">
 
@@ -165,7 +165,7 @@ To use *Stream Tracer*, select the domain of interest (select *Simulation data* 
 
 </p>
 
-To better visualize magnetic field lines, change *Vectors* to **Magnetic Flux Density**, increase the **Maximum Streamline Lenght**, change *Seed Type* to **Point Cloud**, increase the *sphere radius* and *Number Of Points*, and decrease the *Opacity*.
+Para visualizar mejor las líneas de campo magnético, cambie *Vectores* a **Magnetic Flux Density**, aumente la **Longitud máxima de la línea de flujo**, cambie *Tipo de semilla* a **Nube de puntos**, aumente el *Radio de la esfera* y el *Número de puntos*, y disminuya la *Opacidad*.
 
 <p align="center">
 
@@ -173,7 +173,7 @@ To better visualize magnetic field lines, change *Vectors* to **Magnetic Flux De
 
 </p>
 
-Extract and make visible the geometry you want to generate streamlines around, and with *Stream Tracer* properties adjusted, click *Apply*.
+Extraiga y haga visible la geometría alrededor de la cual desea generar las líneas de corriente y, con las propiedades *Stream Tracer* ajustadas, haga clic en *Apply*.
 
 <p align="center">
 
@@ -181,19 +181,19 @@ Extract and make visible the geometry you want to generate streamlines around, a
 
 </p>
 
-## Filters useful for induction heating
+## Filtros útiles para el calentamiento por inducción
 
-Some filters and result evaluation methods are especially usefull for **in-depth result analysis** of induction heating simulations.
+Algunos filtros y métodos de evaluación de resultados son especialmente útiles para el **análisis en profundidad** de los resultados de las simulaciones de calentamiento por inducción.
 
 ### Plot Selection Over Time
 
-*Plot Selection Over time* enables you to **plot time dependent graphs at a specified point**.
+*Plot Selection Over time* le permite **trazar gráficos dependientes del tiempo en un punto especificado**.
 
-To use *Plot Selection Over time*, first  you need to mark your point of interest. Do that by clicking the "d" key on your keyboard and then left-click on your workpiece to mark the specified point.
+Para utilizar *Plot Selection Over time*, primero necesita marcar su punto de interés. Para ello, haga clic en la tecla "d" del teclado y, a continuación, haga clic con el botón izquierdo del ratón en la pieza de trabajo para marcar el punto especificado.
 
-**IMPORTANT**: You can plot graphs only at points where the mesh lines are intersecting.
+**IMPORTANTE**: Puede trazar gráficos sólo en los puntos donde se cruzan las líneas de malla.
 
-To better understand which points are available for plotting, change the visual representation of the domain of interest from *Surface* to ***Surface With Edges***, and select the point you want to plot a graph at.
+Para comprender mejor qué puntos están disponibles para el trazado, cambie la representación visual del dominio de interés de *Superficie* a ***Superficie con aristas***, y seleccione el punto en el que desea trazar un gráfico.
 
 <p align="center">
 
@@ -201,9 +201,9 @@ To better understand which points are available for plotting, change the visual 
 
 </p>
 
-When you have selected the point, select the domain of interest (extracted part or full computational domain), [**open Plot Selection Over Time filter**](/results#how-to-access-filters) and click *Apply*.
+Cuando haya seleccionado el punto, seleccione el dominio de interés (parte extraída o dominio computacional completo), [**abra el filtro Plot Selection Over Time**](/results#how-to-access-filters) y haga clic en *Apply*.
 
-All available results will be plotted right next to your simulation results as time-dependent values.
+Todos los resultados disponibles se representarán junto a los resultados de la simulación como valores dependientes del tiempo.
 
 <p align="center">
 
@@ -211,7 +211,7 @@ All available results will be plotted right next to your simulation results as t
 
 </p>
 
-To **switch between different results or plot a specific graph**, select the window with graphs and in *PlotSelectionOverTime1* *Properties* window under *Series Parameters* select only the *Variables* such as *Temperature* and click *Apply* to plot the new time dependent graph.
+Para **cambiar entre diferentes resultados o trazar un gráfico específico**, seleccione la ventana con gráficos y en la ventana *PlotSelectionOverTime1* *Properties* bajo *Series Parameters* seleccione sólo las *Variables* como *Temperatura* y pulse *Apply* para trazar el nuevo gráfico dependiente del tiempo.
 
 <p align="center">
 
@@ -221,9 +221,9 @@ To **switch between different results or plot a specific graph**, select the win
 
 ### Plot Over Line
 
-*Plot Over Line* allows to plot results along line drawn across the computational domain.
+*Plot Over Line* permite trazar los resultados a lo largo de una línea dibujada a través del dominio computacional.
 
-To use *Plot Over Line*, select the domain of interest (extracted part or full computational domain), [**open Plot Over Line filter**](/results#how-to-access-filters) and click *Apply*.
+Para usar *Plot Over Line*, seleccione el dominio de interés (parte extraída o dominio computacional completo), [**abra el filtro Plot Over Line**](/results#how-to-access-filters) y haga clic en *Apply*.
 
 <p align="center">
 
@@ -231,9 +231,9 @@ To use *Plot Over Line*, select the domain of interest (extracted part or full c
 
 </p>
 
-To **switch between different results**, select the window with graphs and in *PlotOverLine1* *Properties* window under *Series Parameters* select only the *Variables* such as *Temperature* and click *Apply* to plot the new time graph.
+Para **cambiar entre diferentes resultados**, seleccione la ventana con gráficos y en la ventana *PlotOverLine1* *Properties* bajo *Series Parameters* seleccione sólo las *Variables* como *Temperatura* y pulse *Apply* para trazar el nuevo gráfico temporal.
 
-**IMPORTANT**: You can adjust the line used to plot the graph by moving its starting and end point.
+**IMPORTANTE**: Puede ajustar la línea utilizada para trazar el gráfico moviendo su punto inicial y final.
 
 <p align="center">
 
@@ -241,13 +241,13 @@ To **switch between different results**, select the window with graphs and in *P
 
 </p>
 
-### Hardened Zone
+### Zona endurecida
 
-You can visualize the hardened zone with *Hardened Profile* filter. It creates a seperate zone in which the **temperature at any time exceeds the austenization temperature**.
+Puede visualizar la zona endurecida con el filtro *Hardened Profile*. Es necesario crear una zona separada en la que la **temperatura supera en cualquier momento la temperatura de austenización**.
 
-To use *Hardened Profile*, select the domain of interest (workpiece), [**open Hardened Profile filter**](/results#how-to-access-filters) and click *Apply*.
+Para utilizar *Hardened Profile*, seleccione el dominio de interés (pieza de trabajo), [**abra el filtro Hardened Profile**](/results#how-to-access-filters) y haga clic en *Apply*.
 
-**IMPORTANT**: In the *Pipeline Browser* click the *Eye icon* next to the workpiece to **enable its visibility and see the hardened zone**.
+**IMPORTANTE**: En la *lista de objetos* del lado izquierdo, haga clic en el *icono del ojo* junto a la pieza de trabajo para **activar su visibilidad y ver la zona templada**.
 
 <p align="center">
 
@@ -255,7 +255,7 @@ To use *Hardened Profile*, select the domain of interest (workpiece), [**open Ha
 
 </p>
 
-A **seperate block in the pipeline browser will be created**. You can change its color in the properties tab on the left with ***Edit color***.
+Se creará un **bloque separado**. Puede cambiar su color en la pestaña de propiedades de la izquierda con ***Editar color***.
 
 <p align="center">
 
@@ -263,7 +263,7 @@ A **seperate block in the pipeline browser will be created**. You can change its
 
 </p>
 
-End result:
+Resultado final:
 
 <p align="center">
 
@@ -271,7 +271,7 @@ End result:
 
 </p>
 
-For **3D** cases, once you have re-enable workpiece visibility, we suggest changing its representation mode (at the top) to **Feature Edges**:
+Para los casos de **3D**, una vez que haya vuelto a activar la visibilidad de la pieza de trabajo, le sugerimos que cambie su modo de representación (en la parte superior) a **Feature Edges**:
 
 <p align="center">
 
@@ -285,9 +285,13 @@ For **3D** cases, once you have re-enable workpiece visibility, we suggest chang
 
 </p>
 
-**IMPORTANT**: The **default austenization temperature is 800 degC** - find out and change the hardening temperature depending on your material!
+:::caution Importante
 
-Change the austenization temperature in *HardenedProfile1* *Properties* window under *Value Range*.
+La **temperatura de austenización por defecto es de 800 degC** - ¡averigüe y modifique la temperatura de temple en función de su material!
+
+:::
+
+Cambie la temperatura de austenización en la ventana *HardenedProfile1* *Properties* en *Value Range*.
 
 <p align="center">
 
@@ -295,8 +299,9 @@ Change the austenization temperature in *HardenedProfile1* *Properties* window u
 
 </p>
 
-## Time charts
-Once you have opened ParaView there will be two layouts created, ***3D View*** and ***Time charts***. This second layout contains various parameters from the .csv file plotted over time which show how Power, Voltage or any other parameter changes over time
+## Gráficos de tiempo
+
+Una vez que haya abierto ParaView se crearán dos diseños, ***Vista 3D*** y ***Gráficos de tiempo***. Este segundo diseño contiene varios parámetros del archivo .csv trazados en el tiempo que muestran cómo la potencia, la tensión o cualquier otro parámetro cambia con el tiempo.
 
 <p align="center">
 
@@ -304,7 +309,7 @@ Once you have opened ParaView there will be two layouts created, ***3D View*** a
 
 </p>
 
-After switching to the chart view, you will see four default charts showing various parameters. You can create custom charts by editing ***Script*** in the ***properties*** 
+Tras cambiar a la vista de gráfico, verá cuatro gráficos predeterminados que muestran diversos parámetros. Puede crear gráficos personalizados editando el ***Script*** en la ventana de ***propiedades***.
 
 <p align="center">
 
@@ -312,13 +317,13 @@ After switching to the chart view, you will see four default charts showing vari
 
 </p>
 
-1. Select the view by clicking anywhere in it
-2. Go to the *Script* window in the *properties* panel
-3. Enter the **domain name** in the first quotes
-4. Enter the **parameter name** from the .csv file in the second quotes
-5. Click anywhere in the chart view to refresh it
+1. Seleccione la vista haciendo clic en cualquier lugar de la misma.
+2. Ir a la ventana *Script* en el panel *propiedades*.
+3. Introduzca el **nombre del dominio** entre las primeras comillas.
+4. Introduzca el **nombre del parámetro** del archivo .csv en las segundas comillas.
+5. Haga clic en cualquier parte del gráfico para actualizarlo.
 
-Example:
+Ejemplo:
 
 <p align="center">
 
@@ -331,4 +336,4 @@ Example:
 >plot3 = ["", ""]<br />
 >plot4 = ["", ""]<br />
 
-**IMPORTANT**: Make sure that there are **no spaces** in the begnning or end of the names, and that you have **both quotes**, otherwise the chart will not be drawn.
+**IMPORTANTE**: Asegúrese de que no hay **espacios** al principio ni al final de los nombres, y que tiene **ambas comillas**, de lo contrario no se creará el gráfico.
