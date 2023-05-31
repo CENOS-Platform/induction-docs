@@ -1,30 +1,32 @@
 ---
 id: thermal-shock
-title: Thermal shock
-sidebar_label: Thermal shock
+title: Choque térmico
+sidebar_label: Choque térmico
 sidebar_position: 3
 ---
 
-For results showing thermal shock (in the temperature scale you will notice a negative temperature), it is usually caused by either a huge time step, a too coarse mesh, or a combination of bot;, it mainly occurs in cases with very rapid heating or very high translational speed, we recommend you refine the mesh or/and reduce your time step. 
+En el caso de los resultados que muestran un choque térmico (en la escala de temperatura observará una temperatura negativa), suele estar causado por un paso de tiempo enorme, una malla demasiado gruesa o una combinación de ambos; se produce principalmente en casos con un calentamiento muy rápido o una velocidad de traslación muy alta, le recomendamos que refine la malla o/y reduzca su paso de tiempo.
 
 
-## What is thermal shock?
-When an initially hot body is suddenly cooled or a cold body is suddenly heated through the surface, a steep variation in temperature called thermal shock may appear. 
-An example of this might be heating with radiative heaters with known power or with resistive heaters mounted directly on the wall. In these cases one should use Heat flux $W/m^2$ or Heat flow $W$ boundary condition.
+## ¿Qué es el choque térmico?
 
-Thermal shocks have short-term effect and their effect vanishes when the temperature profile is developed. But proper resolution of these effects puts additional constraints on the time step and mesh resolution in FEM analysis:
+Cuando un cuerpo inicialmente caliente se enfría repentinamente o un cuerpo frío se calienta bruscamente a través de la superficie, puede aparecer una variación brusca de la temperatura denominada choque térmico.
+
+Un ejemplo podría ser el calentamiento con calefactores radiativos de potencia conocida o con calefactores resistivos montados directamente en la pared. En estos casos se debe utilizar la condición de contorno Flujo Térmico $W/m^2$ o Transferencia de calor $W$.
+
+Los choques térmicos tienen un efecto a corto plazo y su efecto desaparece cuando se desarrolla el perfil de temperatura. Pero la resolución adecuada de estos efectos impone restricciones adicionales al paso de tiempo y a la resolución de malla en el análisis MEF:
 
 $$
 \Delta t = \frac{\rho c}{\lambda} \frac{\Delta x}{6}
 $$
 
-Here $\Delta t$ is the time step, $\Delta x$ is the mesh size. The coefficient 6 is empyrical, and varies in different literature sources.
+Aquí $\Delta t$ es el paso de tiempo, $\Delta x$ es el tamaño de la malla. El coeficiente 6 es empírico, y varía en diferentes fuentes bibliográficas.
 
-To illustrate the problem, let's consider 1D example (in CENOS it is made as 3D case with 1 element thickness in Y and Z directions and N divisions in X direction):
+Para ilustrar el problema, consideremos un ejemplo 1D (en CENOS se hace como un caso 3D con 1 grosor de elemento en las direcciones Y y Z y N divisiones en la dirección X):
 
-The bar has properties $\lambda = 50 W/mK$, $\rho = 1000 kg/m^3$, $c = 500 J/kg K$. The length is 1 m, initial temperature and temperature on the left side $T_0 = 22 C$, the heat flux $q = 1000 W/m^2$.
+La barra tiene propiedades $\lambda = 50 W/mK$, $\rho = 1000 kg/m^3$, $c = 500 J/kg K$. La longitud es de 1 m, la temperatura inicial y la temperatura en el lado izquierdo $T_0 = 22 C$, el flujo de calor $q = 1000 W/m^2$.
 
-Let's consider the mesh with N = 5, so $\Delta x = 0.2 m$. This leads to the critical value of time step $\Delta t = 400 s$.
+Consideremos la malla con N = 5, por lo que $\Delta x = 0,2 m$. Esto conduce al valor crítico del paso de tiempo $\Delta t = 400 s$.
 
 <p align="center">
 
@@ -32,7 +34,7 @@ Let's consider the mesh with N = 5, so $\Delta x = 0.2 m$. This leads to the cri
 
 </p>
 
-The temperature distribution in the bar after 50 seconds obtained with $\Delta t = 5$ and different mesh sizes are shown in the figure below:
+La distribución de la temperatura en la barra después de 50 segundos obtenida con $\Delta t = 5$ y diferentes tamaños de malla se muestran en la siguiente figura:
 
 <p align="center">
 
@@ -40,11 +42,13 @@ The temperature distribution in the bar after 50 seconds obtained with $\Delta t
 
 </p>
 
-This figure shows that for the mesh with $N=5$ $(\Delta x = 0.2)$ unphysical temperature appears at the value $x=0.8$. Since initial condition and boundary condition on one end is 22 C, temeperature should never be below this value. 
-In other words, the temperature and the mesh size are linked and cannot be chosen totally independently.
+Esta figura muestra que para la malla con $N=5$ $(\Delta x = 0.2)$ aparece temperatura no física en el valor $x=0.8$. Dado que la condición inicial y la condición de contorno en uno de los extremos es 22 C, la temperatura nunca debería estar por debajo de este valor. 
+En otras palabras, la temperatura y el tamaño de la malla están vinculados y no pueden elegirse de forma totalmente independiente.
 
 
-:::note
-*for further reading*:
+:::note Nota
+
+*Para más información*:
 https://hal-mines-paristech.archives-ouvertes.fr/hal-00576032/document
+
 :::

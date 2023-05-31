@@ -1,7 +1,7 @@
 ---
 id: rotating-workpieces
-title: Heating of large rotating workpieces
-sidebar_label: Large rotating workpieces
+title: Calentamiento de grandes piezas giratorias
+sidebar_label: Grandes piezas giratorias
 sidebar_position: 2
 ---
 
@@ -11,16 +11,16 @@ sidebar_position: 2
 
 </p>
 
-In CENOS you are not limited to using one type of domain for the whole object. You can combine multiple types of domains with **different physics calculations**.
+En CENOS no está limitado a utilizar un tipo de dominio para todo el objeto. Puede combinar múltiples tipos de dominios con **diferentes cálculos de física**.
 
-A very useful application is when creating a **large workpiece** you can only simulate EM induction near the coil where most of the heating takes place. For the rest of the workpiece, only thermal calculations can be performed.
+Una aplicación muy útil es cuando al crear una **pieza de trabajo grande** sólo se puede simular la inducción EM cerca de la bobina, donde tiene lugar la mayor parte del calentamiento. Para el resto de la pieza, sólo se pueden realizar cálculos térmicos.
 
-**Example** with preheating a large pipe for welding:
+**Ejemplo** con el precalentamiento de un tubo grande para soldar:
 
-Practically, most of the induction heating happens near the coil, the other 80% of the pipe only has thermal processes.
-We can separate the pipe in two domains, and **not simulate electromagnetics in the larger one**. What allows this to work is the ***thermal interface boundary*** condition.
+En la práctica, la mayor parte del calentamiento por inducción se produce cerca de la bobina, el 80% restante del tubo sólo tiene procesos térmicos.
+Podemos separar el tubo en dos dominios, y **no simular el electromagnetismo en el mayor**. Lo que permite que esto funcione es la condición ***límite de la interfaz térmica***.
 
-The workpiece (pipe) domain is split into **two parts**, only in one of which we simulate electromagnetics.
+El dominio de la pieza de trabajo (tubería) se divide en **dos partes**, sólo simulamos el electromagnetismo en una de ellas.
 
 <p align="center">
 
@@ -34,15 +34,19 @@ The workpiece (pipe) domain is split into **two parts**, only in one of which we
 
 </p>
 
-**TIP:** When doing partition operation in Salome, the air domain will split the workpiece into the separate solids. You don't need to create them manually.
+:::tip
 
-## Advantages
+Al hacer la operación de partición en Salome, el dominio de aire dividirá la pieza de trabajo en los sólidos separados. No es necesario crearlos manualmente.
 
-The main advantage of this method is the much lower number of mesh elements and consequently calculation time. With the traditional setup the number of elements would have been around **700 000** but with the simplified method it was **450 000 elements**.
+:::
 
-## Boundary conditions
+## Ventajas
 
-Here are the boundary conditions for the pipe simulation example:
+La principal ventaja de este método es el número mucho menor de elementos de malla y, en consecuencia, de tiempo de cálculo. Con la configuración tradicional, el número de elementos habría sido alrededor de **700 000**, pero con el método simplificado fue de **450 000 elementos**.
+
+## Condiciones de contorno
+
+Estas son las condiciones de contorno para el ejemplo de simulación de la tubería:
 
 <p align="center">
 

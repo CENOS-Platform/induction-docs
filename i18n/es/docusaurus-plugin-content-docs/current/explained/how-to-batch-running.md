@@ -1,19 +1,20 @@
 ---
 id: batch-running
-title: How to run multiple simulations in a batch
-sidebar_label: Batch running
+title: Cómo realizar varias simulaciones por grupos
+sidebar_label: Ejecución por grupos
 sidebar_position: 1
 ---
 
-When searching for the right physical and geometrical parameters, more than one simulation is needed to evaluate and compare the results and impact of different parameter values.
+Cuando se buscan los parámetros físicos y geométricos adecuados, se necesita más de una simulación para evaluar y comparar los resultados y el impacto de los distintos valores de los parámetros.
 
-To save time, you can **prepare multiple simulation cases and run them successively over night or weekend**, without the need to manually run each simulation.
+Para ahorrar tiempo, puede **preparar varios casos de simulación y ejecutarlos sucesivamente durante la noche o el fin de semana**, sin necesidad de ejecutar manualmente cada simulación.
 
-## When to use batch running?
+## ¿Cuándo utilizar la ejecución por grupos?
 
-*Running multiple cases in sequence* or *successive running* is useful **when the impact on the results of some physical or geometrical parameters such as inductor position, winding count, frequency etc. must be determined**. 
+La *ejecución de varios casos en secuencia* o *ejecución sucesiva* es útil **cuando debe determinarse el impacto en los resultados de algunos parámetros físicos o geométricos como la posición del inductor, el número de devanados, la frecuencia, etc.**.
 
-For example, when searching for the right hardening profile of the workpiece, **different frequencies should be tried out** to find the optimal hardening zone size. To do that, multiple cases with different frequency settings must be run to compare the results. In the stepped shaft heating example below the impact different frequencies have on the results is clearly visible.
+Por ejemplo, cuando se busca el perfil de endurecimiento adecuado de la pieza, **se deben probar diferentes frecuencias** para encontrar el tamaño óptimo de la zona de endurecimiento. Para ello, deben ejecutarse múltiples casos con diferentes ajustes de frecuencia para comparar los resultados. En el ejemplo de calentamiento de eje escalonado que se muestra a continuación se aprecia claramente el impacto que tienen las distintas frecuencias en los resultados.
+
 
 <p align="center">
 
@@ -21,17 +22,17 @@ For example, when searching for the right hardening profile of the workpiece, **
 
 </p>
 
-To ease the running of many different cases, prepare and run all of them during night or weekend, and evaluate the different results in the next morning!
+Para facilitar la ejecución de muchos casos diferentes, prepárelos y ejecútelos todos durante la noche o el fin de semana, y evalúe los diferentes resultados a la mañana siguiente.
 
-## How to set up batch running?
+## ¿Cómo configurar la ejecución por grupo?
 
-To run different CENOS cases successively, you need to create a .bat file, in which you define which cases and in what order you want to calculate. Then simply double-click on the .bat file to start the calculations.
+Para ejecutar sucesivamente diferentes casos de CENOS, debe crear un archivo *.bat* en el que defina qué casos y en qué orden los desea calcular. A continuación, basta con hacer doble clic en el archivo *.bat* para iniciar los cálculos.
 
-In this example we will set up a successive running of 3 cases.
+En este ejemplo estableceremos una ejecución sucesiva de 3 casos.
 
-### 1. Open Notepad
+### 1. Abrir el bloc de notas
 
-*Notepad* is a built-in Windows code editor. Open it by typing *Notepad* in the *Windows Search* line and clicking *Enter*.
+*Notepad* es un editor de código integrado en Windows. Ábralo escribiendo *Notepad* en la línea *Buscar en Windows* y pulsando *Enter*.
 
 <p align="center">
 
@@ -39,9 +40,9 @@ In this example we will set up a successive running of 3 cases.
 
 </p>
 
-### 2. Define the sequence
+### 2. Definir la secuencia
 
-To define the cases you want to run, you need to **write a command line for each case** which defines with what to run it and where to find the case file. The basic structure of this command consists of 2 parts - **"CENOS path"**, where CENOS is installed and from where it is started, and **"case path"** to the case folder you want to run.
+Para definir los casos que quiere ejecutar, necesita **escribir una línea de comandos para cada caso** que defina con qué ejecutarlo y dónde encontrar el archivo del caso. La estructura básica de este comando consta de 2 partes - **"ruta de CENOS "**, donde CENOS está instalado y desde donde se inicia, y **"ruta del caso "** a la carpeta del caso que desea ejecutar.
 
 <p align="center">
 
@@ -49,7 +50,7 @@ To define the cases you want to run, you need to **write a command line for each
 
 </p>
 
-To find **CENOS path**, right-click on CENOS shortcut and select **Properties**. The CENOS path will be already highlighted as *Target* - simply copy and paste it into the Notepad.
+Para encontrar **la ruta de CENOS**, haga clic con el botón derecho en el acceso directo de CENOS y seleccione **Propiedades**. La ruta de CENOS ya estará resaltada - simplemente cópiela y péguela en el bloc de notas.
 
 <p align="center">
 
@@ -57,7 +58,7 @@ To find **CENOS path**, right-click on CENOS shortcut and select **Properties**.
 
 </p>
 
-To find **case path**, in **File Explorer** go to the case folder and copy its address from the **Address Bar**.
+Para encontrar la **ruta del caso**, en el **explorador de archivos** vaya a la carpeta del caso y copie su dirección desde la **barra de direcciones**.
 
 <p align="center">
 
@@ -65,14 +66,18 @@ To find **case path**, in **File Explorer** go to the case folder and copy its a
 
 </p>
 
-In this example we will set up successive running for 3 cases. Simply write the command for each case in its own line.
+En este ejemplo configuraremos ejecuciones sucesivas para 3 casos. Simplemente escriba el comando para cada caso en su propia línea.
 
-:::note
-To make sure the console window does not close after the end of calculations, write *pause* after case command lines.
+:::note Nota 
+
+Para asegurarse de que la ventana de la consola no se cierra una vez finalizados los cálculos, escriba *pause* después de las líneas de comando de los casos.
+
 :::
 
-:::warning important
-Put both paths inside quotation marks, otherwise the spacing will break the command!
+:::warning Importante
+
+Ponga ambas rutas entre comillas, de lo contrario el espaciado romperá el comando.
+
 :::
 
 <p align="center">
@@ -81,9 +86,9 @@ Put both paths inside quotation marks, otherwise the spacing will break the comm
 
 </p>
 
-### 3. Save as .bat file
+### 3. Guardar como archivo .bat
 
-In *Notepad* click *File -> Save As*. Change *Save as type* to *All Files (*.*)*, and manually save the file as **Batch file** by naming it, for example, as ***sequence.bat***.
+En *Notepad* haga clic en *Archivo -> Guardar como*. Cambie *Guardar como tipo* a *Todos los archivos (*.*)*, y guarde manualmente el archivo como **archivo por lotes** nombrándolo, por ejemplo, como ***secuencia.bat***.
 
 <p align="center">
 
@@ -91,11 +96,11 @@ In *Notepad* click *File -> Save As*. Change *Save as type* to *All Files (*.*)*
 
 </p>
 
-### 4. Run the simulations
+### 4. Ejecutar las simulaciones
 
-After the **Batch file** has been created, double-click on it to start the calculation. A console window will open, from which every case defined in the .bat file will be run. A CENOS window will automatically open, the case will calculate, save the results, close CENOS window and go to the next simulation.
+Una vez creado el fichero **Batch**, haga doble clic sobre él para iniciar el cálculo. Se abrirá una ventana de consola desde la que se ejecutarán todos los casos definidos en el archivo *.bat*. Automáticamente se abrirá una ventana de CENOS, se calculará el caso, se guardarán los resultados, se cerrará la ventana de CENOS y se pasará a la siguiente simulación.
 
-When all simulations will be calculated, the console window will stay open, because *pause* was written in the end of the .bat file commands. This is helpful to know simulations have been calculated successfully.
+Cuando todas las simulaciones sean calculadas, la ventana de la consola permanecerá abierta, porque *pause* fue escrito al final de los comandos del archivo *.bat*. Esto es útil para saber que las simulaciones se han calculado correctamente.
 
 <p align="center">
 
@@ -103,12 +108,14 @@ When all simulations will be calculated, the console window will stay open, beca
 
 </p>
 
-## Limitations
+## Limitaciones
 
-### Case setup
+### Configuración de casos
 
-If one of the case folders defined in the .bat file will have incomplete physical definition such as missing material, current value etc. meaning that it cannot be run, it will be skipped and not calculated.
+Si una de las carpetas de casos definidas en el archivo *.bat* tiene una definición física incompleta, como falta de algún material, valor actual, etc., lo que significa que no se puede ejecutar, se omitirá y no se calculará.
 
-:::note
-Make sure that every case defined in the .bat file is ready for calculation!
+:::note Nota
+
+Asegúrese de que todos los casos definidos en el archivo .bat están listos para el cálculo.
+
 :::
