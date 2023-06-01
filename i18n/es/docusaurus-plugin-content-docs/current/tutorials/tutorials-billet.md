@@ -1,14 +1,14 @@
 ---
 id: billet
-title: Static aluminum billet heating using Templates
-sidebar_label: Aluminum billet heating
+title: Calentamiento estático de bloques de aluminio utilizando plantillas
+sidebar_label: Calentamiento de palanquillas de aluminio
 ---
 
-When you need to simulate a **2D axial symmetric induction heating** case with billet and coil of standard, regular shape, it is convenient to use **Induction Heating Templates**.
+Cuando necesite simular un caso **2D de calentamiento por inducción axial simétrica** con palanquilla y bobina de forma estándar y regular, es conveniente utilizar **plantillas de calentamiento por inducción**.
 
-In this tutorial you will learn how to set up and use the Induction Heating Templates for 2D axial symmetric simulation of a cylindrical rod with a rectangular profile coil. We will create the geometry by choosing one of the available templates for each domain, define the mesh quality, enter the specific values and boundary conditions in the physics setup and in the end evaluate the results using our post-processor.
+En este tutorial aprenderá a configurar y utilizar las Plantillas de Calentamiento por Inducción para la simulación 2D axial simétrica de una varilla cilíndrica con una bobina de perfil rectangular. Crearemos la geometría eligiendo una de las plantillas disponibles para cada dominio, definiremos la calidad de la malla, introduciremos los valores específicos y las condiciones de contorno en la configuración física y al final evaluaremos los resultados utilizando nuestro post-procesador.
 
-Induction Heating Template is an easy and fast way to set up and calculate induction heating cases for standard geometries. In the next pages an induction heating example of **aluminum** billet at **15 kHz** and **2 kA** with radiation and convection boundary conditions is presented.
+Induction Heating Template es una forma fácil y rápida de configurar y calcular casos de calentamiento por inducción para geometrías estándar. En las páginas siguientes se presenta un ejemplo de calentamiento por inducción de **bloque de aluminio** a **15 kHz** y **2 kA** con condiciones límite de radiación y convección.
 
 <p align="center">
 
@@ -16,19 +16,19 @@ Induction Heating Template is an easy and fast way to set up and calculate induc
 
 </p>
 
-## 1. Open Templates
+## 1. Abrir plantillas
 
-To enter geometry templates, in CENOS home window click **Template**.
+Para entrar en las plantillas de geometría, en la ventana de inicio de CENOS haga clic en **Template**.
 
 ![Open template](assets/billet/1.1.png)
 
-**Template automatically defines the non-critical parts of the simulation setup** and offers new users a **preset simulation physical and geometrical values**, so you only need to change the parameters that are already there.
+**Template define automáticamente las partes no críticas de la configuración de la simulación** y ofrece a los nuevos usuarios unos **valores físicos y geométricos de simulación preestablecidos**, por lo que sólo hay que cambiar los parámetros que ya están ahí.
 
-## 2. Create Geometry
+## 2. Crear geometría
 
-### 2.1 Units and mesh
+### 2.1 Unidades y malla
 
-You can **define case units** in lower left corner of *Create Geometry* screen. For this tutorial, leave *milimeters* as case units.
+Puede **definir las unidades del caso** en la esquina inferior izquierda de la pantalla *Crear Geometría*. Para este tutorial, deje *milímetros* como unidades de caso.
 
 <p align="center">
 
@@ -36,7 +36,7 @@ You can **define case units** in lower left corner of *Create Geometry* screen. 
 
 </p>
 
-If you want to **change mesh density**, click SHOW MESH OPTIONS.
+Si desea **cambiar la densidad de la malla**, haga clic en SHOW MESH OPTIONS.
 
 <p align="center">
 
@@ -44,7 +44,7 @@ If you want to **change mesh density**, click SHOW MESH OPTIONS.
 
 </p>
 
-Then choose from *Mesh density* dropdown.
+A continuación, elija en el menú desplegable la *densidad de malla*.
 
 <p align="center">
 
@@ -52,11 +52,15 @@ Then choose from *Mesh density* dropdown.
 
 </p>
 
-**IMPORTANT**: When using templates, mesh is generated automatically before the start of the calculation. With *Mesh density* you define how fine or coarse the mesh will be.
+:::info Importante
 
-### 2.2 Workpiece geometry
+Cuando se utilizan plantillas, la malla se genera automáticamente antes de iniciar el cálculo. Con *densidad de malla* se define lo fina o gruesa que será la malla.
 
-Switch to the WORKPIECE domain. Select **Billet** for *Shape*.
+:::
+
+### 2.2 Geometría de la pieza de trabajo
+
+Cambie al dominio WORKPIECE. Seleccione **Billet** para la *forma*.
 
 <p align="center">
 
@@ -64,7 +68,7 @@ Switch to the WORKPIECE domain. Select **Billet** for *Shape*.
 
 </p>
 
-Under *Properties* enter **0.02** for *Diameter* and **0.2** for *Height*.
+En *Propiedades* introduzca **0,02** para *Diámetro* y **0,2** para *Altura*.
 
 <p align="center">
 
@@ -72,9 +76,9 @@ Under *Properties* enter **0.02** for *Diameter* and **0.2** for *Height*.
 
 </p>
 
-### 2.3 Inductor geometry
+### 2.3 Geometría del inductor
 
-Switch to the INDUCTOR domain. Select **Rectangular profile** for *Shape*.
+Cambie al dominio INDUCTOR. Seleccione **Perfil rectangular** para la *forma*.
 
 <p align="center">
 
@@ -82,7 +86,7 @@ Switch to the INDUCTOR domain. Select **Rectangular profile** for *Shape*.
 
 </p>
 
-Under *Properties* make sure that the *Hollow coil* box is checked and enter the values for the coil and concentrator as follows:
+En *Propiedades* asegúrese de que la casilla *Hollow coil* esté marcada e introduzca los valores para la bobina y el concentrador de la siguiente manera:
 
 <p align="center">
 
@@ -90,7 +94,7 @@ Under *Properties* make sure that the *Hollow coil* box is checked and enter the
 
 </p>
 
-When the geometry is set, click **Go to PHYSICS** in the upper right corner of the window.
+Una vez establecida la geometría, haga clic en **Go to PHYSICS** en la esquina superior derecha de la ventana.
 
 <p align="center">
 
@@ -98,13 +102,15 @@ When the geometry is set, click **Go to PHYSICS** in the upper right corner of t
 
 </p>
 
-## 3. Define physics
+## 3. Definir la física
 
-:::note important
-Part of the window is painted grey meaning that every setting in the grey area is pre-set for this specific template, leaving only the core settings to your mind.
+:::nota Importante
+
+Parte de la ventana está pintada de gris, lo que significa que todos los ajustes de la zona gris están preconfigurados para esta plantilla específica, dejando sólo los ajustes principales a su criterio.
+
 :::
 
-If you want to **edit settings in the grey area**, enable **Edit all properties**.
+Si desea **editar los ajustes de la zona gris**, active **Editar todas las propiedades**.
 
 <p align="center">
 
@@ -112,11 +118,11 @@ If you want to **edit settings in the grey area**, enable **Edit all properties*
 
 </p>
 
-### 3.1 Simulation control
+### 3.1 Control de la simulación
 
-In the SIMULATION CONTROL window you can access and **define global simulation parameters** such as frequency, calculation time, time step, computational algorithms and many more.
+En la ventana de CONTROL DE LA SIMULACIÓN puede acceder y **definir los parámetros globales de la simulación**, como la frecuencia, el tiempo de cálculo, el paso de tiempo, los algoritmos de cálculo y muchos más.
 
-Define the simulation as *Transient* with **15 kHz** *frequency*, **20 s** *End time* and **2 s** *time step*.
+Defina la simulación como *Transient* con **15 kHz** en *frequencia*, **20 s** en *tiempo final* y **2 s** en *paso de tiempo*.
 
 <p align="center">
 
@@ -124,9 +130,9 @@ Define the simulation as *Transient* with **15 kHz** *frequency*, **20 s** *End 
 
 </p>
 
-### 3.2 Workpiece definition
+### 3.2 Definición de la pieza de trabajo
 
-Switch to WORKPIECE in *Domain bar*. For *Material* click SELECT… and choose **Low carbon steel 1020 B(H), $t^{o}$ depend**.
+Cambie a WORKPIECE en *Barra de dominio*. En *Material*, haga clic en SELECCT... y elija **Acero bajo en carbono 1020 B(H), $t^{o}$ dependiente**.
 
 <p align="center">
 
@@ -134,13 +140,13 @@ Switch to WORKPIECE in *Domain bar*. For *Material* click SELECT… and choose *
 
 </p>
 
-Under THERMAL ANALYSIS leave the default **10** for *Heat Transfer Coefficient*, but change *Emissivity* to **0.3**.
+En ANÁLISIS TÉRMICO deje el valor por defecto **10** para *Coeficiente de Transferencia de Calor*, pero cambie *Emisividad* a **0,3**.
 
 ![Thermal analysis](assets/billet/3.2.2.png)
 
-### 3.3 Coil definition
+### 3.3 Definición de la bobina
 
-Switch to WINDING_0.. in *Domain bar*. Select **Copper** as your material.
+Cambie a WINDING_0.. en *Domain bar*. Seleccione **Cobre** como material.
 
 <p align="center">
 
@@ -148,7 +154,7 @@ Switch to WINDING_0.. in *Domain bar*. Select **Copper** as your material.
 
 </p>
 
-Enter **2000 A** for *Current (Amplitude)*. 
+Introduzca **2000 A** para *Corriente (Amplitud)*.
 
 <p align="center">
 
@@ -156,9 +162,9 @@ Enter **2000 A** for *Current (Amplitude)*.
 
 </p>
 
-### 3.4 Concentrator definition
+### 3.4 Definición del concentrador
 
-Switch to CONCENTRATOR in *Domain bar*. For *Material* select **Flux concentrator FLUXTROL A**. 
+Cambie a CONCENTRADOR en *Domain bar*. Para *Material* seleccione **Concentrador de flujo FLUXTROL A**. 
 
 <p align="center">
 
@@ -167,14 +173,14 @@ Switch to CONCENTRATOR in *Domain bar*. For *Material* select **Flux concentrato
 </p>
 
 
-Physical definition for the air domain is set fully automatically, so after you define concentrator and conductor domains, **click RUN** in the right upper corner of the window.
+La definición física para el dominio aire se establece de forma totalmente automática, por lo que después de definir los dominios concentrador y conductor, **haga clic en RUN** en la esquina superior derecha de la ventana.
 
-## 4. Evaluate results
+## 4. Evaluar resultados
 
-In the end of the calculation the post-processing tool *ParaView* will automatically **open with a pre-set temperature state**, and you will be able to see the **temperature field distribution** in the workpiece in the last time step.
+Al final del cálculo, la herramienta de postprocesado *ParaView* se **abrirá automáticamente con un estado de temperatura preestablecido**, y podrá ver la **distribución del campo de temperatura** en la pieza en el último paso de tiempo.
 
 ![Temperature distribution](assets/billet/4.1.1.png)
 
-Results can be further manipulated by using ParaView filters - find out more in CENOS [**result evaluation**](/results) article.
+Los resultados pueden manipularse aún más utilizando los filtros de ParaView - obtenga más información en el artículo de CENOS [**evaluación de resultados**](/results).
 
-This concludes our Induction Heating Template tutorial. For any recommendations or questions contact our support.
+Con esto finaliza nuestro tutorial de Plantilla de Calentamiento por Inducción. Para cualquier recomendación o pregunta contacte a nuestro soporte.
