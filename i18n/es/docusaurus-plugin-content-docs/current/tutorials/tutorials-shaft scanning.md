@@ -1,16 +1,16 @@
 ---
 id: shaft-scanning
-title: Scanning Hardening of a Splined Shaft
-sidebar_label: Scanning Hardening of a Splined Shaft
+title: Endurecimiento por barrido de un eje estriado
+sidebar_label: Endurecimiento por barrido de un eje estriado
 ---
 
-*Shafts*, *steering racks*, *worm gears* and other long or extended mechanical parts are being widely used in **automotive**, **aerospace** and many other industries in different mechanical assemblies.
+*Ejes*, *cremalleras de dirección*, *engranajes helicoidales* y otras piezas mecánicas largas o extendidas están siendo ampliamente utilizadas en áreas de **automoción**, **aeroespacial** y muchas otras industrias en diferentes montajes mecánicos.
 
-To manufacture these parts, they need to be **hardened to improve hardness and wear resistance**, and to **increase fatigue life**. The best way to harden such parts is through **induction hardening**. It provides **selective hardening**, which **increases system efficiency** and **decreases the thermal distortions** of the part.
+Para fabricar estas piezas, es necesario **endurecerlas para mejorar la dureza y la resistencia al desgaste**, y para **aumentar la vida útil a la fatiga**. La mejor forma de endurecer estas piezas es mediante el **endurecimiento por inducción**. Proporciona un **endurecimiento selectivo**, que **aumenta la eficacia del sistema** y **disminuye las distorsiones térmicas** de la pieza.
 
-In this article we are going to **learn how to build a simple splined shaft scanning hardening process** using *CENOS Induction Heating* simulation software.
+En este artículo vamos a **aprender a construir un sencillo proceso de endurecimiento por escaneado de un eje estriado** utilizando el software de simulación *CENOS Induction Heating*.
 
-The setup consists of a **2 winding inductor** and low carbon steel **AISI 1020 shaft**. In simulation **4 kHz frequency** and **11 kA current** is considered, as well as **thermal losses** from the shaft.
+La configuración consiste en un **inductor de 2 devanados** y un **eje de acero de bajo contenido en carbono AISI 1020**. En la simulación se consideran **4 kHz de frecuencia** y **11 kA de corriente**, así como **pérdidas térmicas** del eje.
 
 <p align="center">
 
@@ -18,18 +18,20 @@ The setup consists of a **2 winding inductor** and low carbon steel **AISI 1020 
 
 </p>
 
-:::note Application files
-Download the CAD files used in this tutorial [**here**](assets/shaft-scanning/SplinedShaft.zip)
+:::note Archivos de aplicación
+
+Descargue los archivos CAD utilizados en este tutorial [**aquí**](assets/shaft-scanning/SplinedShaft.zip)
+
 :::
 
 
-## 1. Prepare your geometry
+## 1. Prepare su geometría
 
-Geometry is the beginning and a cornerstone of every simulation, so we need to **start by preparing our geometry** for the simulation.
+La geometría es el principio y la piedra angular de toda simulación, así que tenemos que **empezar por preparar nuestra geometría** para la simulación.
 
-### 1.1 Import CAD files
+### 1.1 Importar los archivos CAD
 
-First we need to select the geometry creation approach. In CENOS home window click **From CAD**.
+Primero tenemos que seleccionar el enfoque de creación de geometría. En la ventana de inicio de CENOS, haga clic en **From CAD**.
 
 <p align="center">
 
@@ -37,7 +39,7 @@ First we need to select the geometry creation approach. In CENOS home window cli
 
 </p>
 
-Click the blinking **Folder** icon to select the CAD files you want to import.
+Haga clic en el ícono de **carpeta** para seleccionar los archivos CAD que desea importar.
 
 <p align="center">
 
@@ -45,7 +47,7 @@ Click the blinking **Folder** icon to select the CAD files you want to import.
 
 </p>
 
-**Select STEP files** of your system and click **Open** to import them into CENOS.
+**Seleccione los archivos STEP** de su sistema y pulse **Abrir** para importarlos a CENOS.
 
 <p align="center">
 
@@ -53,13 +55,15 @@ Click the blinking **Folder** icon to select the CAD files you want to import.
 
 </p>
 
-:::note
-For this example we imported 2 different STEP files - one for the inductor, and the other for the shaft. You can also import both of them in a single STEP file (assembly), it really doesn't make any difference to the simulation!
+:::note Nota 
+
+Para este ejemplo hemos importado 2 archivos STEP diferentes. También puede importar ambos en un único archivo STEP (ensamblaje), ¡realmente no hay ninguna diferencia en la simulación!
+
 :::
 
-### 1.2 Generate air box
+### 1.2 Generar caja de aire
 
-Once the CAD files are uploaded, CENOS will ask if you want to automatically generate the air box (ambient environment around your system). Click **Yes** on the choice, and then **CONTINUE**.
+Una vez cargados los archivos CAD, CENOS le preguntará si desea generar automáticamente la caja de aire (entorno ambiental alrededor de su sistema). Haga clic en **Yes** y, a continuación, en **CONTINUE**.
 
 <p align="center">
 
@@ -67,7 +71,7 @@ Once the CAD files are uploaded, CENOS will ask if you want to automatically gen
 
 </p>
 
-**Select your inductor terminals** for reference, and click **CREATE AIR** to automatically generate the air box!
+**Seleccione los terminales de su inductor** como referencia y haga clic en **CREATE AIR** para generar automáticamente la caja de aire.
 
 <p align="center">
 
@@ -75,9 +79,9 @@ Once the CAD files are uploaded, CENOS will ask if you want to automatically gen
 
 </p>
 
-### 1.3 Define groups
+### 1.3 Definir grupos
 
-Once the air box is generated, you will be redirected to group creation window. Here you will see a **list of groups you need to define** for your system, such as which one is workpiece, where are inductor terminals etc.
+Una vez generada la caja de aire, será redirigido a la ventana de creación de grupos. Aquí verá una **lista de grupos que necesita definir** para Su sistema, como cuál es la pieza de trabajo, dónde están los terminales del inductor, etc.
 
 <p align="center">
 
@@ -85,7 +89,7 @@ Once the air box is generated, you will be redirected to group creation window. 
 
 </p>
 
-**Select the group** (in this example, *Workpiece*), **select the corresponding volume** from the list or directly from the screen, and click **ASSIGN Workpiece**.
+**Seleccione el grupo** (en este ejemplo, *workpiece*), **seleccione el volumen correspondiente a la pieza de trabajo** de la lista o directamente de la pantalla, y haga clic en **ASSIGN Workpiece**.
 
 <p align="center">
 
@@ -93,7 +97,7 @@ Once the air box is generated, you will be redirected to group creation window. 
 
 </p>
 
-In the same way define the rest of the groups.
+Define del mismo modo el resto de los grupos.
 
 <p align="center">
 
@@ -101,17 +105,19 @@ In the same way define the rest of the groups.
 
 </p>
 
-:::note
-You can **rename each group** by clicking the *edit button* next to the name!
+:::note Nota
+
+Puedes **cambiar el nombre de cada grupo** haciendo clic en el botón *editar* situado junto al nombre.
 
 <p align="center">
 
 ![shaft scanning](assets/shaft-scanning/9.png)
 
 </p>
+
 :::
 
-Once ready, click **GO TO PHYSICS** for Physics definition!
+Una vez listo, haz clic en **GO TO PHYSICS** para ver la definición de física.
 
 <p align="center">
 
@@ -119,9 +125,9 @@ Once ready, click **GO TO PHYSICS** for Physics definition!
 
 </p>
 
-## 2. Define physics
+## 2. Definir la física
 
-You will be redirected to the *Physics* window, where physical definitions are present. On the left you can see the **preview window** of your geometry, but on the right - the actual **physical definitions**. You can **navigate physics through the domain tabs** above the physical definitions.
+Será redirigido a la ventana *Física*, donde están las definiciones físicas. A la izquierda puedes ver la **ventana de vista previa** de su geometría, del lado derecho observará las **definiciones físicas** correspondientes. Puede **navegar por los paámetros de física a través de las pestañas de dominio** encima de las definiciones físicas.
 
 <p align="center">
 
@@ -129,9 +135,9 @@ You will be redirected to the *Physics* window, where physical definitions are p
 
 </p>
 
-### 2.1 Simulation control
+### 2.1 Control de la simulación
 
-In the SIMULATION CONTROL window define the simulation as *transient* with **4 kHz** *frequency*, **17 s** *End time* and **0.25 s** *time step*. For *Computation algorithm* choose **Fast**.
+En la ventana de SIMULATION CONTROL defina la simulación como *transitoria* con **4 kHz** en *frecuencia*, **17 s** en *tiempo final* y **0,25 s** en *pasos de tiempo*. Para *Algoritmo de cálculo* elija **Fast**.
 
 <p align="center">
 
@@ -141,9 +147,9 @@ In the SIMULATION CONTROL window define the simulation as *transient* with **4 k
 
 </p>
 
-### 2.2 Splined shaft
+### 2.2 Eje estriado
 
-Select SHAFT from *Domain bar*. For *Material* click SELECT… and choose **Low carbon steel 1020 (B(H), $t^{o}$ depend)**.
+Seleccione SHAFT en la barra *Dominio*. En *Material*, haga clic en SELECT... y elija **Acero bajo en carbono 1020 (B(H), $t^{o}$dependiente)**.
 
 <p align="center">
 
@@ -151,7 +157,7 @@ Select SHAFT from *Domain bar*. For *Material* click SELECT… and choose **Low 
 
 </p>
 
-Under THERMAL ANALYSIS for **WORKPIECE SURFACE1** choose **Combined** – check the **Convection** and **Radiation** boxes and enter **15** for *Convection* and **0.8** for *Radiation*.
+En ANÁLISIS TÉRMICO para **WORKPIECE SURFACE1** elija **Combinado** - marque las casillas **Convection** y **Radiation** e introduzca **15** para *Convección* y **0,8** para *Radiación*.
 
 <p align="center">
 
@@ -161,7 +167,7 @@ Under THERMAL ANALYSIS for **WORKPIECE SURFACE1** choose **Combined** – check 
 
 ### 2.3 Inductor
 
-Switch to INDUCTOR in *Domain bar*. For *Material* choose **Copper (Temperature dependent)**.
+Cambie a INDUCTOR en *Barra de dominio*. Para *Material* elija **Cobre (dependiente de la temperatura)**.
 
 <p align="center">
 
@@ -169,7 +175,7 @@ Switch to INDUCTOR in *Domain bar*. For *Material* choose **Copper (Temperature 
 
 </p>
 
-Under ELECTROMAGNETICS choose **Current (Amplitude)** for TERMINAL1, **Ground** for TERMINAL2 and enter **11000 A** as *Current (Amplitude)*.
+En ELECTROMAGNETICS elija **Current (Amplitude)** para TERMINAL1, **Ground** para TERMINAL2 e introduzca **11000 A** como *Corriente (Amplitud)*.
 
 <p align="center">
 
@@ -177,9 +183,9 @@ Under ELECTROMAGNETICS choose **Current (Amplitude)** for TERMINAL1, **Ground** 
 
 </p>
 
-### 2.4 Scanning
+### 2.4 Escaneo
 
-Switch to MOTION tab and click CREATE NEW MOTION.
+Cambie a la pestaña MOTION y haga clic en CREATE NEW MOTION para agregar movimiento.
 
 <p align="center">
 
@@ -187,7 +193,7 @@ Switch to MOTION tab and click CREATE NEW MOTION.
 
 </p>
 
-Check **Complex motion** as motion type, **Inductor** as the domain you want to move, and enter movement speed of **0.01 m/s** in Y direction.
+Seleccione **Complex motion** como tipo de movimiento, **Inductor** como dominio que desea mover, e introduzca una velocidad de movimiento de **0,01 m/s** en la dirección Y.
 
 <p align="center">
 
@@ -195,7 +201,7 @@ Check **Complex motion** as motion type, **Inductor** as the domain you want to 
 
 </p>
 
-With the Motion definition you have finished the physics setup! Click **RUN** to calculate your simulation!
+¡Con la definición de Movimiento ha terminado la configuración de la física! Haga clic en **RUN** para calcular su simulación.
 
 
 <p align="center">
@@ -204,9 +210,9 @@ With the Motion definition you have finished the physics setup! Click **RUN** to
 
 </p>
 
-## 3. Evaluate results
+## 3. Evaluar resultados
 
-In the end of the calculation our post-processing tool *ParaView* will automatically **open with a pre-set temperature state**, and you will be able to see the **temperature field distribution** in the workpiece in the last time step.
+Al final del cálculo, nuestra herramienta de postprocesado *ParaView* se **abrirá automáticamente con un estado de temperatura preestablecido**, y podrá ver la **distribución del campo de temperatura** en la pieza en el último paso temporal.
 
 <p align="center">
 
@@ -214,6 +220,6 @@ In the end of the calculation our post-processing tool *ParaView* will automatic
 
 </p>
 
-Results can be further manipulated by using ParaView filters - find out more in CENOS [**result evaluation**](/results) article.
+Los resultados pueden manipularse aún más utilizando los filtros de ParaView - obtenga más información en el artículo de CENOS [**evaluación de resultados**](/results).
 
-This concludes our Splined Shaft Scanning Hardening tutorial. For any recommendations or questions contact our support.
+Esto concluye nuestro tutorial de Endurecimiento de Escaneo de Ejes Estriados. Para cualquier recomendación o pregunta contacte con nuestro equipo de soporte.
