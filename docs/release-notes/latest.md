@@ -5,6 +5,13 @@ sidebar_label: v4.x
 sidebar_position: 1
 slug: /latest
 ---
+## v4.1.2 (June 5, 2023)
+
+Bugfixes:
+
+* Fixed a bug where the case crashed if IDEA 60 (20 kHz) flux concentrator material was used
+* Fixed a problem where cases created in v4.0.1 and saved without a material were not opening in v4.1.1
+
 
 ## v4.1.1 (May 25, 2023)
 
