@@ -50,6 +50,19 @@ At the top of the hardness model definition, you will see that there are additio
 </p>
 
 
+**Error values and correlation coefficients for hardness model: **
+    * 48.5 HV mean absolute error
+    * 38.9 HV standart deviation of the error
+    * 0.92 R value (see graph below)
+
+<p align="center">
+
+![Bar Geometry](assets/hardness/error-hardness.png)
+
+</p>    
+
+
+
 ## Model 2: Hardness calculation from the table
 This is a simple model where material hardness is calculated from the hardness depending on cooling time. This data need to be provided in the table format together with austenization temperature $Ac_{3}$ and end temperature. End temperature here depends on the table data that you have. In some cases, these tables are given with critical cooling times from 800 $^{\circ} C$ to 500 $^{\circ} C$, in this case $T_{end} = 500 ^{\circ}C$. A good source for such material properties is Ovako steel navigator https://steelnavigator.ovako.com/heat-treatment-guide/. There you will find similar diagrams to this one:
 
@@ -71,7 +84,7 @@ Pay attention - in the diagram below hardness is described using different scale
 It is important to recalculate the hardness to one scale and use the same units for all data otherwise, the results will be meaningless!
 :::
 
-In this case end temperature is equal to the martensite start temperature ($M_s$). Since the $M_s$ temperature is changing  throughout  the process we suggest using temperature at the beginning of the process, in this case approximately 380 ^{\circ}C$
+In this case end temperature is equal to the martensite start temperature ($M_s$). Since the $M_s$ temperature is changing  throughout  the process we suggest using temperature at the beginning of the process, in this case approximately 380 $^{\circ}C$
 
 Here is the preview of the model definition in the Cenos:
 <p align="center">
@@ -80,8 +93,12 @@ Here is the preview of the model definition in the Cenos:
 
 </p>
 
+:::important
+Error of calculated hardness depends on the quality of given HV table data.
+:::
 
-## Refrences
+
+## References
 [1] "Empirical formulas for calculating Continuous Cooling Transformation diagrams", J. Trzaska, 2019
 
 [2] "Empirical Formulas for the Calculations of the Hardness of Steels Cooled From the Austenitizing Temperature", J. Trzaska, 2016
