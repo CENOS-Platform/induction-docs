@@ -98,7 +98,7 @@ Error of calculated hardness depends on the quality of given HV table data.
 :::
 
 
-## Refrences
+## References
 [1] "Empirical formulas for calculating Continuous Cooling Transformation diagrams", J. Trzaska, 2019
 
 [2] "Empirical Formulas for the Calculations of the Hardness of Steels Cooled From the Austenitizing Temperature", J. Trzaska, 2016
