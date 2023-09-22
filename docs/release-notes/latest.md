@@ -5,6 +5,22 @@ sidebar_label: v4.x
 sidebar_position: 1
 slug: /latest
 ---
+
+## v4.2 (September 22, 2023)
+
+Features:
+
+*
+
+Improvements:
+
+* 
+
+Bugfixes:
+
+* 
+
+
 ## v4.1.2 (June 5, 2023)
 
 Bugfixes:
