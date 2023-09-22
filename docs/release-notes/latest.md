@@ -5,6 +5,28 @@ sidebar_label: v4.x
 sidebar_position: 1
 slug: /latest
 ---
+
+## v4.2 (September 22, 2023)
+
+Features:
+
+* 2D CAD support in From CAD approach
+* Mesh inspection (clipping) in CENOS mesher
+
+Bugfixes:
+
+* Fixed a bug where convective power losses showed up incorrectly in 3D slice cases
+* Fixed a bug where in PDF reports “Error” was shown at Terminals section
+* Fixed a bug which caused the hardening profile filter to work incorrectly in some cases
+* Fixed an issue which caused previous result overwriting if Continue From function was used
+* Fixed a bug which caused PDF report generation to fail in cases with calculated hardness
+* Fixed interpolation issue which caused problems with some material definitions
+* Fixed a bug which caused Surface Impedance approach to fail
+* Fixed a bug which showed Mode: Not Found in PDF report generation
+* Fixed a bug which did not allow to use time step table values
+* Fixed an issue which showed different calculation times in log and PDF report
+
+
 ## v4.1.2 (June 5, 2023)
 
 Bugfixes:
