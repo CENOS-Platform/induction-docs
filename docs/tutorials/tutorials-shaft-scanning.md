@@ -22,7 +22,7 @@ The setup consists of a **2 winding inductor** and low carbon steel **AISI 1020 
 Download the CAD files used in this tutorial [**here**](./assets/shaft-scanning/SplinedShaft.zip)
 :::
 
-<a href="assets/shaft-scanning/SplinedShaft.zip" download> **here maybe** </a>
+<a href="/tutorials/assets/shaft-scanning/SplinedShaft.zip" download> **here maybe** </a>
 
 
 ## 1. Prepare your geometry
