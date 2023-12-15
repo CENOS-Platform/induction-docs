@@ -1,11 +1,11 @@
 ---
 id: aspect-ratio
-title: Aspect ratio
-sidebar_label: Aspect ratio
+title: Relación de aspecto
+sidebar_label: Relación de aspecto
 sidebar_position: 3
 ---
 
-There are many different ways used to evaluate the quality of the mesh, one of them being *Aspect ratio*. In this article we will learn what the *Aspect Ratio* really is and how to resolve the errors caused by high aspect ratio elements.
+Hay muchas formas diferentes de evaluar la calidad de la malla, una de ellas es la *relación de aspecto*. En este artículo aprenderemos qué es realmente la *relación de aspecto* y cómo resolver los errores causados por elementos de alta relación de aspecto.
 
 <p align="center">
 
@@ -13,21 +13,21 @@ There are many different ways used to evaluate the quality of the mesh, one of t
 
 </p>
 
-## What is Aspect ratio?
+## ¿Qué es la relación de aspecto?
 
-*Aspect ratio* is the measure of mesh element's deviation from having all sides of equal length. A high aspect ratio occurs within long, thin elements, which **can cause the solver to crash during computation**. Because of this reason, a check is present in CENOS to make sure the mesh has no high aspect ratio elements, which could cause calculation errors.
+*La relación de aspecto es la medida de la desviación de un elemento de malla de tener todos los lados de igual longitud. Una relación de aspecto alta se produce en elementos largos y delgados, lo que **puede provocar que el solucionador se bloquee durante el cálculo**. Por esta razón, CENOS realiza una comprobación para asegurarse de que la malla no tiene elementos con una relación de aspecto elevada, lo que podría provocar errores de cálculo.
 
-*Aspect ratio* is usually low within air mesh (around 1) and high in viscous layers (up to 1000). **If the aspect ratio for some elements is higher than 10 000, CENOS built-in check will not let the user use such mesh.**
+*La relación de aspecto* suele ser baja en las mallas de aire (alrededor de 1) y alta en las capas viscosas (hasta 1000). **Si la relación de aspecto de algunos elementos es superior a 10 000, la comprobación integrada de CENOS no permitirá al usuario utilizar dicha malla.
 
-## Aspect ratio errors
+## Errores de relación de aspecto
 
-At some point almost every simulation engineer will stumble into an error caused by high aspect ratio mesh elements. These errors occur mostly in 3D meshes, and because of this we need to understand how this error presents itself in both 3D geometry creation approaches available in CENOS - *From CAD* and  *Advanced Geometry Editor*.
+En algún momento, casi todos los ingenieros de simulación se toparán con un error causado por elementos de malla de alta relación de aspecto. Estos errores ocurren sobre todo en mallas 3D, y por ello necesitamos entender cómo se presenta este error en los dos enfoques de creación de geometría 3D disponibles en CENOS - *From CAD* y *Advanced Geometry Editor*.
 
 ### From CAD
 
-*From CAD* creates mesh automatically for the geometry which you have imported, based on the physical parameters entered in the *Physics* part. Because the meshing is done automatically, the **mesh algorithms can sometimes fail on more complex geometries**. To see if the mesh is generated successfully, you need to calculate it before running the simulation.
+*From CAD* crea mallas automáticamente para la geometría que ha importado, basándose en los parámetros físicos introducidos en la parte *Física*. Como el mallado se hace automáticamente, los algoritmos de **malla pueden fallar a veces en geometrías más complejas**. Para ver si la malla se ha generado correctamente, es necesario calcularla antes de ejecutar la simulación.
 
-To do that, you need to **first enter the physical parameters** of your simulation, and then go back to the geometry and click SHOW MESH OPTIONS in the bottom of the screen.
+Para ello, es necesario **introducir primero los parámetros físicos** de la simulación y, a continuación, volver a la geometría y hacer clic en *SHOW MESH OPTIONS* en la parte inferior de la pantalla.
 
 <p align="center">
 
@@ -35,7 +35,7 @@ To do that, you need to **first enter the physical parameters** of your simulati
 
 </p>
 
-In mesh options under *Advanced Settings* click CREATE AUTOMATIC MESH NOW.
+En las opciones de malla, en *Configuración Avanzada*, haga clic en *CREATE AUTOMATIC MESH NOW*.
 
 <p align="center">
 
@@ -43,7 +43,7 @@ In mesh options under *Advanced Settings* click CREATE AUTOMATIC MESH NOW.
 
 </p>
 
-CENOS will generate the mesh and let you know if the mesh was successfully created. The most common error is connected with high aspect ratio elements - if there are such elements in an automatically generated mesh, a message will pop up.
+CENOS generará la malla y le indicará si se ha creado correctamente. El error más común está relacionado con elementos de alta relación de aspecto: si hay elementos de este tipo en una malla generada automáticamente, aparecerá un mensaje.
 
 <p align="center">
 
@@ -51,12 +51,11 @@ CENOS will generate the mesh and let you know if the mesh was successfully creat
 
 </p>
 
-This error means that **CENOS will not use the automatically generated mesh** and **you need to create it manually**. To do that, click OPEN ADVANCED EDITOR, which will send you to the CENOS geometry and mesh creation program: Salome. There you can manually adjust or create the mesh to eliminate high aspect ratio elements.
+Este error significa que **CENOS no utilizará la malla generada automáticamente** y **tiene que crearla manualmente**. Para ello, haga clic en OPEN ADVANCED EDITOR, que le enviará a la geometría de CENOS y al programa de creación de mallas: Salomé. Ahí usted podrá ajustar o crear manualmente la malla para eliminar los elementos de alta relación de aspecto.
 
+### Editor de geometría avanzada
 
-### Advanced Geometry Editor
-
-When using the *Advanced Geometry Editor*, an error detailing *High Aspect Ratio* elements can appear right before you try to export the mesh to CENOS.
+Cuando se utiliza el *Editor de Geometría Avanzado*, puede aparecer un error detallando elementos de *Alta Relación de Aspecto* justo antes de intentar exportar la malla a CENOS.
 
 <p align="center">
 
@@ -64,13 +63,13 @@ When using the *Advanced Geometry Editor*, an error detailing *High Aspect Ratio
 
 </p>
 
-If you see such an error, it means that you need to recheck your mesh definitions and adjust them to get rid of elements with high aspect ratio.
+Si ve un error de este tipo, significa que debe volver a comprobar las definiciones de malla y ajustarlas para eliminar los elementos con una relación de aspecto elevada.
 
-## How to find elements with high aspect ratio
+## Cómo encontrar elementos con alta relación de aspecto
 
-Sometimes the troublesome elements are small and hard to notice from the distance, therefore **CENOS automatically creates a group with these troublesome elements**, which you can visualize separately to understand where in the mesh they are present.
+A veces los elementos problemáticos son pequeños y difíciles de notar desde la distancia, por lo tanto **CENOS crea automáticamente un grupo con estos elementos problemáticos**, que puede visualizar por separado para entender en qué parte de la malla están presentes.
 
-You can find this group named **Aspect ratio error elements** under *Groups of Faces/Volumes*.
+Puede encontrar este grupo llamado **Aspect ratio error elements** en *Groups of Faces/Volumes*.
 
 <p align="center">
 
@@ -78,10 +77,9 @@ You can find this group named **Aspect ratio error elements** under *Groups of F
 
 </p>
 
+- Haga clic en el icono *Ojo* (![Eye icon](assets/aspect-ratio/9.png)) para activar la visibilidad de los *Elementos de error de relación de aspecto* y desactivar la visibilidad de *Malla_1*.
 
- - Click the *Eye* icon (![Eye icon](assets/aspect-ratio/9.png)) to enable visibility for *Aspect ratio error elements* and disable visibility for *Mesh_1*.
-
-Mesh elements with high aspect ratio wil become visible. **If you cannot see the mesh elements**, click on the mesh visualisation screen and press *Space-bar* on your keyboard.
+Los elementos de malla con alta relación de aspecto se harán visibles. **Si no puede ver los elementos de la malla**, haga clic en la pantalla de visualización de la malla y pulse *barra espaciadora* en el teclado.
 
 <p align="center">
 
@@ -89,19 +87,19 @@ Mesh elements with high aspect ratio wil become visible. **If you cannot see the
 
 </p>
 
-## How to correct High Aspect Ratio elements
+## Cómo corregir los elementos de relación de aspecto elevada
 
-Once you have located the high aspect ratio elements, you can start to eliminate them. First you need to **visually understand in which part (sub-mesh) these elements are present**. Then you need to **adjust the mesh definition so that these elements would disappear**.
+Una vez localizados los elementos de alta relación de aspecto, puede empezar a eliminarlos. Primero necesita **entender visualmente en qué parte (sub-malla) están presentes estos elementos**. Después necesita **ajustar la definición de la malla para que estos elementos desaparezcan**.
 
-If the high aspect ratio elements are **located in the Viscous layers** of workpiece or inductor:
+Si los elementos de relación de aspecto alta están **ubicados en las capas viscosas** de la pieza de trabajo o en el inductor:
 
-* Decrease the *Number of layers* (if possible);
-* Decrease the *Stretch factor*;
-* Decrease the *Max. size* for the whole sub-mesh.
+* Disminuir el *Número de Capas* (si es posible);
+* Disminuir el *Factor de Estiramiento*;
+* Disminuir el *Tamaño Máximo* de toda la sub-malla.
 
-If these elements are located in air domain or in any sub-mesh, but **not in the Viscous layers**:
+Si estos elementos se encuentran en el dominio del aire o en cualquier sub-malla, pero **no en las capas viscosas**:
 
-* Decrease the *Max. size* for the whole sub-mesh;
-* Change the 2D mesh algorithm from *Trinagle: Mefisto* to *NETGEN 2D* (or vice versa).
+* Disminuir el *Tamaño Máximo* para toda la submalla;
+* Cambiar el algoritmo de malla 2D de *Trinagle: Mefisto* a *NETGEN 2D* (o viceversa).
 
-If you still cannot resolve High Aspect ratio error, contact our support!
+Si sigue sin poder resolver el error de relación de aspecto elevada, ¡póngase en contacto con nuestro servicio de soporte!

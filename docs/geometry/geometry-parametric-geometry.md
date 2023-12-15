@@ -1,21 +1,21 @@
 ---
 id: parametric-geometry
-title: How to parameterize geometry
-sidebar_label: Parametric Geometry
+title: Cómo parametrizar la geometría
+sidebar_label: Geometría Paramétrica
 sidebar_position: 1
 ---
 
-Induction heating simulations are a great tool to find the right parameters for the desired heating profile - from current and frequency values to inductor position relative to the workpiece.
+Las simulaciones de calentamiento por inducción son una gran herramienta para encontrar los parámetros adecuados para el perfil de calentamiento deseado, desde los valores de corriente y frecuencia hasta la posición del inductor respecto a la pieza de trabajo.
 
-In CENOS platform it is possible to create a **parametric model** and **change the previously defined geometric values** such as inductor position, winding size etc.
+En la plataforma CENOS es posible crear un **modelo paramétrico** y **cambiar los valores geométricos previamente definidos**, como la posición del inductor, el tamaño del bobinado, etc.
 
-Without parametric values each geometry modification requires the creation of a new simulation model from the beginning, which can be time consuming. **If the model is parametric, the modifications of the geometry require only the change of a parameter such as coil radius and export of the new mesh.**
+Sin valores paramétricos, cada modificación de la geometría requiere la creación de un nuevo modelo de simulación desde el principio, lo que puede llevar mucho tiempo. **Si el modelo es paramétrico, las modificaciones de la geometría sólo requieren el cambio de un parámetro como el radio de la bobina y la exportación de la nueva malla.**
 
-## When to use parametric geometries?
+## ¿Cuándo utilizar geometrías paramétricas?
 
-Geometry parameterization is useful when **searching for the right position** between the workpiece and coil windings to achieve the optimal heating profile within the workpiece.
+La parametrización de geometrías es útil cuando se **busca la posición correcta** entre la pieza y los devanados de la bobina para conseguir el perfil de calentamiento óptimo dentro de la pieza de trabajo.
 
-In the example below is shown a standard coil-workpiece configuration with 3 adjustable parameters - coil radius, winding radius and step between the windings.
+En el ejemplo siguiente se muestra una configuración estándar de bobina-pieza con 3 parámetros ajustables: radio de la bobina, radio del devanado y paso entre los devanados.
 
 <p align="center">
 
@@ -23,15 +23,15 @@ In the example below is shown a standard coil-workpiece configuration with 3 adj
 
 </p>
 
-## How to create a parametric model?
+## ¿Cómo crear un modelo paramétrico?
 
-First you need to decide which parameter you want to make parametric. Then you create a new parameter and implement it during the geometry building process.
+Primero tiene que decidir qué parámetro quiere hacer paramétrico. Entonces debe crear un nuevo parámetro y e implementarlo durante el proceso de construcción de la geometría.
 
-In the next steps we will learn how to create a 2D geometrical model with adjustable coil winding diameter size.
+En los siguientes pasos aprenderemos a crear un modelo geométrico 2D con un diámetro de bobina ajustable.
 
-### 1. Create a new variable parameter
+### 1. Crear un nuevo parámetro variable
 
-Variables in Salome are defined through *NoteBook*, which can be accessed by clicking on the *NoteBook* button under *Object Browser*.
+Las variables en Salome se definen a través de *NoteBook*, al que se accede pulsando el botón *NoteBook* bajo *Object Browser*.
 
 <p align="center">
 
@@ -39,7 +39,7 @@ Variables in Salome are defined through *NoteBook*, which can be accessed by cli
 
 </p>
 
-In the *NoteBook* window enter the names and values of the variables you are going to use in your model. In this example we will create a variable named *winding_radius* and assign a specific value to it.
+En la ventana *NoteBook* introduzca los nombres y valores de las variables que va a utilizar en su modelo. En este ejemplo crearemos una variable llamada *winding_radius (radio_devanado)* y le asignaremos un valor específico.
 
 <p align="center">
 
@@ -47,13 +47,13 @@ In the *NoteBook* window enter the names and values of the variables you are goi
 
 </p>
 
-### 2. Implement variables in geometry
+### 2. Implementar variables en la geometría
 
-**Variables are implemented in the geometry by using them to define parameters connected with primitive shape creation, translation operations and other geometry creation/modification actions.**
+**Las variables se implementan en la geometría utilizándolas para definir parámetros relacionados con la creación de formas primitivas, operaciones de traslación y otras acciones de creación/modificación de la geometría.**
 
-If we want to define the coil winding diameter, we must first think of how to create the windings. The easiest way is to create a base circle for the upper winding and then use *Multi-Translation* tool to create the rest.
+Si queremos definir el diámetro del devanado de la bobina, primero debemos pensar en cómo crear los devanados. La forma más fácil es crear un círculo base para el bobinado superior y luego utilizar la herramienta *Multi-Translation* para crear el resto.
 
-**Because the circle size in circle construction tool is defined through radius, we can implement the diameter variable through radius size** in the creation of the upper winding base circle. To do that, create the circle using *Circle Construction* tool, but in the *Radius* box do not write a specific number, but rather the name of the variable we created earlier - *winding_radius*.
+**Dado que el tamaño del círculo en la herramienta de construcción de círculos se define a través del radio, podemos implementar la variable diámetro a través del tamaño del radio** en la creación del círculo base del bobinado superior. Para ello, creamos el círculo con la herramienta *Circle Construction*, pero en la casilla *Radius* no escribimos un número concreto, sino el nombre de la variable que creamos anteriormente - *winding_radius*.
 
 <p align="center">
 
@@ -61,11 +61,15 @@ If we want to define the coil winding diameter, we must first think of how to cr
 
 </p>
 
-**IMPORTANT**: To efficiently implement the variables into geometry, you must first understand how to create the specific geometrical aspect of the model and where the variable of interest will be used.
+:::caution IMPORTANTE
 
-### 3. Change the geometry
+Para implementar eficientemente las variables en la geometría, primero debe entender cómo crear el aspecto geométrico específico del modelo y donde se utilizará la variable de interés.
 
-When the rest of the model has been created and partitioned, you can go back to the *NoteBook* and change the parameter specified before. After changing the value, click **Update Study** and evaluate the new geometry.
+:::
+
+### 3. Cambiar la geometría
+
+Cuando el resto del modelo haya sido creado y particionado, puede volver al *NoteBook* y cambiar el parámetro especificado anteriormente. Después de cambiar el valor, haga clic en **Update Study** para actualizar los datos y evalúe la nueva geometría.
 
 <p align="center">
 
@@ -73,7 +77,7 @@ When the rest of the model has been created and partitioned, you can go back to 
 
 </p>
 
-After **Update Study** the parameterised geometry as well as the geometry and mesh built from it will change.
+Después de **actualizar el estudio** la geometría parametrizada cambiará, así como la geometría y la malla construidas a partir de ella.
 
 <p align="center">
 
@@ -81,32 +85,40 @@ After **Update Study** the parameterised geometry as well as the geometry and me
 
 </p>
 
-**IMPORTANT**: After the change of parameters and study update, you need to **switch to Mesh module and export the new mesh** to CENOS before recalculating the simulation!
+:::caution IMPORTANTE
 
-## Limitations
+¡Tras el cambio de parámetros y la actualización del estudio, es necesario **cambiar al módulo Mesh y exportar la nueva malla** a CENOS antes de recalcular la simulación!
 
-Although an effective way to quickly change the geometry, there are still a number of things to keep in mind when creating a parametric model.
+:::
 
-### Parametric number of objects
+## Limitaciones
 
-While making sizes and distances in your model parametric will allow you to modify your geometry with only a few actions, other parameters can take longer to change.
+Aunque es una forma eficaz de cambiar rápidamente la geometría, hay que tener en cuenta una serie de cosas a la hora de crear un modelo paramétrico.
 
-**IMPORTANT**: The change of parameters that define a number of objects, not their size, will require a new group and a new mesh for every modification.
+### Número paramétrico de objetos
 
-For example, if you create a parameter for the number of windings, it will essentially **change the number of objects** in your Partition every time you change it. It means that it will create conflicts in the old groups, so you will have to recreate the groups every time you change the number of windings.
+Mientras que hacer paramétricos los tamaños y las distancias en tu modelo te permitirá modificar tu geometría con sólo unas pocas acciones, otros parámetros pueden tardar más en cambiar.
 
-Although mesh will re-compute itself, you will still need to spend additional time to make sure that everything with groups and mesh is correctly defined/created.
+:::caution IMPORTANTE
 
-### Geometry overlapping
+El cambio de parámetros que definen un número de objetos, no su tamaño, requerirá un nuevo grupo y una nueva malla para cada modificación.
 
-**By changing parameter values, the geometry can be made unphysical**, i.e. domains such as workpiece and coil or coil windings themselves can overlap each other - avoid these situations and always check the geometry after every study update!
+:::
 
-In the example of coil winding diameter parameterization, if the *winding_radius* is defined as bigger than 10, the windings will overlap each other.
+Por ejemplo, si usted crea un parámetro para el número de devanados, esencialmente **cambiará el número de objetos** en su partición cada vez que lo cambie. Esto significa que creará conflictos en los grupos antiguos, por lo que tendrá que volver a crear los grupos cada vez que cambies el número de devanados.
 
-This in turn can cause problems in meshing and simulation calculation, as it is not physically correct.
+Aunque la malla se re-calculará a sí misma, todavía tendrá que dedicar tiempo adicional para asegurarse de que todo con los grupos y la malla está correctamente definido/creado.
+
+### Superposición de la geometría
+
+**Al cambiar los valores de los parámetros, la geometría puede dejar de ser física**, es decir, dominios como la pieza de trabajo y la bobina o los propios devanados de la bobina pueden solaparse entre sí - ¡evite estas situaciones y compruebe siempre la geometría después de cada actualización del estudio!
+
+En el ejemplo de la parametrización del diámetro del devanado de la bobina, si el *radio_devanado* se define como mayor de 10, los devanados se solaparán entre sí.
+
+Esto a su vez puede causar problemas en el mallado y en el cálculo de la simulación, ya que no es físicamente correcto.
 
 <p align="center">
 
 ![Simple parameters](assets/parametric-geometry/7.png)
 
-</p>
+</p> 

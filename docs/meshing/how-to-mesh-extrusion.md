@@ -1,46 +1,48 @@
 ---
 id: mesh-extrusion
-title: Mesh  Extrusion
-sidebar_label: Extrusion
+title: Extrusión de Malla
+sidebar_label: Extrusión
 sidebar_position: 2
 ---
-Thin, continuous geometries such as **pipes, plates, sheets, multi-turn inductors** and many others can be a **challange to mesh** for default meshing algorithms - *NETGEN* and *Triangle : Mefisto*, as these algorithms will produce unnecessarily large mesh element count.
+Las geometrías finas y continuas como **tuberías, placas, láminas, inductores multivuelta** y muchas otras, pueden ser un **desafío para mallar** para los algoritmos de mallado por defecto - *NETGEN* y *Triangle: Mefisto*, ya que estos algoritmos producirán un número de elementos de malla innecesariamente grande.
 
-Fortunately, there is a way to avoid this by meshing with a more "hands on" approach. The meshing method used for these kind of geometries is **Extrusion 3D** algorithm. This method works by taking a 2D face and extruding it along the volume of the object, creating a **very fine, but in element count low mesh.**
+Afortunadamente, hay una forma de evitar esto, creando la malla con un enfoque más "práctico". El método de mallado utilizado para este tipo de geometrías es el algoritmo **Extrusion 3D**. Este método funciona tomando una cara 2D y extruyéndola a lo largo del volumen del objeto, creando una malla **muy fina, pero baja en número de elementos**.
 
 ![Comparison](assets/mesh-extrusion/0.png)
 
-## How to use Extrusion 3D
+## Cómo usar Extrusión 3D
 
-First up you have to choose the face and volume for extrusion.
+Primero tiene que elegir la cara y el volumen para la extrusión.
 
-**Define one end of the volume as a separate 2D face group**. You will use this face to extrude it's mesh along the volume of the object. In this example we will call this face "*Slice*".
+**Defina un extremo del volumen como un grupo de caras 2D separado**. Usaremos esta cara para extruir su malla a lo largo del volumen del objeto. En este ejemplo llamaremos a esta cara "*Slice*".
 
-**Define the volume of your object**, over which the mesh of previously created face "Slice" will be extruded. In this example we will call this volume "*Workpiece_One*".
+**Defina el volumen de su objeto**, sobre el que se extruirá la malla de la cara "Slice" creada previamente. En este ejemplo llamaremos a este volumen "*Workpiece_One*".
 
 ![How to use Extrusion 3D](assets/mesh-extrusion/1.png)
 
-**iMPORTANT** : If your geometry is **continuous**, you can group the rest of the  volumes in this step as well.
+:::caution IMPORTANTE
+
+Si su geometría es **continua**, puede agrupar el resto de los volúmenes también en este paso.
+
+:::
 
 ![How to use Extrusion 3D](assets/mesh-extrusion/2.png)
 
-After defining the groups, move on to the *Mesh* module, make a simple mesh with partition geometry and start defining the sub-meshes.
+Después de definir los grupos, pase al módulo *Mesh*, haga una malla simple con geometría de partición y empiece a definir las sub-mallas.
 
-Make a 2D sub-mesh for the **Slice** group. Choose *NETGEN 2D* algorithm and define the *Viscous layers* if necessary. This viscous layers definition will automatically be used in the *Extrusion 3D* algorithm.
+Haga una sub-malla 2D para el grupo **Slice**. Elija el algoritmo *NETGEN 2D* y defina las *Capas viscosas* si es necesario. Esta definición de capas viscosas se utilizará automáticamente en el algoritmo *Extrusión 3D*.
 
 ![How to use Extrusion 3D](assets/mesh-extrusion/3.png)
 
-Now we need to define the mesh extrusion part.
+Ahora necesitamos definir la parte de extrusión de la malla.
 
-Create a new sub-mesh for the first volume group, "*Workpiece_One*". In the **3D section** choose **Extrusion 3D** as the algorithm.
+Cree una nueva sub-malla para el primer grupo de volúmenes, "*Workpiece_One*". En la sección **3D** elija **Extrusion 3D** como algoritmo.
 
-In the **2D section** leave it at **None**
-.
-In the **1D section** choose **Wire Discretisation** and for *Hypothesis* choose **Number of Segments**. This value determines in how many sections the **Slice** mesh will be extruded along the volume. The larger *Number of Segments* will be, the finer the mesh will be as well!
+En la sección **2D** déjelo en **None**. En la sección **1D** elija **Wire Discretisation**  y para *Hipótesis* elija **Number of Segments**. Este valor determina en cuántas secciones la malla **Slice** será extruida a lo largo del volumen. Cuanto mayor sea el *Número de Segmentos*, más fina será la malla.
 
 ![How to use Extrusion 3D](assets/mesh-extrusion/4.png)
 
-After making the volume sub-mesh, set the order of sub-meshes. Make sure to put the *Slice* with higher priority than the volume, as volume will need the *Slice* mesh first in order to get it extruded.
+Después de hacer la sub-malla de volumen, establezca el orden de las sub-mallas. Asegúrese de poner la *Slice* con mayor prioridad que el volumen, ya que el volumen necesitará primero la malla *Slice* para poder extruirlo.
 
 <p align="center">
 
@@ -48,15 +50,15 @@ After making the volume sub-mesh, set the order of sub-meshes. Make sure to put 
 
 </p>
 
-In the picture below is the result of the *Extrusion 3D* algorithm. If you want to extrude the rest of the volumes after the first one, just define them in the same way as the first one!
+En la imagen de abajo está el resultado del algoritmo *Extrusión 3D*. Si quiere extruir el resto de los volúmenes después del primero, ¡simplemente defínalos de la misma manera que el primero!
 
 ![How to use Extrusion 3D](assets/mesh-extrusion/6.png)
 
-## Extrusion of round objects
+## Extrusión de objetos redondos
 
-Sometimes the geometry is **conntinuous and closed**, on which you can still use the Extrusion algorithm.
+A veces la geometría es **continua y cerrada**, en la que todavía se puede utilizar el algoritmo de Extrusión.
 
-Lets take a look at this ring, which is axially symmetrical to one of the axis. As you can see, it is a whole ring, but split in 2 volumes - which is done on purpose, because **if the ring is completely solid, Extrusion 3D algorithm will not work.**
+Echemos un vistazo a este anillo, que es axialmente simétrico a uno de los ejes. Como puede ver, es un anillo entero, pero dividido en 2 volúmenes - lo que se hace a propósito, porque **si el anillo es completamente sólido, el algoritmo de Extrusión 3D no funcionará.**
 
 <p align="center">
 
@@ -64,9 +66,9 @@ Lets take a look at this ring, which is axially symmetrical to one of the axis. 
 
 </p>
 
-For extrusion of round objects you first have to take out one of the cross section planes and create a group for each of the ring halfs and for one 2D cross section. 
+Para la extrusión de objetos redondos primero hay que sacar uno de los planos de la sección transversal y crear un grupo para cada una de las mitades del anillo y para una sección transversal 2D. 
 
-In this example we will also call this face "*Slice*".
+En este ejemplo también llamaremos a esta cara "*Slice*".
 
 <p align="center">
 
@@ -74,19 +76,19 @@ In this example we will also call this face "*Slice*".
 
 </p>
 
-After going through the previously discussed meshing steps, we can get the results out of this symmetric part, as visible here.
+Después de pasar por los pasos de mallado discutidos anteriormente, podemos obtener los resultados de esta parte simétrica, como se observa aquí.
 
 ![Extrusion on round objects](assets/mesh-extrusion/9.png)
 
-## Limitations
+## Limitaciones
 
-There are however some drawbacks to the *Extrusion 3D* algorithm. You need to take into account that **more time will be spent preparing the case**, but this will **result in time saved overall, as simulation will finish faster** due to more optimized mesh.
+Sin embargo, el algoritmo *Extrusión 3D* tiene algunos inconvenientes. Hay que tener en cuenta que **se empleará más tiempo en preparar el caso**, pero esto **resultará en un ahorro de tiempo total, ya que la simulación terminará más rápido** debido a una malla más optimizada.
 
-### Geometry continuity
+### Continuidad de la geometría
 
-If your geometry consists of 2 or more solids joined together, make sure that the geometry is as clean as possible, with the volumes continuing at the end of each other.
+Si su geometría consiste en 2 o más sólidos unidos, asegúrese de que la geometría sea lo más limpia posible, con los volúmenes continuando al final de cada uno.
 
-In the picture, pay attention to the wireframe of the volume. First one is with a clean, continuous wireframe, the other is with a **twisted wireframe - this will not allow 3D Extrusion to be used**.
+En la imagen, preste atención a la estructura del volumen. El primero tiene elementos limpios y continuos, el otro tiene **elementos no alineados - esto no permitirá utilizar 3D Extrusion**.
 
 <p align="center">
 

@@ -1,34 +1,34 @@
 ---
 id: tips
-title: Tips and Tricks for new users 
-sidebar_label: Tips and Tricks
+title: Trucos y consejos para usuarios nuevos
+sidebar_label: Trucos y Consejos
 sidebar_position: 4
 ---
 
 
-As a new CENOS user, the information you need to know about simulations, their setup, troubleshoot and many other things are really overwhelming. Most of these things you will learn as you progress through tutorials and your personal projects, but some are not as straightforward. 
+Como nuevo usuario de CENOS, la información que necesita saber sobre simulaciones, su configuración, resolución de problemas y muchas otras cosas puede ser realmente abrumadora. La mayoría de estas cosas las aprenderá a medida que progrese a través de tutoriales y sus proyectos personales, pero algunas no son tan sencillas. 
 
-In this article we will look at the **most common mistakes for the first time users**, which you should consider if you want to create a successful simulation.
+En este artículo revisaremos los **errores más comunes de los usuarios principiantes**, que debería tener en cuenta si quiere crear una simulación de éxito.
 
-**NOTE**: Even though these tips are useful to avoid unnecessary headaches about why the simulation isn't working, we advise to **schedule a meeting/training with our engineers** to talk about simulation setup in detail and to answer any questions or confusion you might have.
+**NOTA**: Aunque estos consejos son útiles para evitar dolores de cabeza innecesarios sobre por qué la simulación no funciona, le aconsejamos **programar una reunión/entrenamiento con nuestros ingenieros** para hablar sobre la configuración de la simulación en detalle y responder a cualquier pregunta o confusión que pueda tener.
 
-Because different mistakes are made at different parts of simulation setup, we will divide the tips into **three categories**:
+Dado que se cometen diferentes errores en distintas partes de la configuración de la simulación, dividiremos los consejos en **tres categorías**:
 
-- Geometry
-- Mesh
-- Physics
+- Geometría
+- Malla
+- Física
 
-## Geometry
+## Geometría
 
-Every simulation starts with a geometry. If you have not simplified the geometry, fixed CAD quality or made sure the positioning is correct, you will have a hard time getting the simulation to work.
+Toda simulación comienza con una geometría. Si no ha simplificado la geometría, ajustado la calidad de su modelo CAD o se ha asegurado de que el posicionamiento es correcto, le costará mucho que la simulación funcione.
 
-### CAD quality
+### Calidad del archivo CAD
 
-Before you create a simulation, make sure that your CAD file is simulation-friendly. Learn more about [**how to create good CAD**](/geometry/good-cad) for induction heating simulation.
+Antes de crear una simulación, asegúrese de que su archivo CAD es apto para la simulación. Más información sobre [**cómo crear un buen CAD**](/geometry/good-cad) para la simulación de calentamiento por inducción.
 
-**Remove every small hole, fillet and other small details** that are not relevant for the simulation to make meshing easier and reduce calculation time. **Avoid building your geometry from smaller volumes**, and always fuse them together before importing them to CENOS.
+**Elimine todos los huecos, curvaturas y otros detalles pequeños** que no sean relevantes para la simulación para facilitar el mallado y reducir el tiempo de cálculo. **Evite construir su geometría a partir de volúmenes más pequeños**, y fusiónelos siempre antes de importarlos a CENOS.
 
-**Resolve any overlappings and gaps**, and make sure your geometry is continuous.
+**Elimine los sobreposicionamientos y huecos** y asegúrese de que su geometría es continua.
 
 <p align="center">
 
@@ -36,9 +36,9 @@ Before you create a simulation, make sure that your CAD file is simulation-frien
 
 </p>
 
-### Symmetry
+### Simetría
 
-Use symmetry of your geometry and [**simulate only part of the full geometry**](/geometry/geometry-simplification) to decrease calculation time. To simulate symmetry, use [**symmetry boundary conditions**](/physics/symmetry) available in CENOS.
+Utilice la simetría de su geometría y [**simule sólo parte de la geometría completa**](/geometry/geometry-simplification) para disminuir el tiempo de cálculo. Para simular simetría, utilice [**condiciones de frontera de simetría**](/physics/symmetry) disponible en CENOS.
 
 <p align="center">
 
@@ -46,11 +46,11 @@ Use symmetry of your geometry and [**simulate only part of the full geometry**](
 
 </p>
 
-### Air box size
+### Tamaño de la caja de aire
 
-Air box is used for EM field calculation, and [**air box size**](/geometry/air-domain-size) can directly affect simulation results.
+La caja de aire se utiliza para el cálculo del campo EM, y el [**tamaño de la caja de aire**](/geometry/air-domain-size) puede afectar directamente a los resultados de la simulación.
 
-Do not create the air box too small, otherwise the results could be incorrect. A good rule is to make the air domain around **3 times larger** than the induction system in it in every direction.
+No cree la caja de aire demasiado pequeña, de lo contrario los resultados podrían ser incorrectos. Una buena regla es hacer el dominio de aire alrededor de **3 veces más grande** que el sistema de inducción en él en cada dirección.
 
 <p align="center">
 
@@ -58,9 +58,9 @@ Do not create the air box too small, otherwise the results could be incorrect. A
 
 </p>
 
-### Terminal placement
+### Colocación de los terminales
 
-If you are building a 3D simulation, remember that **inductor terminals must always be on the same plane as one of the air box sides**.
+Si está construyendo una simulación 3D, recuerde que **los terminales del inductor deben estar siempre en el mismo plano que uno de los lados de la caja de aire**.
 
 <p align="center">
 
@@ -68,11 +68,11 @@ If you are building a 3D simulation, remember that **inductor terminals must alw
 
 </p>
 
-### Rotation axis
+### Eje de rotación
 
-If you are using *Motion* to define rotation for fully axial-symmetric workpiece, the rotation axis must be **Z axis**.
+Si está utilizando *Motion* para definir la rotación de una pieza totalmente axial-simétrica, el eje de rotación debe ser el **eje Z**.
 
-If you are creating an axial-symmetric 2D geometry, remember that symmetry axis must be **Y axis**.
+Si está creando una geometría 2D axial-simétrica, recuerde que el eje de simetría debe ser el **eje Y**.
     
 <p align="center">
 
@@ -80,17 +80,13 @@ If you are creating an axial-symmetric 2D geometry, remember that symmetry axis 
 
 </p>
 
-## Mesh
+## Malla
 
-Tips for meshing are useful for those who want to start with *Advanced Editor*, as the rest of simulation approaches create mesh automatically.
+Los consejos para el mallado son útiles para aquellos que quieran comenzar con el*Editor Avanzado*, ya que el resto de enfoques de simulación crean la malla automáticamente.
 
-### Skin layers
+### Efecto piel
 
-Always create proper **resolution for the skin layers** in the inductor and workpiece, without viscous layers in mesh the electromagnetic and thermal results of the simulation will be incorrect.
-
-:::note
-Don’t get confused when you see *Viscous layers* function to resolve the skin layer – this is simply an analogical tool from Fluid dynamics which is used for mesh layer creation in our mesh editor.
-:::
+Cree siempre una **resolución adecuada para las capas de efecto piel** en el inductor y la pieza de trabajo, sin capas viscosas en la malla, los resultados electromagnéticos y térmicos de la simulación serán incorrectos.
 
 <p align="center">
 
@@ -98,9 +94,9 @@ Don’t get confused when you see *Viscous layers* function to resolve the skin 
 
 </p>
 
-### Mesh size
+### Tamaño de la malla
 
-Pay close attention to the mesh size, especially for 3D simulations. **If element count goes above 300 thousand elements**, consider simplifying your simulation through geometry or symmetry, as simulations with a large mesh will take **much longer to calculate**.
+Preste mucha atención al tamaño de la malla, especialmente para simulaciones 3D. **Si el número de elementos supera los 300,000**, considere la posibilidad de simplificar la simulación mediante la geometría o la simetría, ya que las simulaciones con una malla grande tardarán **mucho más en calcularse**.
 
 <p align="center">
 
@@ -108,11 +104,11 @@ Pay close attention to the mesh size, especially for 3D simulations. **If elemen
 
 </p>
 
- ## Physics
+## Física
  
- ### Amplitude current
+### Amplitude de la corriente
  
- Those who are calculating with current as their power input should remember that the **current defined in CENOS is Amplitude, not RMS** current.
+Aquellos que calculan con corriente como su entrada de potencia, deben recordar que la **corriente definida en CENOS es la corrinete pico, no corriente RMS**.
  
 <p align="center">
 
@@ -121,17 +117,17 @@ Pay close attention to the mesh size, especially for 3D simulations. **If elemen
 </p>
 
 :::note
-If you know the RMS value of the current flowing through your inductor, you should multiply it by square root of two before you enter it in CENOS.
+Si conoce el valor eficaz de la corriente (RMS) que circula por su inductor, debe multiplicarlo por la raíz cuadrada de dos antes de introducirlo en CENOS.
 
 $$
-\sqrt {2I_{RMS}}=I_{Amplitude}
+\sqrt {2} I_{RMS}=I_{Amplitude}
 $$
 :::
 
 
-### Symmetry in From CAD
+### Simetría en *From CAD
  
- If you are using the *From CAD* approach to simulate symmetry cases such as slice, remember that **the automatic air box generation works only for full geometries**, meaning that for symmetry cases you have to create and **import air as CAD** with the rest of your geometry.
+Si está utilizando el enfoque *From CAD* para simular casos de simetría, recuerde que **la generación automática de cajas de aire funciona sólo para geometrías completas**, lo que significa que para casos de simetría tiene que crear e **importar aire como un archivo CAD** con el resto de su geometría.
  
 <p align="center">
 
@@ -139,9 +135,9 @@ $$
 
 </p>
 
-### Symmetry definition
+### Definición de simetría
  
- If you are calculating a symmetry case, don’t forget to **change symmetry definition** from *Full 3D model* to *Slice* and enter angle of your slice to calculate power and other parameters for the full system.
+ Si está calculando un caso de simetría, no olvide **cambiar la definición de simetría** de *Full 3D model* a *Slice* e introducir el ángulo de su corte para calcular la potencia y otros parámetros del sistema completo.
  
 <p align="center">
 
