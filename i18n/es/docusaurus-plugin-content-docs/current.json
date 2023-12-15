@@ -1,0 +1,34 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "Primeros pasos",
+    "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Geometry": {
+    "message": "Geometry",
+    "description": "The label for category Geometry in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Meshing": {
+    "message": "Meshing",
+    "description": "The label for category Meshing in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Physics": {
+    "message": "Physics",
+    "description": "The label for category Physics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Explained": {
+    "message": "Explained",
+    "description": "The label for category Explained in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorials": {
+    "message": "Tutorials",
+    "description": "The label for category Tutorials in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Release notes": {
+    "message": "Release notes",
+    "description": "The label for category Release notes in sidebar tutorialSidebar"
+  }
+}
