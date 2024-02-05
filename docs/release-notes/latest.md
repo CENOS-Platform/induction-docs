@@ -6,6 +6,27 @@ sidebar_position: 1
 slug: /latest
 ---
 
+
+## v4.3 (February 5, 2024)
+
+Features:
+
+* Sliced coil winding grouping
+* Thermal analysis for 3D Litz wire
+
+Improvements:
+
+* Air Symmetry role in 2D FromCAD cases now optional to allow planar case calculation
+
+Bugfixes:
+
+* Fixed an issue which caused unphysical hot spots, if specific cooling parameters were chosen
+
+Other:
+
+* Updated [Terms & Conditions](https://www.cenos-platform.com/terms-conditions)
+
+
 ## v4.2 (September 22, 2023)
 
 Features:
