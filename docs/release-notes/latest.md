@@ -7,7 +7,7 @@ slug: /latest
 ---
 
 
-## v4.3 (February 5, 2024)
+## v4.3 (February 6, 2024)
 
 Features:
 
