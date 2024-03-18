@@ -6,6 +6,20 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.3.1 (March 18, 2024)
+
+Bugfixes:
+
+* Fixed a bug which did not allow the mesh from Salome to be sent to CENOS in FromCAD approach
+* Fixed a bug which did not allow to open Salome in some cases, if Advanced Geometry Editor workflow was used
+* Fixed an issue that did not allow PDF file to be opened if Salome was used in the case setup
+* Fixed a bug that showed phase shift if Transient EM calculation was selected in Electromagnetics block
+* Fixed a bug that did not allow Transient EM calculation to be run in Electromagnetics block
+* Fixed an issue where Curvature Safety control in CENOS meshing window was not working
+* Fixed a bug which corrupted grouped inductor mesh if more than 9 windings were grouped together
+* Fixed a bug which corrupted magnetic permeability field, if temperature dependant permeability was defined
+* Fixed an issue where, if OTHER geometry role was defined, the domain did not show up in the results
+
 
 ## v4.3 (February 6, 2024)
 
