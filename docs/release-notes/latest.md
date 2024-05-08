@@ -6,6 +6,13 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.3.2 (May 8, 2024)
+
+Bugfixes:
+
+* Fixed an issue where calculation was stopped if internet connection was lost
+
+
 ## v4.3.1 (March 18, 2024)
 
 Bugfixes:
