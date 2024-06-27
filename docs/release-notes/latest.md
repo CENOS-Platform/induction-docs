@@ -6,6 +6,21 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.4.0 (June 27, 2024)
+
+Improvements:
+* Updated B(H) material data for Alloy Steel 42CrMo4
+* Decreased calculation speed for cases with Complex Motion and many time steps (above 100-200 steps)
+* Improved manual mesh skin layer UI
+* Improved reliability of PDF report generation
+* Improved overall calculation stability
+
+Bugfixes:
+
+* Time charts are now readable, if coil grouping has been used in the case setup
+* For workpieces with internal, sealed cavities, air domain is now generated correctly
+
+
 ## v4.3.2 (May 8, 2024)
 
 Bugfixes:
