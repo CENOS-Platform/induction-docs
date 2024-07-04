@@ -6,6 +6,14 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.4.1 (July 4, 2024)
+
+Bugfixes:
+
+* Fixed issue which did not allow user to stop calculation
+* Fixed issue which did not allow user to stop mesh generation
+
+
 ## v4.4.0 (June 27, 2024)
 
 Improvements:
