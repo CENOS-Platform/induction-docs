@@ -6,6 +6,13 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.4.2 (August 1, 2024)
+
+Bugfixes:
+
+* Fixed issue with multithreading not working correctly
+
+
 ## v4.4.1 (July 4, 2024)
 
 Bugfixes:
