@@ -6,6 +6,20 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.4.2 (August XX, 2024)
+
+Features:
+
+* Added support for Simulation Manager
+
+Bugfixes:
+
+* Fixed a bug which left out hysteresis losses from calculation
+* Fixed an issue where due to slow frontend response input values glitched and switched back to previous ones
+* Fixed a bug where after saving CENOS still thought the case was not saved
+* Fixed multiple issues regarding legacy case opening in latest releases
+
+
 ## v4.4.2 (August 1, 2024)
 
 Bugfixes:
@@ -24,6 +38,7 @@ Bugfixes:
 ## v4.4.0 (June 27, 2024)
 
 Improvements:
+
 * Updated B(H) material data for Alloy Steel 42CrMo4
 * Decreased calculation speed for cases with Complex Motion and many time steps (above 100-200 steps)
 * Improved manual mesh skin layer UI
