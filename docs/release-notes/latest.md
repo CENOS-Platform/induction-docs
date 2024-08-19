@@ -6,7 +6,7 @@ sidebar_position: 1
 slug: /latest
 ---
 
-## v4.4.2 (August 19, 2024)
+## v4.4.3 (August 19, 2024)
 
 Features:
 
