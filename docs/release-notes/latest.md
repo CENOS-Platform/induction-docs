@@ -6,6 +6,19 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v4.4.3 (August 19, 2024)
+
+Features:
+
+* Added support for Simulation Manager
+
+Bugfixes:
+
+* Fixed a bug which left out hysteresis losses from calculation
+* Fixed an issue where due to slow frontend response input values glitched and switched back to previous ones
+* Fixed a bug where after saving CENOS still thought the case was not saved
+* Fixed multiple issues regarding legacy case opening in latest releases
+
 
 ## v4.4.2 (August 1, 2024)
 
