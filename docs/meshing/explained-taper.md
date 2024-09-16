@@ -1,23 +1,23 @@
 ---
 id: taper
-title: Taper
-sidebar_label: Taper
+title: Disminución gradual
+sidebar_label: Disminución gradual
 sidebar_position: 4
 ---
 
-There are many different ways on how to evaluate the quality of the mesh, one of them being *Taper*. In this article we will learn what the *Taper* really means and how to resolve the errors caused by high taper elements.
+Hay muchas formas diferentes de evaluar la calidad de la malla, una de ellas es la *disminución gradual*. En este artículo aprenderemos lo que significa realmente *disminución gradual* y cómo resolver los errores causados por elementos de alta conicidad.
 
 ![Taper](assets/taper/1.jpg)
 
-## What is Taper?
+## ¿Qué es la disminución gradual?
 
-*Taper* mesh quality parameter represents the area ratio between two triangles separated by a diagonal within a quadrilateral face. *Taper* value varies from 0 to 1, and at very high values **computational problems may occur**. Because of this reason a check is present in CENOS to make sure the mesh has no high value taper elements, which could cause calculation errors.
+El parámetro de calidad de malla *disminución gradual* o *Taper*, representa la relación de área entre dos triángulos separados por una diagonal dentro de una cara cuadrilátera. El valor de *Taper* varía de 0 a 1, y a valores muy altos **pueden producirse problemas computacionales**. Por este motivo, CENOS incluye una comprobación para asegurarse de que la malla no tiene elementos cónicos con valores altos, que podrían causar errores de cálculo.
 
-Elements with high *taper* value **usually occur in Viscous Layers**, if these layers are defined on only a part of the surface (end abruptly). CENOS check is designed to catch such elements with *taper* value **above 0.5**.
+Los elementos con un valor alto de *taper* **suelen aparecer en capas viscosas**, si estas capas están definidas sólo en una parte de la superficie (terminan abruptamente). La comprobación de CENOS está diseñada para detectar este tipo de elementos con un valor de *taper* **superior a 0,5**.
 
-## Taper errors
+## Errores de conicidad
 
-Errors connected to high taper elements are relatively rare, but once they occur it can take quite a time to figure out the reason. High taper elements occur in elements created with *Viscous Layers*, and the reason behind it is **inconsistency in the viscous layers definitions** (layers do not cover the whole surface but stops in the middle).
+Los errores relacionados con elementos de alta conicidad son relativamente raros, pero una vez que ocurren puede llevar bastante tiempo averiguar la razón. Los elementos de alta conicidad ocurren en elementos creados con *Capas Viscosas*, y la razón detrás de ello es **inconsistencia en las definiciones de las capas viscosas** (las capas no cubren toda la superficie sino que se detienen en el centro).
 
 <p align="center">
 
@@ -25,7 +25,7 @@ Errors connected to high taper elements are relatively rare, but once they occur
 
 </p>
 
-When using *Advanced Geometry Editor*, error about *High Taper* elements can appear right before you try to export the mesh to CENOS if there are any.
+Al utilizar el *Editor de Geometría Avanzado*, puede aparecer un error sobre elementos *de alta conicidad* justo antes de intentar exportar la malla a CENOS si los hay.
 
 <p align="center">
 
@@ -33,13 +33,13 @@ When using *Advanced Geometry Editor*, error about *High Taper* elements can app
 
 </p>
 
-If you see such error, it means that you need to recheck your mesh definitions and adjust them to get rid of high taper elements.
+Si ve un error de este tipo, significa que debe volver a comprobar las definiciones de la malla y ajustarlas para eliminar los elementos cónicos.
 
-## How to find high Taper value elements
+## Cómo encontrar elementos de alto valor de conicidad
 
-Sometimes the troublesome elements are small and hard to notice from the distance, therefore **CENOS automatically creates a group with these troublesome elements**, which you can visualize separately and understand in which part of the mesh they are present.
+A veces los elementos problemáticos son pequeños y difíciles de notar desde la distancia, por lo tanto **CENOS crea automáticamente un grupo con estos elementos problemáticos**, que puede visualizar por separado y entender en qué parte de la malla están presentes.
 
-You can find this group named **Taper error elements** under *Groups of Faces/Volumes*.
+Puede encontrar este grupo llamado **Taper error elements** en *Groups of Faces/Volumes*.
 
 <p align="center">
 
@@ -47,14 +47,14 @@ You can find this group named **Taper error elements** under *Groups of Faces/Vo
 
 </p>
 
- - Click the *Eye* icon (![Eye icon](assets/aspect-ratio/9.png)) to enable visibility for *Taper error elements* and disable visibility for *Mesh_1*.
+- Haga clic en el icono *Ojo* (![Eye icon](assets/aspect-ratio/9.png)) para activar la visibilidad de *Taper error elements* y desactivar la visibilidad de *Mesh_1*.
 
-Mesh elements with high taper value will become visible. **If you cannot see the mesh elements**, click on the mesh visualisation screen and press *Space-bar* on your keyboard.
+Los elementos de malla con alto valor de conicidad se harán visibles. **Si no puede ver los elementos de la malla**, haga clic en la pantalla de visualización de la malla y preione la *barra espaciadora* en el teclado.
 
-## How to correct high Taper value elements
+## Cómo corregir los elementos de alto valor de conicidad
 
-Once you have located the high taper elements, you can start to correct them. First you need to **understand in which part (sub-mesh) these elements are present**. Then you need to **adjust the mesh definition so that these elements would disappear**.
+Una vez localizados los elementos de alto *Taper*, puede empezar a corregirlos. Primero necesita **entender en qué parte (sub-malla) están presentes estos elementos**. Luego hay que **ajustar la definición de la malla para que estos elementos desaparezcan**.
 
-If the high taper elements are located in the *Viscous Layers*, the universal fix for it is to **build the *Viscous Layers* on the whole surface**, not on just a part of it.
+Si los elementos de alta conicidad están localizados en las *Capas Viscosas*, la solución universal para ello es **construir las *Capas Viscosas* en toda la superficie**, no sólo en una parte de ella.
 
-If you still cannot resolve high Taper error, contact our support!
+Si sigue sin poder resolver el error de conicidad alta, ¡póngase en contacto con nuestro servicio de soporte!
