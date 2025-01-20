@@ -38,4 +38,3 @@ Bugfixes:
 * Fixed an issue where cooling was not working correctly, if lock on inductor together with motion in Z direction was used
 * Fixed a bug which did not save results if case with Complex Motion crashed during calculation
 
-
