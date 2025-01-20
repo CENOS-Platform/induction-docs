@@ -7,7 +7,8 @@ slug: /latest
 ---
 
 
-## v5.0.0 (January 20, 2025)
+## v5.0 (January 20, 2025)
+
 Features:
 
 * New built-in Result Viewer which enables more intuitive and easy result evaluation
