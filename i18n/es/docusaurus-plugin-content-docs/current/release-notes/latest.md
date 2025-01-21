@@ -1,55 +1,41 @@
 ---
 id: latest
-title: Release Notes (v4.x)
-sidebar_label: v4.x
+title: Release Notes (v5.x)
+sidebar_label: v5.x
 sidebar_position: 1
+slug: /latest
 ---
 
-## v4.0.1 (January 31, 2023)
 
-Improvements:
-
-* Added mesh volume gradient slider
-* Added mesh curvature safety slider
-* Improved overall error message handling and UX
-
-Bugfixes:
-
-* Fixed meshing issue which corrupted air mesh during motion
-* Fixed a bug where manual sub-mesh changes were not saved in CENOS meshing
-* Fixed Kernel error that randomly appeared at RUN
-* Fixed a meshing problem where coil mesh in Templates developed weirdly at low frequencies
-* Fixed the Core: XXXXXX error in simulation terminal
-* Fixed an issue that crashed PDF and result generation if adaptive time step was used
-* Fixed an error with state files not working
-* Fixed an issue where calculation crashed if thermal analysis on the inductor were enabled
-* Fixed a bug in meshing during complex motion, which often caused thermal shock
-* Fixed an issue which crashed calculation if 0 was entered in the motion table
-* Fixed result calculation issue where, if permeability field was enabled, permeability was not calculated in flux concentrators
-* Fixed an issue with unphysical temperature distribution in symmetry cases
-* Fixed a problem with voltage input crashing electromagnetic calculation
-
-
-## v4.0 (December 9, 2022)
+## v5.0 (January 21, 2025)
 
 Features:
 
-* CENOS manual meshing
-* CAD file replacement in From CAD approach
-* Dynamic result processing during calculation
-* Motion table values
+* New built-in Result Viewer which enables more intuitive and easy result evaluation
 
 Improvements:
 
-* Improved convergence
-* Significantly improved automatic meshing capabilities in FromCAD approach
-* Improved error messaging for problems caused by convergence, meshing and material properties
-* Reworked advanced result field interface
-* Automatic volume naming based on applied geometry role in FromCAD approach
-* Improved support chat functionality
+* Improved PDF report source image generation
+* Significantly improved automatic meshing algorithm quality and stability
+* Added warning if time steps converge with only 1 iteration, which could lead to incorrect results
+* Improved property update speed in Physics
+* Added checks to prevent case to be run if time step is selected as 0 or negative number
+* Updated material B(H) curves to improve case convergence and general stability
 
 Bugfixes:
 
-* Fixed automatic skin layer mesh generation in FromCAD approach
-* Preview highlighting when hovering over boundary conditions list is now working
-* PDF report generation failed in some cases
+* Fixed connectivity issues which blocked some users from using the latest version
+* Fixed a bug which did not allow to replace CAD files more than once within one simulation
+* Fixed an issue which caused MaxTemperature field in results to glitch if more than one workpiece was present
+* Fixed a bug which appeared when user manually tried to change any material property value
+* Fixed a bug which allowed to compress the case with results, even when no results were present
+* Fixed a bug which incorrectly assigned Inductor role if terminals were selected for multiple inductors during air box generation
+* Fixed a bug which prevented to edit material property table values, if only 1 value was entered
+* Fixed an issue which caused case to fail if anisotropic material properties were defined through Expressions
+* Fixed an issue which did not allow to run completely thermal analysis (without Electromagnetics enabled)
+* Fixed an issue with cooling definition, which did not hide irrelevant input fields in some cases
+* Fixed a bug which did not allow to generate a video from results
+* Fixed a bug which did not allow to run multiple cases in a batch
+* Fixed an issue where cooling was not working correctly, if lock on inductor together with motion in Z direction was used
+* Fixed a bug which did not save results if case with Complex Motion crashed during calculation
+
