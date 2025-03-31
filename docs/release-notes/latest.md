@@ -6,6 +6,23 @@ sidebar_position: 1
 slug: /latest
 ---
 
+## v5.1 (March 29, 2025)
+Improvements:
+
+* Significantly improved Result Viewer stability and filter accuracy
+* Result opening, as well general CENOS UI response time is decreased, making CENOS more responsive to opening, saving and other processes
+* Result saving speed is increased in cases with Complex motion
+* Added possibility to zip and share log files directly from CENOS
+  
+Bugfixes:
+
+* Fixed a bug where in some cases current appeared as 1A in results
+* Fixed an issue which did not send attachments with first chat message
+* Fixed a bug which made mesh disappear when mesh cutting was used on a single domain
+* Fixed a bug in remeshing, which caused some cases to fail when calculating with complex motion and for a longer period of time
+* Fixed numerous backend starting and license check issues, which blocked CENOS usage at start
+* Fixed a bug which caused overheating if Natural cooling boundary condition was used
+
 
 ## v5.0 (January 21, 2025)
 
